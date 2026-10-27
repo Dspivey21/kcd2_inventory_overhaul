@@ -1,0 +1,3435 @@
+class InvEnum
+{
+   static var INVALID = "w0000000000000000";
+   static var SPLIT_TOKEN = "|";
+   static var INF_SYMBOL = "∞";
+   static var LOCALIZABLE_TOKEN = "@";
+   static var DASH_SYMBOL = "–";
+   static var SCREEN_WIDTH = 1920;
+   static var SCREEN_HEIGHT = 1080;
+   static var ACCURACY = 0.1;
+   static var MODE_PLAYER = 0;
+   static var MODE_SHOP_PLAYER = 1;
+   static var MODE_SHOP_TRADER = 2;
+   static var MODE_STORE = 3;
+   static var MODE_LOOT = 4;
+   static var MODE_FILTER = 5;
+   static var MODE_MULTISELECT = 6;
+   static var MODE_REPAIR = 7;
+   static var MODE_WASH = 8;
+   static var MODE_QUEST_DELIVERY = 9;
+   static var MODE_MINIGAME = 10;
+   static var MODE_MINIGAME_NO_AMOUNT = 11;
+   static var MODE_COMBINE_POISON = 1;
+   static var MODE_COMBINE_REPAIR = 2;
+   static var TRANSFER_IDX_INVALID = -1;
+   static var TRANSFER_IDX_FIRST = 0;
+   static var TRANSFER_IDX_SECOND = 1;
+   static var CATEGORY_NAMES = null;
+   // ---- generated header table (gen_invheaders_as.py) ----
+   static var HEADER_IDS = ["longsword","shortsword","huntingsword","sabre","axe","mace","polearm","dagger","bow","arrow","crossbow","bolt","handgonne","shot","shield","torch","weapon_other","coifs","helmets","hats","collars","hoods","shirts","gambesons","mail","plate","outerwear","sleeves","gloves","belts","pouches","hose","hose_feet","paddedhose","legarmour","legarmour_feet","boots","spurs","necklaces","brooches","rings","spectacles","saddles","bridles","chanfrons","caparisons","breeching","horseshoes","womens","armour_other","dried","smoked","cooked","baked","dairy","fruit","vegetables","rawmeat","rawfish","spices","beer","wine","liquor","water","saviour","potion_best","potion_strong","potion_normal","potion_weak","potion_special","poisons","food_other","skillbooks","books","recipes","plans","maps","letters","herbs","driedherbs","alchemy","blacksmithing","hides","groschen","tools","repairkits","bandages","dice","badges_gold","badges_silver","badges_tin","perfumes","valuables","common","keys","Buying","Selling"];
+   static var HEADER_TEXT = ["Longswords - Both hands","Short swords - Right hand","Hunting swords - Right hand","Sabres - Right hand","Axes - Right hand","Maces - Right hand","Polearms - Both hands","Daggers","Bows - Ranged","Arrows - Ammo","Crossbows - Ranged","Bolts - Ammo","Handgonnes - Ranged","Shot - Ammo","Shields - Left hand","Torches","Other weapons","Coifs - Head I","Helmets - Head II","Hats - Head II","Collars - Head III","Hoods - Head IV","Shirts - Body I","Gambesons - Body I","Mail - Body II","Plate - Body III","Outerwear - Body IV","Sleeves - Arms I","Gloves - Arms II","Belts - Waist I","Pouches - Waist II","Hose - Legs I","Hose - Legs I + Feet I","Padded hose - Legs I","Leg armour - Legs II","Leg armour - Legs II + Feet I","Boots - Feet I","Spurs - Feet II","Necklaces - Neck I","Brooches - Neck I","Rings - Fingers I","Spectacles - Neck I","Saddles","Bridles","Chanfrons","Caparisons","Breeching","Horseshoes","Women's clothing","Other clothing","Dried","Smoked","Cooked","Baked goods","Dairy & eggs","Fruit","Vegetables","Raw meat","Raw fish","Spices & honey","Beer","Wine","Liquor","Water","Saviour Schnapps","Best potions","Strong potions","Normal potions","Weak potions","Special potions","Poisons","Other food","Skill books","Regular books","Recipes","Blacksmith plans","Maps","Letters & notes","Herbs","Dried herbs","Alchemy ingredients","Blacksmithing","Hides & skins","Groschen","Tools","Repair kits","Bandages & soap","Dice","Gold badges","Silver badges","Tin badges","Perfumes","Valuables","Common","Keys","@ui_item_category_Buying","@ui_item_category_Selling"];
+   static var HEADER_HORSE = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+   static var TAB_FIRST_WEAPONS = "longsword";
+   static var TAB_LAST_WEAPONS = "weapon_other";
+   static var TAB_FIRST_ARMOUR = "coifs";
+   static var TAB_LAST_ARMOUR = "armour_other";
+   static var TAB_FIRST_FOOD = "dried";
+   static var TAB_LAST_FOOD = "food_other";
+   static var TAB_FIRST_BOOKS = "skillbooks";
+   static var TAB_LAST_BOOKS = "letters";
+   static var TAB_FIRST_MATERIALS = "herbs";
+   static var TAB_LAST_MATERIALS = "hides";
+   static var TAB_FIRST_OTHER = "groschen";
+   static var TAB_LAST_OTHER = "keys";
+   static var HEADER_DEFAULT = {Sword:"shortsword",Blunt:"mace",Shield:"shield",Polearm:"polearm",Ranged:"bow",Ammo:"arrow",OtherWeapon:"weapon_other",HeadArmor:"armour_other",BodyArmor:"armour_other",HandsArmor:"armour_other",LegsArmor:"armour_other",Attachment:"armour_other",HorseEquipment:"saddles",OtherClothes:"armour_other",Food:"food_other",Potion:"potion_special",Poison:"poisons",LoreBook:"books",SkillBook:"skillbooks",Map:"maps",Letter:"letters",Plan:"plans",Recipe:"recipes",Alchemy:"alchemy",Blacksmithing:"blacksmithing",Usable:"tools",Ointment:"common",Die:"dice",Badge:"badges_tin",Common:"common",Money:"groschen"};
+   static var HEADER_MAP = null;
+   static var GROUP_TITLES = {};
+   static var UNIQUE_KEYS = {};
+   static function HeaderText(id)
+   {
+      var i = 0;
+      while(i < HEADER_IDS.length)
+      {
+         if(HEADER_IDS[i] == id)
+         {
+            return HEADER_TEXT[i];
+         }
+         i = i + 1;
+      }
+      return id;
+   }
+   static function HeaderIsHorse(id)
+   {
+      var i = 0;
+      while(i < HEADER_IDS.length)
+      {
+         if(HEADER_IDS[i] == id)
+         {
+            return HEADER_HORSE[i] == 1;
+         }
+         i = i + 1;
+      }
+      return false;
+   }
+   static function ResolveHeader(nameKey, iconId, engineCategory)
+   {
+      if(HEADER_MAP == null)
+      {
+         BuildHeaderMap();
+      }
+      var k = String(nameKey);
+      if(k.charAt(0) == "@")
+      {
+         k = k.substring(1);
+      }
+      var h;
+      if(iconId != undefined)
+      {
+         h = HEADER_MAP[k + "|icon:" + iconId];
+         if(h != undefined)
+         {
+            return h;
+         }
+      }
+      h = HEADER_MAP[k];
+      if(h != undefined)
+      {
+         return h;
+      }
+      h = HEADER_DEFAULT[engineCategory];
+      if(h != undefined)
+      {
+         return h;
+      }
+      return "common";
+   }
+   static function BuildGroupTitles()
+   {
+      var t = GROUP_TITLES;
+      t["armplate01"] = "Couters with rondel";
+      t["armplate02"] = "Plate knight sleeves";
+      t["armplate03"] = "Couters";
+      t["armplate04"] = "Nuremberg plate sleeves";
+      t["armplate05"] = "Magdeburg plate arms";
+      t["armplate06"] = "Kuttenberg plate sleeves";
+      t["armplatebrunswig"] = "Brunswick's plate sleeves";
+      t["bascinetopen01"] = "Open bascinet";
+      t["bascinetopen02"] = "Bell-shaped bascinet";
+      t["bascinetopen03"] = "Bascinet with bretèche";
+      t["bascinetopen06"] = "Crested Cuman helmet";
+      t["bascinetopen07"] = "Kyiv helmet";
+      t["bascinetopen08"] = "Bascinet with aventail";
+      t["bascinetopen09"] = "Cuman bascinet";
+      t["bascinetopen10"] = "Constantinople bascinet";
+      t["bascinetvisor01"] = "Saxon bascinet";
+      t["bascinetvisor02"] = "Hounskull bascinet";
+      t["bascinetvisor03"] = "Nuremberg bascinet";
+      t["bascinetvisor04"] = "Noble's bascinet";
+      t["bascinetvisor05"] = "Italian bascinet";
+      t["bascinetvisor06"] = "Cuman helmet with a mask";
+      t["bascinetvisor07"] = "Kuttenberg bascinet";
+      t["bascinetvisorbrunswig"] = "Brunswick's bascinet";
+      t["bascinetvisorscaring"] = "Lord of Hell's helmet";
+      t["basicbridle01"] = "Soft leather bridle";
+      t["basicbridle02"] = "Bridle with plating";
+      t["basicbridle03"] = "Noseband bridle";
+      t["basicharness01"] = "Wielun breeching";
+      t["basicharness02"] = "Mainz breeching";
+      t["basicharness03"] = "Hague breeching";
+      t["basicsaddle01"] = "Prague saddle";
+      t["basicsaddle02"] = "Soldier's saddle";
+      t["basicsaddle03"] = "Norman saddle";
+      t["bootsankle01"] = "Work boots";
+      t["bootsankle02"] = "Travel boots";
+      t["bootsankle03"] = "Vagrant's boots";
+      t["bootsankle04"] = "Courtier's boots";
+      t["bootsankle05"] = "Firm boots";
+      t["bootsankle06"] = "Jester shoes";
+      t["bootsknee01"] = "Noble boots";
+      t["bootsknee02"] = "Burgher's shoes";
+      t["bootsknee03"] = "Riding boots";
+      t["bootsknee04"] = "High boots";
+      t["bootsknee05"] = "Cuman boots";
+      t["bootsknee06"] = "Master huntsman's boots";
+      t["bootwsknee05"] = "Cuman boots";
+      t["brigandine01"] = "Simple brigandine";
+      t["brigandine02"] = "Bandit's brigandine";
+      t["brigandine03"] = "Saxon brigandine";
+      t["brigandine05"] = "Milanese brigandine";
+      t["brigandine10"] = "Cuirass with falds";
+      t["brigandinearm01"] = "Plain laminar sleeves";
+      t["brigandinearm02"] = "Laminar sleeves with rondels";
+      t["brigandinearm03"] = "Reinforced tempered sleeves";
+      t["brigandinearm05"] = "Silesian brigandine sleeves";
+      t["brigandinearm06"] = "Noble laminar sleeves";
+      t["caftan01"] = "Cuman caftan";
+      t["caftan02"] = "Lavish caftan";
+      t["caftan03"] = "Fastened caftan";
+      t["caftan04"] = "Riding caftan";
+      t["caftan05"] = "Quilted caftan";
+      t["cap01"] = "Round cap";
+      t["cap02"] = "Frilled cap";
+      t["cap03"] = "Felt cap";
+      t["cap04"] = "Wide straw hat";
+      t["cap05"] = "Baggy cap";
+      t["cap06"] = "Cuman leather hat";
+      t["cap07"] = "Embroidered chaperon";
+      t["cap08"] = "Burgundian hat";
+      t["cap09"] = "Pointy cap";
+      t["cap10"] = "Hunting cap";
+      t["cap11"] = "Work scarf";
+      t["cap12"] = "Wanderer's hat";
+      t["cap13"] = "Tall Cuman cap";
+      t["cap14"] = "Cap with peacock feathers";
+      t["cap15"] = "Narrow straw hat";
+      t["cap16"] = "Headscarf";
+      t["cap17"] = "Bohemian cap";
+      t["cap18"] = "Nobleman's hat";
+      t["cap19"] = "Miner's cap";
+      t["cap20"] = "Felt cap";
+      t["cap21"] = "Silesian cap";
+      t["cap22"] = "Chaperon with brooch";
+      t["cap23"] = "Burgher's hat";
+      t["cap24"] = "Master huntsman's hat";
+      t["cap25"] = "Chaperon";
+      t["cap26"] = "Fur-lined hat";
+      t["cap27"] = "Felt hat";
+      t["cap28"] = "Jewish hat";
+      t["cap29"] = "Miner's hat";
+      t["cap30"] = "Vagrant's hat";
+      t["cap31"] = "Straw hat with ribbon";
+      t["cap32"] = "Old straw hat";
+      t["cap33"] = "Master huntsman's hat";
+      t["cap34"] = "Noble chaperon";
+      t["cap35"] = "St. Hubert's hat";
+      t["caparison01"] = "Plain tourney caparison";
+      t["caparison02"] = "Executioner's caparison simple";
+      t["caparison03"] = "Caparison á la peytral simple";
+      t["caparison04"] = "Caparison á la crupper simple";
+      t["caparison05"] = "Halved caparison crenellated";
+      t["caparisonbrunswig"] = "Brunswick's caparison";
+      t["caplegate"] = "Legate's hat";
+      t["coat01"] = "Burgher coat";
+      t["coat02"] = "Coat of arms surcoat";
+      t["coat03"] = "Beggar's coat";
+      t["coat04"] = "Ordinary coat";
+      t["coat05"] = "Hunting coat";
+      t["coat06"] = "Jester's disguise";
+      t["coat07"] = "Quilted coat";
+      t["coat08"] = "Fitted coat";
+      t["coat10"] = "Wanderer's robe";
+      t["coat11"] = "Embroidered coat";
+      t["coat12"] = "Merchant's coat";
+      t["coat13"] = "Gallant coat";
+      t["coat14"] = "Nimrod's coat";
+      t["coat15"] = "Patron's coat";
+      t["coifcap01"] = "Coif";
+      t["coiflarge01"] = "Broad battle coif";
+      t["coiflarge02"] = "Padded hood";
+      t["coifmail01"] = "Mail coif";
+      t["coifmail02"] = "Mail hood with a coat of arms";
+      t["coifmailbrunswig"] = "Brunswick's chainmail coif";
+      t["coifsmall01"] = "Padded coif";
+      t["coifsmall02"] = "Crude padded coif";
+      t["coifsmall03"] = "Padded coif";
+      t["collarchain01"] = "Mail collar";
+      t["collarchain02"] = "Mail collar with badge";
+      t["collarpadded01"] = "Padded collar";
+      t["cuirass01"] = "Smooth cuirass";
+      t["cuirass02"] = "Magdeburg cuirass";
+      t["cuirass03"] = "Milanese cuirass";
+      t["cuirass04"] = "Mended cuirass";
+      t["cuirass05"] = "Riding cuirass";
+      t["cuirass06"] = "Rusted plate";
+      t["cuirass07"] = "Noble cuirass";
+      t["cuirass08"] = "Kastenbrust";
+      t["cuirass09"] = "Brigandine with plate";
+      t["cuirass10"] = "Kuttenberg layered cuirass";
+      t["cuirassbrunswig"] = "Brunswick's brigandine";
+      t["cumanchanfron01"] = "Karachin's chanfron";
+      t["eastbridle02"] = "Sharukan bridle";
+      t["eastsaddle01"] = "Lovari saddle";
+      t["eastsaddle02"] = "Moglen saddle";
+      t["f_bonnet01"] = "Bonnet";
+      t["f_bonnet02"] = "Embroidered bonnet";
+      t["f_bonnet03"] = "Simple bonnet";
+      t["f_cap01"] = "Women's straw hat";
+      t["f_cap02"] = "Women's straw hat";
+      t["f_cap03"] = "Women's straw hat";
+      t["f_cotehardie01"] = "Noblewoman's cotehardie";
+      t["f_cotehardie03"] = "Noblewoman's cotehardie";
+      t["f_cotehardie04"] = "Noblewoman's cotehardie";
+      t["f_hairdecor01"] = "Wreath";
+      t["f_hairdecor02"] = "Narrow headband";
+      t["f_hairdecor03"] = "Narrow headband";
+      t["f_hairdecor04"] = "Decorated headpiece";
+      t["f_hairdecor05"] = "Decorated headpiece";
+      t["f_hairdecor06"] = "Decorated headpiece";
+      t["f_hairdecor07"] = "Simple headband";
+      t["f_hood01"] = "Women's hood";
+      t["f_hood02"] = "Women's hood";
+      t["f_shoes01"] = "Ladies shoes";
+      t["f_shoes02"] = "Common ladies shoes";
+      t["f_simpledress01"] = "Work dress";
+      t["f_simpledress02"] = "Work dress";
+      t["f_simpledress03"] = "Travel dress";
+      t["f_simpledress04"] = "Frilled dress";
+      t["f_simpledress05"] = "Festive dress";
+      t["f_simpledress06"] = "Work dress";
+      t["f_simpledress07"] = "Frilled dress";
+      t["f_surcote01"] = "Surcoat";
+      t["f_veil01"] = "Frilled veil";
+      t["f_veil02"] = "Simple veil";
+      t["f_veil03"] = "Frilled veil";
+      t["f_veil04"] = "Jewish veil";
+      t["f_veil05"] = "Colourful headscarf";
+      t["f_veil06"] = "Work headscarf";
+      t["f_wreath01"] = "Wreath";
+      t["gambesonlong01"] = "Long gambeson";
+      t["gambesonlong03"] = "Long pourpoint";
+      t["gambesonlong04"] = "Noble gambeson";
+      t["gambesonlong05"] = "Cutpurse's pourpoint";
+      t["gambesonlonggodwin"] = "Old gambeson";
+      t["gambesonshort01"] = "Short gambeson";
+      t["gambesonshort02"] = "Worn gambeson";
+      t["gambesonshort03"] = "Short pourpoint";
+      t["gambesonshort04"] = "Short aketon";
+      t["gauntlets01"] = "Hourglass gauntlets";
+      t["gauntlets02"] = "Milanese gauntlets";
+      t["gauntlets03"] = "Chainmail gauntlets";
+      t["gauntlets04"] = "Noble's gauntlets";
+      t["gauntlets05"] = "Nuremberg gauntlets";
+      t["gauntlets08"] = "Brigandine gauntlets";
+      t["gauntletsbrunswig"] = "Brunswick's gauntlets";
+      t["gloves01"] = "Leather gloves";
+      t["gloves02"] = "Mitts";
+      t["gloves05"] = "Riding gloves";
+      t["gloves06"] = "Noble gloves";
+      t["gloves07"] = "Master huntsman's gloves";
+      t["habit01"] = "Cleric habit";
+      t["habit02"] = "Lord's overcoat";
+      t["habit03"] = "Cleric habit";
+      t["habit04"] = "Cleric habit";
+      t["habit05"] = "Cleric habit";
+      t["habitlegate"] = "Legate's robe";
+      t["handwrap01"] = "Hand wrap";
+      t["hood01"] = "Simple hood";
+      t["hood02"] = "Hemmed hood";
+      t["hood03"] = "Brocade hood";
+      t["hood04"] = "Beggar's hood";
+      t["hood05"] = "Burgher's hood";
+      t["hood06"] = "Embroidered hood";
+      t["hood07"] = "Wanderer's hood";
+      t["hood08"] = "Miner's hood";
+      t["hood09"] = "Cleric's hood";
+      t["hood11"] = "Servant's hood";
+      t["hood12"] = "Noble's hood";
+      t["hood13"] = "Master huntsman's hood";
+      t["hoodgodwin"] = "Black hood";
+      t["hoodlegate"] = "Legate's hood";
+      t["hosejoined01"] = "Hose joined";
+      t["hosejoined02"] = "Gartered hose";
+      t["hoseloose01"] = "Loose hose";
+      t["hoseseparate01"] = "Simple hose";
+      t["hoseseparate04"] = "Beggar's hose";
+      t["hoseseparate05"] = "Miner hose";
+      t["kettlehat01"] = "Kettle hat";
+      t["kettlehat02"] = "Composite kettle hat";
+      t["kettlehat03"] = "Spined kettle hat";
+      t["kettlehat04"] = "Beaked kettle hat";
+      t["kettlehat05"] = "Bell-shaped kettle hat";
+      t["kettlehat06"] = "Tall kettle hat";
+      t["kettlehat07"] = "Saxon kettle hat";
+      t["kettlehat08"] = "Saxon kettle hat";
+      t["kettlehat09"] = "Killer's helmet";
+      t["kocovnickacest"] = "Marika's scarf";
+      t["legsbrigandine01"] = "Old brigandine legs";
+      t["legsbrigandine03"] = "Noble brigandine legs";
+      t["legsbrigandine04"] = "Laminar knight legs";
+      t["legspadded01"] = "Quilted hose";
+      t["legspadded02"] = "Old quilted hose";
+      t["legspadded03"] = "Noble's quilted hose";
+      t["legspadded05"] = "Riding boots - high";
+      t["legsplate01"] = "Bavarian plate legs";
+      t["legsplate02"] = "Milanese plate leg armour";
+      t["legsplate03"] = "Noble's plate legs";
+      t["legsplate04"] = "Half plate legs";
+      t["legsplate05"] = "Saxon plate legs";
+      t["legsplate06"] = "Poleyn";
+      t["legsplate07"] = "Leaf-shaped couters";
+      t["legsplate08"] = "Kuttenberg plate legs";
+      t["legsplatebrunswig"] = "Brunswick's plate leg armour";
+      t["legsplatecapon"] = "Capon' plate chausses";
+      t["maillong01"] = "Hauberk long";
+      t["maillong02"] = "Saxon hauberk";
+      t["mailshort01"] = "Short chainmail";
+      t["mailshort02"] = "Italian hauberk";
+      t["noblebridle01"] = "Bridle of the Holy Roman Empire";
+      t["noblebridle02"] = "Tournament bridle";
+      t["noblecaparison01"] = "Tournament caparison decorated";
+      t["noblecaparison02"] = "Caparison decorated";
+      t["noblecaparison03"] = "Executioner's caparison decorated";
+      t["noblecaparison04"] = "Executioner caparison w/ breeching";
+      t["noblecaparison05"] = "Halved caparison decorated";
+      t["noblecaparison06"] = "Caparison á la crupper decorated";
+      t["noblecaparison07"] = "Executioner caparison w/ breeching";
+      t["noblecaparison08"] = "Tournament caparison decorated";
+      t["noblesaddle01"] = "Bravante saddle";
+      t["noblesaddle02"] = "Bridon saddle";
+      t["noblesaddle03"] = "Dragon saddle";
+      t["nomadbridle01"] = "Zamur's bridle";
+      t["paddedcaparison01"] = "Tournament caparison quilted";
+      t["paddedcaparison02"] = "Executioner's caparison quilted";
+      t["paddedcaparison03"] = "Quilted caparison with breeching";
+      t["paddedcaparison04"] = "Quilted caparison with breeching";
+      t["paddedcaparison05"] = "Quilted caparison with breeching";
+      t["plaguesuit"] = "Plague hood";
+      t["shoes01"] = "Simple shoes";
+      t["shoes02"] = "Burgher's shoes";
+      t["shoes03"] = "Soft shoes";
+      t["shoes04"] = "Simple shoes";
+      t["shoes05"] = "Pointed shoes";
+      t["skullcap01"] = "Grimey skullcap";
+      t["skullcap02"] = "Steel skullcap";
+      t["skullcap03"] = "Scaled skullcap";
+      t["skullcap04"] = "Rondel scullcap";
+      t["spectacles01"] = "Spectacles";
+      t["spurs01"] = "Hungarian spurs";
+      t["tournament"] = "Tournament mace";
+      t["tuniclong01"] = "Tunic";
+      t["tuniclong02"] = "Innkeeper tunic";
+      t["tuniclong03"] = "Leather apron";
+      t["tuniclong04"] = "Worn tunic";
+      t["tuniclong05"] = "Beggar tunic";
+      t["tunicshort01"] = "Short tunic";
+      t["tunicshort02"] = "Short tunic";
+      t["tunicshort03"] = "Miner's tunic";
+      t["tunicshort04"] = "Burgher pourpoint";
+      t["tunicshort05"] = "Leather apron";
+      t["tunicshort06"] = "Innkeeper's shirt";
+      t["tunicshort07"] = "Beggar's shirt";
+      t["tunicshort08"] = "Embroidered shirt";
+      t["tunicshortlegate"] = "Legate's tunic";
+      t["waffenrock01"] = "Hemmed waffenrock";
+      t["waffenrock02"] = "Simple waffenrock";
+      t["waffenrock03"] = "Fastened waffenrock";
+      t["waffenrock04"] = "Ornate waffenrock";
+      t["waffenrock08"] = "Riding waffenrock";
+      t["waffenrock09"] = "Knight's waffenrock";
+      t["waffenrockscaring"] = "Lord of Hell's garb";
+      t["warchanfron01"] = "Dragon chanfron";
+      t["warchanfron02"] = "Milanese chanfron";
+      t["warchanfron03"] = "Tyrolian chanfron";
+      t["warchanfron04"] = "Unicorn chanfron";
+      t["warsaddle01"] = "Hungarian saddle";
+      t["warsaddle02"] = "Transylvanian knight's saddle";
+      t["warsaddle03"] = "Cracowian saddle";
+      t["wreathtwitch"] = "Alluring wreath";
+   }
+   static function BuildUniqueKeys()
+   {
+      var u = UNIQUE_KEYS;
+      u["ui_nm_armplate05_m01_Brunswig"] = 1;
+      u["ui_nm_bascinetopen_twitch"] = 1;
+      u["ui_nm_bascinetvisorcapon_m01"] = 1;
+      u["ui_nm_bascinetvisorcapon_m01_Brunswig"] = 1;
+      u["ui_nm_bootsankle_twitch"] = 1;
+      u["ui_nm_bootsknee_huntsman"] = 1;
+      u["ui_nm_brigandinearm_twitch"] = 1;
+      u["ui_nm_cap07_mistvan"] = 1;
+      u["ui_nm_cap10_m01_mMikus"] = 1;
+      u["ui_nm_cap24_mkarlik"] = 1;
+      u["ui_nm_cap_huntsman"] = 1;
+      u["ui_nm_caparison01_Brunswig"] = 1;
+      u["ui_nm_capchamberlain_m01"] = 1;
+      u["ui_nm_cisnicky_katata"] = 1;
+      u["ui_nm_coat_huntsman"] = 1;
+      u["ui_nm_coifmail01_m01_Brunswig"] = 1;
+      u["ui_nm_common_oldHorseshoe"] = 1;
+      u["ui_nm_crossbowLightArtemis"] = 1;
+      u["ui_nm_cuirass08_m01_Brunswig"] = 1;
+      u["ui_nm_daggerBruncvik"] = 1;
+      u["ui_nm_dvojityAgent_petrsCuirass"] = 1;
+      u["ui_nm_e01_LostAndFound_Tunic"] = 1;
+      u["ui_nm_eyepatchZizka"] = 1;
+      u["ui_nm_gambesonlong01_mdrowner"] = 1;
+      u["ui_nm_gambesonlong03_merik"] = 1;
+      u["ui_nm_gambesonlong03_twitch"] = 1;
+      u["ui_nm_gambesonlong04_twitch"] = 1;
+      u["ui_nm_gambesonlongcapon_m01"] = 1;
+      u["ui_nm_gambesonlonggodwin_m01"] = 1;
+      u["ui_nm_gauntlets08_m01_Brunswig"] = 1;
+      u["ui_nm_gauntlets_twitch"] = 1;
+      u["ui_nm_gloves02_mdrowner"] = 1;
+      u["ui_nm_gloves06_mlegate"] = 1;
+      u["ui_nm_gloves_huntsman"] = 1;
+      u["ui_nm_gloves_twitch"] = 1;
+      u["ui_nm_habitlegate_m01"] = 1;
+      u["ui_nm_hat_legate"] = 1;
+      u["ui_nm_hood08_mdrowner"] = 1;
+      u["ui_nm_hood_huntsman"] = 1;
+      u["ui_nm_hood_twitch"] = 1;
+      u["ui_nm_hoodgodwin_m01"] = 1;
+      u["ui_nm_hoodlegate"] = 1;
+      u["ui_nm_hoodrabi"] = 1;
+      u["ui_nm_hoodsemine"] = 1;
+      u["ui_nm_hoodsigi"] = 1;
+      u["ui_nm_hosejoined01_mdrowner"] = 1;
+      u["ui_nm_hosejoined02_mlegate"] = 1;
+      u["ui_nm_hosejoined_twitch"] = 1;
+      u["ui_nm_korenarkaZachrana_pavelnasNecklace"] = 1;
+      u["ui_nm_kucharskakniha_medailon"] = 1;
+      u["ui_nm_legsbrigandine_twitch"] = 1;
+      u["ui_nm_legspadded03_m11"] = 1;
+      u["ui_nm_legspadded_godwin"] = 1;
+      u["ui_nm_legsplate05_m01Brunswig"] = 1;
+      u["ui_nm_legsplate05_m01Capon"] = 1;
+      u["ui_nm_marikasScarf"] = 1;
+      u["ui_nm_nebakovPruzkum_Cap21_m01_C_nebakClue"] = 1;
+      u["ui_nm_necklace01_Vajda"] = 1;
+      u["ui_nm_noblecaparison01_mJezek"] = 1;
+      u["ui_nm_noblecaparison02_mMarkvart"] = 1;
+      u["ui_nm_noblecaparison04_mMarkvart"] = 1;
+      u["ui_nm_noblecaparison_twitch"] = 1;
+      u["ui_nm_poi_vodnik_vodnikovyKalhoty"] = 1;
+      u["ui_nm_polearmBruncvik"] = 1;
+      u["ui_nm_prepadeni_voves_ring"] = 1;
+      u["ui_nm_ratbor_cisnicka_capka"] = 1;
+      u["ui_nm_ratbor_cisnicky_kabatec"] = 1;
+      u["ui_nm_shieldKiteCuman_summer"] = 1;
+      u["ui_nm_shieldKite_autumn"] = 1;
+      u["ui_nm_shieldKite_spring"] = 1;
+      u["ui_nm_shieldKite_twitch"] = 1;
+      u["ui_nm_shieldPavise_winter"] = 1;
+      u["ui_nm_shoes_twitch"] = 1;
+      u["ui_nm_spizovaciOddil_ringFromPlagueGrave"] = 1;
+      u["ui_nm_spizovaciOddil_vrbasRewardNecklace"] = 1;
+      u["ui_nm_spravedlnost_boots"] = 1;
+      u["ui_nm_spravedlnost_ring"] = 1;
+      u["ui_nm_svatba_ringFromChamberlein"] = 1;
+      u["ui_nm_svatba_tournamentCheapRing"] = 1;
+      u["ui_nm_svatba_tournamentRewardNecklace"] = 1;
+      u["ui_nm_taboryKutnohorsko_pukavecCap"] = 1;
+      u["ui_nm_taboryTrosecko_casperRing"] = 1;
+      u["ui_nm_taboryTrosecko_karlikCap"] = 1;
+      u["ui_nm_tunicshortlegate_m01"] = 1;
+      u["ui_nm_vajduv_amulet"] = 1;
+      u["ui_nm_vezniNaTroskch_godwinsRing"] = 1;
+      u["ui_nm_waffenrock_twitch"] = 1;
+      u["ui_nm_wreath_twitch"] = 1;
+      u["ui_nm_zbranePanaSemina_sukGambeson"] = 1;
+      u["ui_nm_zbranePanaSemina_sukHelmet"] = 1;
+      u["ui_nm_ztracenaCest_jezeksArms"] = 1;
+      u["ui_nm_ztracenaCest_jezeksCaparison"] = 1;
+      u["ui_nm_ztracenaCest_jezeksCuirass"] = 1;
+      u["ui_nm_ztracenaCest_jezeksGauntlets"] = 1;
+      u["ui_nm_ztracenaCest_jezeksHelmet"] = 1;
+      u["ui_nm_ztracenaCest_jezeksLegs"] = 1;
+      u["ui_nm_ztracenaCest_jezeksSpurs"] = 1;
+      u["ui_nm_ztratyANalezy_helmet"] = 1;
+      u["ui_nm_ztratyANalezy_hose"] = 1;
+      u["ui_nm_ztratyANalezy_shoes"] = 1;
+      u["ui_nm_ztratyANalezy_strawHat"] = 1;
+   }
+   static function IsUniqueKey(nameKey)
+   {
+      var k = String(nameKey);
+      if(k.charAt(0) == "@")
+      {
+         k = k.substring(1);
+      }
+      return UNIQUE_KEYS[k] == 1;
+   }
+   static function BuildHeaderMap()
+   {
+      HEADER_MAP = {};
+      BuildGroupTitles();
+      BuildUniqueKeys();
+      BuildHeaderMap0();
+      BuildHeaderMap1();
+      BuildHeaderMap2();
+      BuildHeaderMap3();
+      BuildHeaderMap4();
+      BuildHeaderMap5();
+      BuildHeaderMap6();
+      BuildHeaderMap7();
+      BuildHeaderMap8();
+   }
+   static function BuildHeaderMap0()
+   {
+      var m = HEADER_MAP;
+      m["crime_letterofrecognition_JVF3"] = "letters";
+      m["dezerteri_listinaprazanu__PkhX"] = "letters";
+      m["dlc1_letter_oburkhardovi__VOCR"] = "letters";
+      m["dopis_uiname_VyxR"] = "letters";
+      m["fairystory_houseofruthard_RGR4"] = "books";
+      m["heavyweapons_skillbook_lv_BATk"] = "skillbooks";
+      m["heavyweapons_skillbook_lv_aMSt"] = "skillbooks";
+      m["heavyweapons_skillbook_lv_hrUm"] = "skillbooks";
+      m["heavyweapons_skillbook_lv_i27A"] = "skillbooks";
+      m["houndmaster_skillbook_lvl_EUan"] = "skillbooks";
+      m["houndmaster_skillbook_lvl_c8BN"] = "skillbooks";
+      m["houndmaster_skillbook_lvl_duJw"] = "skillbooks";
+      m["houndmaster_skillbook_lvl_uV3S"] = "skillbooks";
+      m["ius_regale_montanorum_i_k_pfU8"] = "books";
+      m["ius_regale_montanorum_ii__T8kI"] = "books";
+      m["kuttenberglorebook_knihap_GSbp"] = "books";
+      m["kuttenberglorebook_knihap_TbCY"] = "books";
+      m["kuttenberglorebook_knihas_0rjv"] = "books";
+      m["kuttenberglorebook_knihat_iTBy"] = "books";
+      m["letter_bergovrychtartrosk_r0D0"] = "letters";
+      m["letter_glejtmarkvartforsi_2gaX"] = "letters";
+      m["letter_hiddenlettertrosky_sLJ8"] = "letters";
+      m["letter_huntsmanrenes_uina_C9d9"] = "letters";
+      m["letter_jobstowenceslaus_u_e5Tf"] = "letters";
+      m["letter_jostthomas_i_uiname_rb96"] = "letters";
+      m["letter_jostthomas_ii_uina_ZscL"] = "letters";
+      m["letter_jostthomas_iii_uin_QLmA"] = "letters";
+      m["letter_petrarcatoanna_uin_jfhH"] = "letters";
+      m["letter_sigismundtowencesl_Snhb"] = "letters";
+      m["lorebook_antidotarium_uin_ifFm"] = "books";
+      m["lorebook_argonautica_uina_DX2V"] = "books";
+      m["lorebook_atalanta_uiname_2n8E"] = "books";
+      m["lorebook_boethius_uiname_3Ol0"] = "books";
+      m["lorebook_canzoniere_uiname_PMbA"] = "books";
+      m["lorebook_grimoirsecretzer_mc4G"] = "books";
+      m["lorebook_historia_troiana_evsj"] = "books";
+      m["lorebook_kareltestament_u_Xx8w"] = "books";
+      m["lorebook_legendaaurea_uin_5Pex"] = "books";
+      m["lorebook_magicalpicatrix__ACBS"] = "books";
+      m["lorebook_magicalseferrazi_uk3Z"] = "books";
+      m["lorebook_marymotherofalch_zNaS"] = "books";
+      m["lorebook_metamorphoses_ui_j9Ej"] = "books";
+      m["lorebook_pangurban_uiname_vsuy"] = "books";
+      m["lorebook_plektruda_uiname_2Gzj"] = "books";
+      m["lorebook_psalmipenitentia_Kc82"] = "books";
+      m["lorebook_tomyris_uiname_bEit"] = "books";
+      m["lorebook_vypujcnik_uiname_lmte"] = "books";
+      m["m44a_dopisprozikmunda_uin_ZoFx"] = "letters";
+      m["m44azvlastnizprava_uiname_7mtY"] = "letters";
+      m["map_bruncvik_01_uiname_HODL"] = "maps";
+      m["map_bruncvik_02_uiname_nMMN"] = "maps";
+      m["map_bruncvik_03_uiname_KQad"] = "maps";
+      m["map_bruncvik_04_uiname_gCzL"] = "maps";
+      m["map_u49_mapakpokladu_band_YWns"] = "maps";
+      m["map_u49_mapakpokladu_uina_dOn3"] = "maps";
+      m["marksmanship_skillbook_lv_ICPe"] = "skillbooks";
+      m["marksmanship_skillbook_lv_XHzg"] = "skillbooks";
+      m["marksmanship_skillbook_lv_gpzQ"] = "skillbooks";
+      m["marksmanship_skillbook_lv_p8QR"] = "skillbooks";
+      m["poi_indianajonespoem_uina_R3HD"] = "letters";
+      m["puvodnemoci_ruzennazahrad_rJ0p"] = "books";
+      m["puvodnemoci_unfinisheddec_2WdB"] = "books";
+      m["rodinnachlouba_noteofhand_FPkJ"] = "letters";
+      m["skillbook_agility_i_kcd2__qICz"] = "skillbooks";
+      m["skillbook_agility_ii_kcd2_kEbo"] = "skillbooks";
+      m["skillbook_agility_iii_kcd_303Q"] = "skillbooks";
+      m["skillbook_agility_iv_kcd2_p2DN"] = "skillbooks";
+      m["skillbook_alchemy_i_kcd2__4OSQ"] = "skillbooks";
+      m["skillbook_alchemy_ii_kcd2_8LTX"] = "skillbooks";
+      m["skillbook_alchemy_iii_kcd_JVdS"] = "skillbooks";
+      m["skillbook_alchemy_iv_kcd2_zDof"] = "skillbooks";
+      m["skillbook_alchemy_ix_uina_oflM"] = "skillbooks";
+      m["skillbook_alchemy_vi_uina_z9YV"] = "skillbooks";
+      m["skillbook_alchemy_vii_uin_DJYO"] = "skillbooks";
+      m["skillbook_alchemy_viii_ui_llL9"] = "skillbooks";
+      m["skillbook_craftsmanship_i_Srs3"] = "skillbooks";
+      m["skillbook_craftsmanship_i_aIZL"] = "skillbooks";
+      m["skillbook_craftsmanship_i_n04Z"] = "skillbooks";
+      m["skillbook_craftsmanship_i_n0Qg"] = "skillbooks";
+      m["skillbook_drinking_i_kcd2_0fAN"] = "skillbooks";
+      m["skillbook_drinking_ii_kcd_iCq6"] = "skillbooks";
+      m["skillbook_drinking_iii_kc_MKuk"] = "skillbooks";
+      m["skillbook_drinking_iv_kcd_o0jI"] = "skillbooks";
+      m["skillbook_drinkingunarmed_6exI"] = "skillbooks";
+      m["skillbook_horseriding_i_k_dk5N"] = "skillbooks";
+      m["skillbook_horseriding_ii__VXmB"] = "skillbooks";
+      m["skillbook_horseriding_iii_6b3h"] = "skillbooks";
+      m["skillbook_horseriding_iv__CWE6"] = "skillbooks";
+      m["skillbook_horseriding_v_u_3mIE"] = "skillbooks";
+      m["skillbook_houndmaster_v_u_6Bb7"] = "skillbooks";
+      m["skillbook_marksmanship_v__eklu"] = "skillbooks";
+      m["skillbook_scholarship_1_u_Y1ys"] = "skillbooks";
+      m["skillbook_scholarship_2_u_hE83"] = "skillbooks";
+      m["skillbook_scholarship_3_u_Y6e5"] = "skillbooks";
+      m["skillbook_scholarship_4_u_uFbx"] = "skillbooks";
+      m["skillbook_scholarship_poi_pieK"] = "skillbooks";
+      m["skillbook_scholarship_v_k_m2s0"] = "skillbooks";
+      m["skillbook_scholarship_val_s44L"] = "skillbooks";
+      m["skillbook_spear_i_uiname_pixg"] = "skillbooks";
+      m["skillbook_spear_ii_uiname_hrL7"] = "skillbooks";
+      m["skillbook_spear_iii_uiname_owkd"] = "skillbooks";
+      m["skillbook_spear_iv_uiname_lHcV"] = "skillbooks";
+      m["skillbook_spear_v_uiname_KH9M"] = "skillbooks";
+      m["skillbook_speech_i_kcd2_u_V7N0"] = "skillbooks";
+      m["skillbook_speech_ii_kcd2__d2DU"] = "skillbooks";
+      m["skillbook_speech_iii_kcd2_mKCF"] = "skillbooks";
+      m["skillbook_speech_iv_kcd2__9Cax"] = "skillbooks";
+      m["skillbook_strength_i_kcd2_1DFz"] = "skillbooks";
+      m["skillbook_strength_ii_kcd_5TKz"] = "skillbooks";
+      m["skillbook_strength_iii_kc_zIui"] = "skillbooks";
+      m["skillbook_strength_iv_kcd_Hp95"] = "skillbooks";
+      m["skillbook_survival_i_kcd2_dCU6"] = "skillbooks";
+      m["skillbook_survival_ii_kcd_xTrc"] = "skillbooks";
+      m["skillbook_survival_iii_kc_MKt9"] = "skillbooks";
+      m["skillbook_survival_iv_kcd_oxod"] = "skillbooks";
+      m["skillbook_thievery_i_kcd2_3IXv"] = "skillbooks";
+      m["skillbook_thievery_ii_kcd_gcvt"] = "skillbooks";
+      m["skillbook_thievery_iii_kc_aAuH"] = "skillbooks";
+      m["skillbook_thievery_iv_kcd_A0v2"] = "skillbooks";
+      m["skillbook_thievery_v_uina_4FZx"] = "skillbooks";
+      m["skillbook_unarmed_v_uiname_wpgU"] = "skillbooks";
+      m["skillbook_vitality_i_kcd2_SbeZ"] = "skillbooks";
+      m["skillbook_vitality_ii_kcd_7yi8"] = "skillbooks";
+      m["skillbook_vitality_iii_kc_nzMa"] = "skillbooks";
+      m["skillbook_vitality_iv_kcd_WC2F"] = "skillbooks";
+      m["starekosti_hostinaumrlcu__o0sA"] = "books";
+      m["starymistr_hadanka_uiname_URzX"] = "letters";
+      m["stealth_skillbook_lvl1_ui_4V3i"] = "skillbooks";
+      m["stealth_skillbook_lvl2_ui_zXN6"] = "skillbooks";
+      m["stealth_skillbook_lvl3_ui_ffFw"] = "skillbooks";
+      m["stealth_skillbook_lvl4_ui_k9Ku"] = "skillbooks";
+      m["strasidlo_seznamhrichu_ui_AahD"] = "letters";
+      m["strasidlo_smlouvaodilo_ui_u5Wz"] = "letters";
+      m["swords_skillbook_lvl1_uin_1ZE6"] = "skillbooks";
+      m["swords_skillbook_lvl2_uin_K2KN"] = "skillbooks";
+      m["swords_skillbook_lvl3_uin_MJWE"] = "skillbooks";
+      m["swords_skillbook_lvl4_uin_8FTc"] = "skillbooks";
+      m["treasurehunter_map1_uiname_ZJ69"] = "maps";
+      m["treasurehunter_map2_uiname_JhU9"] = "maps";
+      m["treasurehunter_map3_uiname_G2Jg"] = "maps";
+      m["treasurehunter_map4_uiname_uEtw"] = "maps";
+      m["troskovice_chronicle_uina_Y7PL"] = "books";
+      m["u_nm_nalezeniDelnici_letterFromTorwart"] = "letters";
+      m["uchazec_oremeslekovarskem_JKjq"] = "books";
+      m["ui_hm_arrow_normal"] = "arrow";
+      m["ui_in_blacksmith_tongs"] = "common";
+      m["ui_in_kralovskeStribro_letterForBures"] = "letters";
+      m["ui_in_kralovskeStribro_letterFromVavak"] = "letters";
+      m["ui_in_zbranePanaSemina_sukShield"] = "shield";
+      m["ui_mn_antibust_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_antibust_dice_badge_plumb"] = "badges_tin";
+      m["ui_mn_antibust_dice_badge_silver"] = "badges_silver";
+      m["ui_mn_balatro_badge_gold"] = "badges_gold";
+      m["ui_mn_balatro_badge_plumb"] = "badges_tin";
+      m["ui_mn_balatro_badge_silver"] = "badges_silver";
+      m["ui_mn_bird_king_badge"] = "badges_silver";
+      m["ui_mn_double_take_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_double_take_dice_badge_silver"] = "badges_silver";
+      m["ui_mn_extra_dice_dice_badge"] = "badges_silver";
+      m["ui_mn_extra_dice_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_extra_dice_dice_badge_plumb"] = "badges_tin";
+      m["ui_mn_extra_value_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_formations_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_formations_dice_badge_plumb"] = "badges_tin";
+      m["ui_mn_formations_dice_badge_silver"] = "badges_silver";
+      m["ui_mn_headstart_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_headstart_dice_badge_plumb"] = "badges_tin";
+      m["ui_mn_headstart_dice_badge_silver"] = "badges_silver";
+      m["ui_mn_korenarkaZachrana_pavlenaTornDress"] = "common";
+      m["ui_mn_matrimonium_badge"] = "badges_gold";
+      m["ui_mn_multiplier_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_multiplier_dice_badge_plumb"] = "badges_tin";
+      m["ui_mn_multiplier_dice_badge_silver"] = "badges_silver";
+      m["ui_mn_null_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_null_dice_badge_plumb"] = "badges_tin";
+      m["ui_mn_null_dice_badge_silver"] = "badges_silver";
+      m["ui_mn_reroll_dice_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_reroll_dice_dice_badge_plumb"] = "badges_tin";
+      m["ui_mn_reroll_dice_dice_badge_silver"] = "badges_silver";
+      m["ui_mn_reroll_pips_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_reroll_pips_dice_badge_silver"] = "badges_silver";
+      m["ui_mn_set_dice_dice_badge_gold"] = "badges_gold";
+      m["ui_mn_set_dice_dice_badge_plumb"] = "badges_tin";
+      m["ui_mn_set_dice_dice_badge_silver"] = "badges_silver";
+      m["ui_nm_Aranka_die"] = "dice";
+      m["ui_nm_BloodyWeddingDressWoman"] = "common";
+      m["ui_nm_BullPaint_m03"] = "outerwear";
+      m["ui_nm_CoifLarge01_mkhTournament_07_D2_Henry"] = "coifs";
+      m["ui_nm_GambesonLong01_m01_C3_KHtournament_Henry"] = "gambesons";
+      m["ui_nm_Gauntlets02_m01_B3_khTournament_Henry"] = "gloves";
+      m["ui_nm_Gloves05_mPros"] = "gloves";
+      m["ui_nm_KettleHat03_m01_B2_khTournament_Henry"] = "helmets";
+      m["ui_nm_PaintedStatueSaintMagdaleine"] = "common";
+      m["ui_nm_PepperSpice"] = "spices";
+      m["ui_nm_SaffronSpice"] = "spices";
+      m["ui_nm_ShieldHeater_Tournament"] = "shield";
+      m["ui_nm_TorsoPainter_m01"] = "armour_other";
+      m["ui_nm_TunicShort05_mPros"] = "shirts";
+      m["ui_nm_Waffenrock08_mkhTournament_05_B_Henry"] = "outerwear";
+      m["ui_nm_WarChanfron04_mPros"] = "chanfrons";
+      m["ui_nm__sedmStatecnych2_raneksBow"] = "bow";
+      m["ui_nm_admirerLetterFlorian"] = "letters";
+      m["ui_nm_andelStraznyAstrolab"] = "common";
+      m["ui_nm_andelStrazny_oresmus_book"] = "books";
+      m["ui_nm_andelStrazny_riddles"] = "letters";
+      m["ui_nm_andelStrazny_riddles_2"] = "letters";
+      m["ui_nm_andelStrazny_riddles_3"] = "letters";
+      m["ui_nm_andelStrazny_riddles_4"] = "letters";
+      m["ui_nm_andelStrazny_riddles_5"] = "letters";
+      m["ui_nm_andelStrazny_underground_map"] = "maps";
+      m["ui_nm_animal_animalPulp"] = "common";
+      m["ui_nm_animal_antlers"] = "common";
+      m["ui_nm_animal_sheepCasings"] = "common";
+      m["ui_nm_animal_wolfEar"] = "common";
+      m["ui_nm_apple"] = "fruit";
+      m["ui_nm_appleCooked"] = "cooked";
+      m["ui_nm_appleDried"] = "dried";
+      m["ui_nm_apple_sedmTrpasliku"] = "fruit";
+      m["ui_nm_archery_bloodTrail_kafkaCrossbow"] = "crossbow";
+      m["ui_nm_armplate01_m01"] = "sleeves";
+      m["ui_nm_armplate02_m01"] = "sleeves";
+      m["ui_nm_armplate03_m01"] = "sleeves";
+      m["ui_nm_armplate04_m01"] = "sleeves";
+      m["ui_nm_armplate05_m01"] = "sleeves";
+      m["ui_nm_armplate05_m01_Brunswig"] = "sleeves";
+      m["ui_nm_armplate_DLC2"] = "sleeves";
+      m["ui_nm_arrow_EXAMPLE"] = "arrow";
+      m["ui_nm_arrow_bolt"] = "common";
+      m["ui_nm_arrow_broken"] = "common";
+      m["ui_nm_arrow_crude"] = "arrow";
+      m["ui_nm_arrow_cutting"] = "arrow";
+      m["ui_nm_arrow_cutting_enh"] = "arrow";
+      m["ui_nm_arrow_enh_hunter"] = "arrow";
+      m["ui_nm_arrow_enh_pierce"] = "arrow";
+      m["ui_nm_arrow_enh_precise"] = "arrow";
+      m["ui_nm_arrow_hunter"] = "arrow";
+      m["ui_nm_arrow_pierce"] = "arrow";
+      m["ui_nm_arrow_precise"] = "arrow";
+      m["ui_nm_arrow_tournament"] = "arrow";
+      m["ui_nm_artefakt_BavorCoatofArms_drawing"] = "common";
+      m["ui_nm_artefakt_BavorCoatofArms_drawing|icon:letter_simple"] = "maps";
+      m["ui_nm_artefakt_Bavor_accountingLogs"] = "books";
+      m["ui_nm_artefakt_Bavor_travelBook"] = "books";
+      m["ui_nm_artefakt_cemeteryGateKey"] = "keys";
+      m["ui_nm_artefakt_libraryDoorKey"] = "keys";
+      m["ui_nm_artefakt_relic"] = "common";
+      m["ui_nm_artefakt_shortswordBavor"] = "shortsword";
+      m["ui_nm_artefakt_shortswordBavor_broken"] = "shortsword";
+      m["ui_nm_artefakt_shortswordBavor_reforged"] = "shortsword";
+      m["ui_nm_axeBattle01"] = "axe";
+   }
+   static function BuildHeaderMap1()
+   {
+      var m = HEADER_MAP;
+      m["ui_nm_axeBattle02"] = "axe";
+      m["ui_nm_axeBattle03"] = "axe";
+      m["ui_nm_axeBattle04"] = "axe";
+      m["ui_nm_axeCalvaria"] = "axe";
+      m["ui_nm_axeCalvaria_broken"] = "axe";
+      m["ui_nm_axeCuman"] = "axe";
+      m["ui_nm_axeFancy"] = "axe";
+      m["ui_nm_axeTraining"] = "axe";
+      m["ui_nm_axeWork01"] = "axe";
+      m["ui_nm_axeWork02"] = "axe";
+      m["ui_nm_axeWork02_broken_kunesh"] = "mace";
+      m["ui_nm_axeWork02_kunesh"] = "axe";
+      m["ui_nm_azZaHrobDeadBabyToothDust"] = "common";
+      m["ui_nm_azZaHrobDeadDwarfThumb"] = "common";
+      m["ui_nm_azZaHrobDeadManShoeCoffin"] = "common";
+      m["ui_nm_azZaHrobDeadManShoeSarcofag"] = "common";
+      m["ui_nm_azZaHrobDeadVirginHair"] = "common";
+      m["ui_nm_azZaHrobRevenantCoffinNail"] = "common";
+      m["ui_nm_azZaHrobSealDeadMiner"] = "common";
+      m["ui_nm_azZaHrob_childLittleBone"] = "common";
+      m["ui_nm_azZaHrob_deadMenEar"] = "common";
+      m["ui_nm_azZaHrob_hangManHair"] = "common";
+      m["ui_nm_azZaHrob_silveredStudSarcofag"] = "common";
+      m["ui_nm_azZaHrob_smallBrassCross"] = "common";
+      m["ui_nm_bacon"] = "cooked";
+      m["ui_nm_bagel"] = "baked";
+      m["ui_nm_balatro_jimboMace"] = "mace";
+      m["ui_nm_ballShot"] = "shot";
+      m["ui_nm_bandage_buffedTest"] = "bandages";
+      m["ui_nm_bandage_classic"] = "bandages";
+      m["ui_nm_banePoison"] = "poisons";
+      m["ui_nm_banePoison_best"] = "poisons";
+      m["ui_nm_banePoison_high"] = "poisons";
+      m["ui_nm_banePoison_medium"] = "poisons";
+      m["ui_nm_bascinet_visor_scaring_m01"] = "helmets";
+      m["ui_nm_bascinetopen01_m01"] = "helmets";
+      m["ui_nm_bascinetopen02_m01"] = "helmets";
+      m["ui_nm_bascinetopen03_m01"] = "helmets";
+      m["ui_nm_bascinetopen06_m01"] = "helmets";
+      m["ui_nm_bascinetopen07_m01"] = "helmets";
+      m["ui_nm_bascinetopen08_m01"] = "helmets";
+      m["ui_nm_bascinetopen09_m01"] = "helmets";
+      m["ui_nm_bascinetopen10_m01"] = "helmets";
+      m["ui_nm_bascinetopen_twitch"] = "helmets";
+      m["ui_nm_bascinetvisor01_m01"] = "helmets";
+      m["ui_nm_bascinetvisor02_m01"] = "helmets";
+      m["ui_nm_bascinetvisor03_m01"] = "helmets";
+      m["ui_nm_bascinetvisor04_m01"] = "helmets";
+      m["ui_nm_bascinetvisor05_m01"] = "helmets";
+      m["ui_nm_bascinetvisor06_m01"] = "helmets";
+      m["ui_nm_bascinetvisor07_DLC2"] = "helmets";
+      m["ui_nm_bascinetvisorcapon_m01"] = "helmets";
+      m["ui_nm_bascinetvisorcapon_m01_Brunswig"] = "helmets";
+      m["ui_nm_basicbridle01_m01"] = "bridles";
+      m["ui_nm_basicbridle02_m01"] = "bridles";
+      m["ui_nm_basicbridle03_m01"] = "bridles";
+      m["ui_nm_basicharness01_m01"] = "breeching";
+      m["ui_nm_basicharness02_m01"] = "breeching";
+      m["ui_nm_basicharness03_m01"] = "breeching";
+      m["ui_nm_basicsaddle01_m01"] = "saddles";
+      m["ui_nm_basicsaddle02_m01"] = "saddles";
+      m["ui_nm_basicsaddle03_m01"] = "saddles";
+      m["ui_nm_battle_arrow"] = "arrow";
+      m["ui_nm_battle_bolt"] = "bolt";
+      m["ui_nm_battle_shot"] = "shot";
+      m["ui_nm_bazilisciVejce_basiliskEgg"] = "common";
+      m["ui_nm_bazilisciVejce_die"] = "common";
+      m["ui_nm_bazilisciVejce_roosterEgg"] = "common";
+      m["ui_nm_beef"] = "rawmeat";
+      m["ui_nm_beefCooked"] = "cooked";
+      m["ui_nm_beefDried"] = "dried";
+      m["ui_nm_beefSmoked"] = "smoked";
+      m["ui_nm_beefTenderloin"] = "rawmeat";
+      m["ui_nm_beefTenderloinCooked"] = "cooked";
+      m["ui_nm_beefTenderloinDried"] = "dried";
+      m["ui_nm_beefTenderloinSmoked"] = "smoked";
+      m["ui_nm_beer"] = "beer";
+      m["ui_nm_beerHenryBitter"] = "beer";
+      m["ui_nm_beerHenryDark"] = "beer";
+      m["ui_nm_beerHenryLager"] = "beer";
+      m["ui_nm_beerTroskovice"] = "beer";
+      m["ui_nm_beet"] = "vegetables";
+      m["ui_nm_beetCooked"] = "cooked";
+      m["ui_nm_bejkovecShortSwordRusty"] = "shortsword";
+      m["ui_nm_belt_2slot"] = "belts";
+      m["ui_nm_belt_3slot"] = "belts";
+      m["ui_nm_belt_4slot"] = "belts";
+      m["ui_nm_bergovShortSword"] = "shortsword";
+      m["ui_nm_blacksmith_hammer"] = "common";
+      m["ui_nm_boarKidney"] = "rawmeat";
+      m["ui_nm_boarKidneyCooked"] = "cooked";
+      m["ui_nm_boarMeat"] = "rawmeat";
+      m["ui_nm_boarMeatCooked"] = "cooked";
+      m["ui_nm_boarMeatDried"] = "dried";
+      m["ui_nm_boarMeatSmoked"] = "smoked";
+      m["ui_nm_boarRump"] = "rawmeat";
+      m["ui_nm_boarRumpCooked"] = "cooked";
+      m["ui_nm_boarRumpDried"] = "dried";
+      m["ui_nm_boarRumpSmoked"] = "smoked";
+      m["ui_nm_boarTenderloin"] = "rawmeat";
+      m["ui_nm_boarTenderloinCooked"] = "cooked";
+      m["ui_nm_boarTenderloinDried"] = "dried";
+      m["ui_nm_boarTenderloinSmoked"] = "smoked";
+      m["ui_nm_bohutovaVlozka_commemorativeRing"] = "common";
+      m["ui_nm_boletus"] = "vegetables";
+      m["ui_nm_boletusCooked"] = "cooked";
+      m["ui_nm_boletusDried"] = "dried";
+      m["ui_nm_bolt_crude"] = "bolt";
+      m["ui_nm_bolt_cutting"] = "bolt";
+      m["ui_nm_bolt_enh_cutting"] = "bolt";
+      m["ui_nm_bolt_enh_hunting"] = "bolt";
+      m["ui_nm_bolt_enh_piercing"] = "bolt";
+      m["ui_nm_bolt_enh_precise"] = "bolt";
+      m["ui_nm_bolt_fine"] = "bolt";
+      m["ui_nm_bolt_hunting"] = "bolt";
+      m["ui_nm_bolt_normal"] = "bolt";
+      m["ui_nm_bolt_piercing"] = "bolt";
+      m["ui_nm_bolt_precise"] = "bolt";
+      m["ui_nm_bolt_tournament"] = "bolt";
+      m["ui_nm_bootsankle01_m00"] = "boots";
+      m["ui_nm_bootsankle01_m01"] = "boots";
+      m["ui_nm_bootsankle01_m02"] = "boots";
+      m["ui_nm_bootsankle01_m03"] = "boots";
+      m["ui_nm_bootsankle02_m01"] = "boots";
+      m["ui_nm_bootsankle03_m01"] = "boots";
+      m["ui_nm_bootsankle04_m01"] = "boots";
+      m["ui_nm_bootsankle05_m01"] = "boots";
+      m["ui_nm_bootsankle06_m01"] = "boots";
+      m["ui_nm_bootsankle_twitch"] = "boots";
+      m["ui_nm_bootsanklecourtier"] = "boots";
+      m["ui_nm_bootsanklepick"] = "boots";
+      m["ui_nm_bootsanklesilent"] = "boots";
+      m["ui_nm_bootsknee01_m01"] = "boots";
+      m["ui_nm_bootsknee02_mlichtenstein"] = "boots";
+      m["ui_nm_bootsknee03_m01"] = "boots";
+      m["ui_nm_bootsknee04_m01"] = "boots";
+      m["ui_nm_bootsknee05_m01"] = "boots";
+      m["ui_nm_bootsknee_huntsman"] = "boots";
+      m["ui_nm_bootskneesoft"] = "boots";
+      m["ui_nm_bootskneethief"] = "boots";
+      m["ui_nm_bow_a"] = "bow";
+      m["ui_nm_bow_b"] = "bow";
+      m["ui_nm_bow_b_a"] = "bow";
+      m["ui_nm_bow_b_b"] = "bow";
+      m["ui_nm_bow_c"] = "bow";
+      m["ui_nm_bow_c_b"] = "bow";
+      m["ui_nm_bow_c_c"] = "bow";
+      m["ui_nm_bow_d"] = "bow";
+      m["ui_nm_bow_d_a"] = "bow";
+      m["ui_nm_bow_e"] = "bow";
+      m["ui_nm_bow_e_a"] = "bow";
+      m["ui_nm_brabantShortSword"] = "shortsword";
+      m["ui_nm_bratriZCimburka_balsanHalberd"] = "polearm";
+      m["ui_nm_bratriZCimburka_balsanSword"] = "shortsword";
+      m["ui_nm_bread"] = "baked";
+      m["ui_nm_breadroll"] = "baked";
+      m["ui_nm_breviariumMinor"] = "books";
+      m["ui_nm_breviariumRomanum"] = "books";
+      m["ui_nm_brigandine01_m01"] = "plate";
+      m["ui_nm_brigandine02_blk"] = "plate";
+      m["ui_nm_brigandine02_m01"] = "plate";
+      m["ui_nm_brigandine03_m01"] = "plate";
+      m["ui_nm_brigandine03_raub"] = "plate";
+      m["ui_nm_brigandine05_blk"] = "plate";
+      m["ui_nm_brigandine05_m01"] = "plate";
+      m["ui_nm_brigandine05_teuton"] = "plate";
+      m["ui_nm_brigandine10_m01"] = "plate";
+      m["ui_nm_brigandinearm01_m01"] = "sleeves";
+      m["ui_nm_brigandinearm02_m01"] = "sleeves";
+      m["ui_nm_brigandinearm03_m01"] = "sleeves";
+      m["ui_nm_brigandinearm05_m01"] = "sleeves";
+      m["ui_nm_brigandinearm06_m01"] = "sleeves";
+      m["ui_nm_brigandinearm_twitch"] = "sleeves";
+      m["ui_nm_brokenPolearm"] = "polearm";
+      m["ui_nm_brooch_brass_inscription"] = "brooches";
+      m["ui_nm_brooch_golden_erb"] = "brooches";
+      m["ui_nm_brooch_golden_letter"] = "brooches";
+      m["ui_nm_brooch_inlaid"] = "brooches";
+      m["ui_nm_brooch_silver"] = "brooches";
+      m["ui_nm_brooch_silver_enamel"] = "brooches";
+      m["ui_nm_bsmt_acidumChloridum"] = "blacksmithing";
+      m["ui_nm_bsmt_copper"] = "blacksmithing";
+      m["ui_nm_bsmt_emailPowder"] = "blacksmithing";
+      m["ui_nm_bsmt_guardSimple"] = "blacksmithing";
+      m["ui_nm_bsmt_guardSpecial"] = "blacksmithing";
+      m["ui_nm_bsmt_guardStraight"] = "blacksmithing";
+      m["ui_nm_bsmt_guardStrong"] = "blacksmithing";
+      m["ui_nm_bsmt_hardware"] = "blacksmithing";
+      m["ui_nm_bsmt_ironBad"] = "blacksmithing";
+      m["ui_nm_bsmt_ironGood"] = "blacksmithing";
+      m["ui_nm_bsmt_jaspis"] = "blacksmithing";
+      m["ui_nm_bsmt_pommelCoin"] = "blacksmithing";
+      m["ui_nm_bsmt_pommelDecorated"] = "blacksmithing";
+      m["ui_nm_bsmt_pommelEight"] = "blacksmithing";
+      m["ui_nm_bsmt_pommelPear"] = "blacksmithing";
+      m["ui_nm_bsmt_redGold"] = "blacksmithing";
+      m["ui_nm_bsmt_sharkSkin"] = "blacksmithing";
+      m["ui_nm_bsmt_steelBad"] = "blacksmithing";
+      m["ui_nm_bsmt_steelGood"] = "blacksmithing";
+      m["ui_nm_bsmt_steelNormal"] = "blacksmithing";
+      m["ui_nm_bsmt_steelSpecial"] = "blacksmithing";
+      m["ui_nm_bsmt_syrianAsfalt"] = "blacksmithing";
+      m["ui_nm_bsmt_tinkal"] = "blacksmithing";
+      m["ui_nm_bsmt_woodExotic"] = "blacksmithing";
+      m["ui_nm_budovaniLazni_bathmaidsRoomKey"] = "keys";
+      m["ui_nm_budovaniLazni_hood"] = "common";
+      m["ui_nm_budovaniLazni_mensShirt"] = "common";
+      m["ui_nm_budovaniLazni_miparti"] = "common";
+      m["ui_nm_budovaniLazni_mug"] = "common";
+      m["ui_nm_budovaniLazni_ownersRoomKey"] = "keys";
+      m["ui_nm_budovaniLazni_slippers"] = "common";
+      m["ui_nm_budovaniLazni_womensChemise"] = "common";
+      m["ui_nm_cabbage"] = "vegetables";
+      m["ui_nm_cabbageCooked"] = "cooked";
+      m["ui_nm_caftan01_m01"] = "gambesons";
+      m["ui_nm_caftan02_m01"] = "gambesons";
+      m["ui_nm_caftan03_m01"] = "gambesons";
+      m["ui_nm_caftan04_m01"] = "gambesons";
+      m["ui_nm_caftan05_blk"] = "gambesons";
+      m["ui_nm_caftan05_m01"] = "gambesons";
+      m["ui_nm_cap01_m01"] = "hats";
+      m["ui_nm_cap01_m01|icon:F_Wreath01_m01"] = "coifs";
+      m["ui_nm_cap02_m01"] = "hats";
+      m["ui_nm_cap03_m01"] = "hats";
+      m["ui_nm_cap04_m01"] = "hats";
+      m["ui_nm_cap05_m01"] = "hats";
+      m["ui_nm_cap06_m01"] = "hats";
+      m["ui_nm_cap07_m01"] = "hats";
+      m["ui_nm_cap07_mistvan"] = "hats";
+      m["ui_nm_cap08_m01"] = "hats";
+      m["ui_nm_cap09_m01"] = "hats";
+      m["ui_nm_cap10_m01"] = "hats";
+      m["ui_nm_cap10_m01_mMikus"] = "hats";
+      m["ui_nm_cap11_m01"] = "hats";
+      m["ui_nm_cap12_m01"] = "hats";
+      m["ui_nm_cap12_vagrant"] = "hats";
+      m["ui_nm_cap13_m01"] = "hats";
+      m["ui_nm_cap14_m01"] = "hats";
+      m["ui_nm_cap15_m01"] = "hats";
+      m["ui_nm_cap16_m01"] = "hats";
+      m["ui_nm_cap17_m01"] = "hats";
+      m["ui_nm_cap18_m01"] = "hats";
+      m["ui_nm_cap19_m01"] = "hats";
+      m["ui_nm_cap19_pick"] = "hats";
+      m["ui_nm_cap20_m01"] = "hats";
+      m["ui_nm_cap21_m01"] = "hats";
+      m["ui_nm_cap21_thief"] = "hats";
+      m["ui_nm_cap22_m01"] = "hats";
+      m["ui_nm_cap23_m01"] = "hats";
+      m["ui_nm_cap24_m01"] = "hats";
+   }
+   static function BuildHeaderMap2()
+   {
+      var m = HEADER_MAP;
+      m["ui_nm_cap24_mkarlik"] = "hats";
+      m["ui_nm_cap25_m01"] = "hats";
+      m["ui_nm_cap26_m01"] = "hats";
+      m["ui_nm_cap27_m01"] = "hats";
+      m["ui_nm_cap28_m01"] = "hats";
+      m["ui_nm_cap29_m01"] = "hats";
+      m["ui_nm_cap30_m01"] = "hats";
+      m["ui_nm_cap31_m01"] = "hats";
+      m["ui_nm_cap32_m01"] = "hats";
+      m["ui_nm_cap33_courtier"] = "hats";
+      m["ui_nm_cap33_m01"] = "hats";
+      m["ui_nm_cap34_m01"] = "hats";
+      m["ui_nm_capIstvan_m01_poi"] = "hats";
+      m["ui_nm_cap_huntsman"] = "hats";
+      m["ui_nm_cap_kafka"] = "hats";
+      m["ui_nm_caparison01_Brunswig"] = "caparisons";
+      m["ui_nm_caparison01_m01"] = "caparisons";
+      m["ui_nm_caparison02_m01"] = "caparisons";
+      m["ui_nm_caparison02_teuton"] = "caparisons";
+      m["ui_nm_caparison03_Leipa"] = "caparisons";
+      m["ui_nm_caparison03_Ruthard"] = "caparisons";
+      m["ui_nm_caparison03_Semin"] = "caparisons";
+      m["ui_nm_caparison03_m01"] = "caparisons";
+      m["ui_nm_caparison04_m01"] = "caparisons";
+      m["ui_nm_caparison05_m01"] = "caparisons";
+      m["ui_nm_caparison_pros"] = "caparisons";
+      m["ui_nm_capchamberlain_m01"] = "hats";
+      m["ui_nm_caponLongSword"] = "longsword";
+      m["ui_nm_cappainter_m01"] = "hats";
+      m["ui_nm_carrot"] = "vegetables";
+      m["ui_nm_carrotCooked"] = "cooked";
+      m["ui_nm_certiNaTroskach_water"] = "common";
+      m["ui_nm_cheeseQuarter"] = "dairy";
+      m["ui_nm_cheeseQuarterDried"] = "dried";
+      m["ui_nm_cheeseQuarterSmoked"] = "smoked";
+      m["ui_nm_cheesecake"] = "baked";
+      m["ui_nm_chicken"] = "rawmeat";
+      m["ui_nm_chickenCooked"] = "cooked";
+      m["ui_nm_chickenDried"] = "dried";
+      m["ui_nm_chickenSmoked"] = "smoked";
+      m["ui_nm_chickenThigh"] = "cooked";
+      m["ui_nm_churchDonations_eggsBasket"] = "common";
+      m["ui_nm_cisnicky_katata"] = "hose";
+      m["ui_nm_coat01_m01"] = "outerwear";
+      m["ui_nm_coat02_m01"] = "outerwear";
+      m["ui_nm_coat02_m02"] = "outerwear";
+      m["ui_nm_coat02_m02_teuton"] = "outerwear";
+      m["ui_nm_coat02_teutonTau"] = "outerwear";
+      m["ui_nm_coat02_vagrant"] = "outerwear";
+      m["ui_nm_coat03_m01"] = "outerwear";
+      m["ui_nm_coat04_m01"] = "outerwear";
+      m["ui_nm_coat04_m02"] = "outerwear";
+      m["ui_nm_coat04_m02_prague"] = "outerwear";
+      m["ui_nm_coat05_m01"] = "outerwear";
+      m["ui_nm_coat05_thieg"] = "outerwear";
+      m["ui_nm_coat06_coatJimbo"] = "outerwear";
+      m["ui_nm_coat06_m01"] = "outerwear";
+      m["ui_nm_coat07_m01"] = "outerwear";
+      m["ui_nm_coat08_courtier"] = "outerwear";
+      m["ui_nm_coat08_m01"] = "outerwear";
+      m["ui_nm_coat10_m01"] = "outerwear";
+      m["ui_nm_coat11_m01"] = "outerwear";
+      m["ui_nm_coat11_m02"] = "outerwear";
+      m["ui_nm_coat12_m01"] = "outerwear";
+      m["ui_nm_coat13_m01"] = "outerwear";
+      m["ui_nm_coat_huntsman"] = "outerwear";
+      m["ui_nm_coat_patron"] = "outerwear";
+      m["ui_nm_coifcap01_m01"] = "coifs";
+      m["ui_nm_coiflarge01_blk"] = "coifs";
+      m["ui_nm_coiflarge01_m01"] = "coifs";
+      m["ui_nm_coiflarge02_blk"] = "coifs";
+      m["ui_nm_coiflarge02_m01"] = "coifs";
+      m["ui_nm_coifmail01_m01"] = "coifs";
+      m["ui_nm_coifmail01_m01_Brunswig"] = "coifs";
+      m["ui_nm_coifmail01_m01|icon:trafficCone"] = "hoods";
+      m["ui_nm_coifmail02_m01"] = "coifs";
+      m["ui_nm_coifsmall01_blk"] = "coifs";
+      m["ui_nm_coifsmall01_m01"] = "coifs";
+      m["ui_nm_coifsmall02_m01"] = "coifs";
+      m["ui_nm_coifsmall02_vagrant"] = "coifs";
+      m["ui_nm_coifsmall03_blk"] = "coifs";
+      m["ui_nm_coifsmall03_m01"] = "coifs";
+      m["ui_nm_collarchain01_m01"] = "collars";
+      m["ui_nm_collarchain02_m01"] = "collars";
+      m["ui_nm_collarpadded01_m01"] = "collars";
+      m["ui_nm_common_eatingFork"] = "common";
+      m["ui_nm_common_eatingKnife"] = "common";
+      m["ui_nm_common_horseRegistryExcerpt"] = "letters";
+      m["ui_nm_common_humanBone"] = "common";
+      m["ui_nm_common_humanSkull"] = "common";
+      m["ui_nm_common_megicShop_sackOfHolyNails"] = "common";
+      m["ui_nm_common_needle"] = "common";
+      m["ui_nm_common_oldHorseshoe"] = "common";
+      m["ui_nm_common_ruinedPickaxe"] = "common";
+      m["ui_nm_common_rustyAxe"] = "common";
+      m["ui_nm_common_rustyShackles"] = "common";
+      m["ui_nm_common_sackOfNails"] = "common";
+      m["ui_nm_cowKidney"] = "rawmeat";
+      m["ui_nm_cowKidneyCooked"] = "cooked";
+      m["ui_nm_cowTongue"] = "rawmeat";
+      m["ui_nm_cowTongueCooked"] = "cooked";
+      m["ui_nm_cracklings"] = "rawmeat";
+      m["ui_nm_crayfish"] = "rawfish";
+      m["ui_nm_crayfishBlue"] = "rawfish";
+      m["ui_nm_crayfishBlueCooked"] = "cooked";
+      m["ui_nm_crayfishCooked"] = "cooked";
+      m["ui_nm_cream"] = "dairy";
+      m["ui_nm_crossbowHeavyCheap01"] = "crossbow";
+      m["ui_nm_crossbowHeavyNormal01"] = "crossbow";
+      m["ui_nm_crossbowLightArtemis"] = "crossbow";
+      m["ui_nm_crossbowLightCheap01"] = "crossbow";
+      m["ui_nm_crossbowLightFancy01"] = "crossbow";
+      m["ui_nm_crossbowLightNormal01"] = "crossbow";
+      m["ui_nm_crossbowMediumCheap01"] = "crossbow";
+      m["ui_nm_crossbowMediumFancy01"] = "crossbow";
+      m["ui_nm_crossbowMediumNormal01"] = "crossbow";
+      m["ui_nm_cuirass01_blk"] = "plate";
+      m["ui_nm_cuirass01_m01"] = "plate";
+      m["ui_nm_cuirass02_m01"] = "plate";
+      m["ui_nm_cuirass03_m01"] = "plate";
+      m["ui_nm_cuirass04_blk"] = "plate";
+      m["ui_nm_cuirass04_m01"] = "plate";
+      m["ui_nm_cuirass05_blk"] = "plate";
+      m["ui_nm_cuirass05_m01"] = "plate";
+      m["ui_nm_cuirass06_blk"] = "plate";
+      m["ui_nm_cuirass06_m01"] = "plate";
+      m["ui_nm_cuirass07_DLC2"] = "plate";
+      m["ui_nm_cuirass07_m01"] = "plate";
+      m["ui_nm_cuirass08_m01"] = "plate";
+      m["ui_nm_cuirass08_m01_Brunswig"] = "plate";
+      m["ui_nm_cuirass09"] = "plate";
+      m["ui_nm_cuirass09_m01"] = "plate";
+      m["ui_nm_cuirass10_DLC2"] = "plate";
+      m["ui_nm_cuman_bow_a"] = "bow";
+      m["ui_nm_cuman_bow_a_a"] = "bow";
+      m["ui_nm_cuman_bow_a_b"] = "bow";
+      m["ui_nm_cuman_bow_b"] = "bow";
+      m["ui_nm_cumanchanfron01_m01"] = "chanfrons";
+      m["ui_nm_curdcheese"] = "dairy";
+      m["ui_nm_daggerAncient"] = "dagger";
+      m["ui_nm_daggerBruncvik"] = "dagger";
+      m["ui_nm_daggerCommon"] = "dagger";
+      m["ui_nm_damaVNesnazich_goldenRing"] = "common";
+      m["ui_nm_deerFlank"] = "rawmeat";
+      m["ui_nm_deerFlankCooked"] = "cooked";
+      m["ui_nm_deerFlankDried"] = "dried";
+      m["ui_nm_deerFlankSmoked"] = "smoked";
+      m["ui_nm_deerHeart"] = "rawmeat";
+      m["ui_nm_deerHeartCooked"] = "cooked";
+      m["ui_nm_deerMeat"] = "rawmeat";
+      m["ui_nm_deerMeatCooked"] = "cooked";
+      m["ui_nm_deerMeatDried"] = "dried";
+      m["ui_nm_deerMeatSmoked"] = "smoked";
+      m["ui_nm_deerRump"] = "rawmeat";
+      m["ui_nm_deerRumpCooked"] = "cooked";
+      m["ui_nm_deerRumpDried"] = "dried";
+      m["ui_nm_deerRumpSmoked"] = "smoked";
+      m["ui_nm_dieAdversity"] = "dice";
+      m["ui_nm_dieBalanced"] = "dice";
+      m["ui_nm_dieBalatro"] = "dice";
+      m["ui_nm_dieBlue"] = "dice";
+      m["ui_nm_dieCursed"] = "dice";
+      m["ui_nm_dieDevil"] = "dice";
+      m["ui_nm_dieEven"] = "dice";
+      m["ui_nm_dieFavourable"] = "dice";
+      m["ui_nm_dieHolyTrinity"] = "dice";
+      m["ui_nm_dieKingdomCome"] = "dice";
+      m["ui_nm_dieLucky"] = "dice";
+      m["ui_nm_dieNormal"] = "dice";
+      m["ui_nm_dieOdd"] = "dice";
+      m["ui_nm_dieSkull"] = "dice";
+      m["ui_nm_dieStripping"] = "dice";
+      m["ui_nm_dieTeeth_a"] = "dice";
+      m["ui_nm_dieTeeth_b"] = "dice";
+      m["ui_nm_dieTeeth_c"] = "dice";
+      m["ui_nm_dieTest"] = "dice";
+      m["ui_nm_dieUnbalanced"] = "dice";
+      m["ui_nm_dieUnlucky"] = "dice";
+      m["ui_nm_die_Ci"] = "dice";
+      m["ui_nm_die_Lu"] = "dice";
+      m["ui_nm_die_Tengri"] = "dice";
+      m["ui_nm_die_antiocha"] = "dice";
+      m["ui_nm_die_gamblerova_bad"] = "dice";
+      m["ui_nm_die_gamblerova_good"] = "dice";
+      m["ui_nm_die_kolacova"] = "dice";
+      m["ui_nm_die_kralova"] = "dice";
+      m["ui_nm_die_matematikova"] = "dice";
+      m["ui_nm_die_sarlatan"] = "dice";
+      m["ui_nm_die_vozkova"] = "dice";
+      m["ui_nm_dlc2MalirZlodejske_colors"] = "common";
+      m["ui_nm_dlc2_Cernokneznik_IronHoop"] = "common";
+      m["ui_nm_dlc2_Cernokneznik_alchemystMaterialArabianGum"] = "common";
+      m["ui_nm_dlc2_Cernokneznik_alchemystMaterialAsfalt"] = "common";
+      m["ui_nm_dlc2_Cernokneznik_alchemystMaterialKalafuna"] = "common";
+      m["ui_nm_dlc2_Cernokneznik_alchemystMaterialMastix"] = "common";
+      m["ui_nm_dlc2_Cernokneznik_alchemystMaterialQuickSilver"] = "common";
+      m["ui_nm_dlc2_armourerPlan01"] = "plans";
+      m["ui_nm_dlc2_armourerPlan02"] = "plans";
+      m["ui_nm_dlc2_armourerPlan03"] = "plans";
+      m["ui_nm_dlc2_armourerPlan04"] = "plans";
+      m["ui_nm_dlc2_armourerPlan05"] = "plans";
+      m["ui_nm_dlc2_baladaZhadru_HadrarContract"] = "letters";
+      m["ui_nm_dlc2_baladaZhadru_HadrarLetter"] = "letters";
+      m["ui_nm_dlc2_brokenIronRod"] = "blacksmithing";
+      m["ui_nm_dlc2_denouncementBrada"] = "letters";
+      m["ui_nm_dlc2_foundryManPlan01"] = "plans";
+      m["ui_nm_dlc2_foundryManPlan02"] = "plans";
+      m["ui_nm_dlc2_foundryManPlan03"] = "plans";
+      m["ui_nm_dlc2_guildLoreBook_statutaKovarska"] = "books";
+      m["ui_nm_dlc2_hrisniLide_correctDocument"] = "letters";
+      m["ui_nm_dlc2_hrisniLide_correctDocument_nonQuest"] = "letters";
+      m["ui_nm_dlc2_hrisniLide_hadrarDocument"] = "letters";
+      m["ui_nm_dlc2_hrisniLide_hadrarDocument_nonQuest"] = "letters";
+      m["ui_nm_dlc2_hrisniLide_incorrectDocument"] = "letters";
+      m["ui_nm_dlc2_hrisniLide_incorrectDocument_nonQuest"] = "letters";
+      m["ui_nm_dlc2_hrisniLide_latinDictionary"] = "books";
+      m["ui_nm_dlc2_koniasLetter"] = "letters";
+      m["ui_nm_dlc2_masterStampRing"] = "common";
+      m["ui_nm_dlc2_mrtvyNemluvi_ancaRing"] = "common";
+      m["ui_nm_dlc2_mrtvyNemluvi_anonymLetter"] = "letters";
+      m["ui_nm_dlc2_mrtvyNemluvi_mapStash"] = "maps";
+      m["ui_nm_dlc2_posledniBereVse_dukaz"] = "common";
+      m["ui_nm_dlc2_posledniBereVse_letterHradecky"] = "letters";
+      m["ui_nm_dlc2_sirotciDedictvi"] = "common";
+      m["ui_nm_dlc2_transmise_repairIronRod"] = "common";
+      m["ui_nm_dlc2_zasilkyGenericke_guildSeal01"] = "common";
+      m["ui_nm_dlc2_zasilkyGenericke_guildSeal02"] = "common";
+      m["ui_nm_dlc2_zasilkyGenericke_guildStamp01"] = "common";
+      m["ui_nm_dlc2_zasilkyGenericke_journeymanPaper"] = "common";
+      m["ui_nm_dlc2_zasilkyGenericke_letter01"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_apprenticeProperty"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_blackMarket"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_brideCaducum"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_inscriptionBox"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_maidsProperty"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_minersPapers"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_orphanProperty"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_rogueTreasure"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_saintThief"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_valuableEvidence"] = "common";
+      m["ui_nm_dlc2_zlodejskeZakazky_widowParchment"] = "common";
+      m["ui_nm_dlc2cernokneznik_bookSecretText"] = "books";
+      m["ui_nm_dlc2cernokneznik_letterCipher"] = "letters";
+      m["ui_nm_dlc2zasilkyIniciace_guildPapers"] = "common";
+      m["ui_nm_dlc2zasilkyIniciace_guildPapers02"] = "common";
+      m["ui_nm_dlc3_beer"] = "beer";
+      m["ui_nm_dlc3_lorebook_raciKucharka"] = "books";
+      m["ui_nm_dlc3_wineMonastic"] = "wine";
+      m["ui_nm_dlc3_wineSecret"] = "wine";
+      m["ui_nm_dlc3_wineZdik"] = "wine";
+   }
+   static function BuildHeaderMap3()
+   {
+      var m = HEADER_MAP;
+      m["ui_nm_dlc3_zasobovani_spectacles_cellarius"] = "spectacles";
+      m["ui_nm_dlc3_zasobovani_supplies"] = "common";
+      m["ui_nm_dogMeat"] = "rawmeat";
+      m["ui_nm_dogMeatCooked"] = "cooked";
+      m["ui_nm_dogMeatDried"] = "dried";
+      m["ui_nm_dogMeatSmoked"] = "smoked";
+      m["ui_nm_drak_dragonBone1"] = "common";
+      m["ui_nm_drak_dragonBone2"] = "common";
+      m["ui_nm_drak_dragonBone3"] = "common";
+      m["ui_nm_drak_letterForAbbot"] = "common";
+      m["ui_nm_driedCinnamonSpice"] = "spices";
+      m["ui_nm_driedClovesSpice"] = "spices";
+      m["ui_nm_driedNutmegSpice"] = "spices";
+      m["ui_nm_duck"] = "cooked";
+      m["ui_nm_duels_blackKnightSabre"] = "sabre";
+      m["ui_nm_dvojityAgent_janovaListina"] = "common";
+      m["ui_nm_dvojityAgent_petrsCuirass"] = "plate";
+      m["ui_nm_dvojityAgent_petrsShield"] = "shield";
+      m["ui_nm_e01_LostAndFound_Tunic"] = "shirts";
+      m["ui_nm_eastbridle02_m01"] = "bridles";
+      m["ui_nm_easteregg_oldSpindle"] = "common";
+      m["ui_nm_eastsaddle01_m01"] = "saddles";
+      m["ui_nm_eastsaddle02_m01"] = "saddles";
+      m["ui_nm_egg"] = "dairy";
+      m["ui_nm_eggHardboiled"] = "cooked";
+      m["ui_nm_estragonSpice"] = "spices";
+      m["ui_nm_eventKamenec"] = "common";
+      m["ui_nm_eyepatchZizka"] = "necklaces";
+      m["ui_nm_f_bonnet01_m01"] = "womens";
+      m["ui_nm_f_bonnet02_m01"] = "womens";
+      m["ui_nm_f_bonnet03_m01"] = "womens";
+      m["ui_nm_f_bonnet04_m01"] = "womens";
+      m["ui_nm_f_cotehardie01_m01"] = "womens";
+      m["ui_nm_f_hairdecor_m01"] = "womens";
+      m["ui_nm_f_hairdecor_m02"] = "womens";
+      m["ui_nm_f_hairdecor_m03"] = "womens";
+      m["ui_nm_f_hairdecor_m04"] = "womens";
+      m["ui_nm_f_hood01_m01"] = "womens";
+      m["ui_nm_f_shoes01_m01"] = "womens";
+      m["ui_nm_f_shoes02_m01"] = "womens";
+      m["ui_nm_f_simple_dress03_m01"] = "womens";
+      m["ui_nm_f_simple_dress04_m01"] = "womens";
+      m["ui_nm_f_simple_dress06_m01"] = "womens";
+      m["ui_nm_f_simpledress01_m01"] = "womens";
+      m["ui_nm_f_simpledress05_m01"] = "womens";
+      m["ui_nm_f_simpledress05_m04"] = "womens";
+      m["ui_nm_f_simpledress07_m01"] = "womens";
+      m["ui_nm_f_simpledresskatherine_m01"] = "womens";
+      m["ui_nm_f_simpledressrose_m01"] = "womens";
+      m["ui_nm_f_veil01_m01"] = "womens";
+      m["ui_nm_f_veil02_m01"] = "womens";
+      m["ui_nm_f_veil03_m01"] = "womens";
+      m["ui_nm_f_veil04_m01"] = "womens";
+      m["ui_nm_f_veil05_m01"] = "womens";
+      m["ui_nm_f_veil06_m01"] = "womens";
+      m["ui_nm_f_wreath01_m01"] = "womens";
+      m["ui_nm_falesnaPosadka_safeConduct"] = "letters";
+      m["ui_nm_finale_hanusLongsword"] = "longsword";
+      m["ui_nm_gambesonlong01_blk"] = "gambesons";
+      m["ui_nm_gambesonlong01_m01"] = "gambesons";
+      m["ui_nm_gambesonlong01_m02"] = "gambesons";
+      m["ui_nm_gambesonlong01_m03"] = "gambesons";
+      m["ui_nm_gambesonlong01_m04"] = "gambesons";
+      m["ui_nm_gambesonlong01_m05"] = "gambesons";
+      m["ui_nm_gambesonlong01_m06"] = "gambesons";
+      m["ui_nm_gambesonlong01_m07"] = "gambesons";
+      m["ui_nm_gambesonlong01_m08"] = "gambesons";
+      m["ui_nm_gambesonlong01_m09"] = "gambesons";
+      m["ui_nm_gambesonlong01_m10"] = "gambesons";
+      m["ui_nm_gambesonlong01_m11"] = "gambesons";
+      m["ui_nm_gambesonlong01_m12"] = "gambesons";
+      m["ui_nm_gambesonlong01_m13"] = "gambesons";
+      m["ui_nm_gambesonlong01_mdrowner"] = "gambesons";
+      m["ui_nm_gambesonlong03_blk"] = "gambesons";
+      m["ui_nm_gambesonlong03_m01"] = "gambesons";
+      m["ui_nm_gambesonlong03_merik"] = "gambesons";
+      m["ui_nm_gambesonlong03_twitch"] = "gambesons";
+      m["ui_nm_gambesonlong04_m01"] = "gambesons";
+      m["ui_nm_gambesonlong04_twitch"] = "gambesons";
+      m["ui_nm_gambesonlongcapon_m01"] = "gambesons";
+      m["ui_nm_gambesonlonggodwin_m01"] = "gambesons";
+      m["ui_nm_gambesonshort01_m01"] = "gambesons";
+      m["ui_nm_gambesonshort01_m02"] = "gambesons";
+      m["ui_nm_gambesonshort01_m03"] = "gambesons";
+      m["ui_nm_gambesonshort01_m04"] = "gambesons";
+      m["ui_nm_gambesonshort01_m05_C"] = "gambesons";
+      m["ui_nm_gambesonshort01_m06_C"] = "gambesons";
+      m["ui_nm_gambesonshort01_m07_C"] = "gambesons";
+      m["ui_nm_gambesonshort01_m08_C"] = "gambesons";
+      m["ui_nm_gambesonshort01_m09"] = "gambesons";
+      m["ui_nm_gambesonshort01_m10_C"] = "gambesons";
+      m["ui_nm_gambesonshort02_m01"] = "gambesons";
+      m["ui_nm_gambesonshort02_m02"] = "gambesons";
+      m["ui_nm_gambesonshort02_m03"] = "gambesons";
+      m["ui_nm_gambesonshort02_vagrant"] = "gambesons";
+      m["ui_nm_gambesonshort03_blk"] = "gambesons";
+      m["ui_nm_gambesonshort03_m01"] = "gambesons";
+      m["ui_nm_gambesonshort04_m01"] = "gambesons";
+      m["ui_nm_gambesonshort04_m02"] = "gambesons";
+      m["ui_nm_gambesonshort04_m03"] = "gambesons";
+      m["ui_nm_gambesonshort04_m04"] = "gambesons";
+      m["ui_nm_gambesonshort04_raub"] = "gambesons";
+      m["ui_nm_garlic"] = "vegetables";
+      m["ui_nm_garlicCooked"] = "cooked";
+      m["ui_nm_gauntlets01_m01"] = "gloves";
+      m["ui_nm_gauntlets02_m01"] = "gloves";
+      m["ui_nm_gauntlets03_m01"] = "gloves";
+      m["ui_nm_gauntlets04_m01"] = "gloves";
+      m["ui_nm_gauntlets05_m01"] = "gloves";
+      m["ui_nm_gauntlets08_m01"] = "gloves";
+      m["ui_nm_gauntlets08_m01_Brunswig"] = "gloves";
+      m["ui_nm_gauntlets_twitch"] = "gloves";
+      m["ui_nm_gloves01_m01"] = "gloves";
+      m["ui_nm_gloves01_pick"] = "gloves";
+      m["ui_nm_gloves02_m01"] = "gloves";
+      m["ui_nm_gloves02_mdrowner"] = "gloves";
+      m["ui_nm_gloves05_m01"] = "gloves";
+      m["ui_nm_gloves05_thief"] = "gloves";
+      m["ui_nm_gloves06_m01"] = "gloves";
+      m["ui_nm_gloves06_mlegate"] = "gloves";
+      m["ui_nm_gloves_huntsman"] = "gloves";
+      m["ui_nm_gloves_twitch"] = "gloves";
+      m["ui_nm_godwin_stuff"] = "common";
+      m["ui_nm_griddlecake"] = "baked";
+      m["ui_nm_griddlecakeRomani"] = "baked";
+      m["ui_nm_habit01_m01"] = "outerwear";
+      m["ui_nm_habit01_m02"] = "outerwear";
+      m["ui_nm_habitlegate_m01"] = "outerwear";
+      m["ui_nm_hadkaKonaru_archeryTracks"] = "maps";
+      m["ui_nm_hadkaKonaru_crossCountryChestKey"] = "keys";
+      m["ui_nm_hadkaKonaru_kumis"] = "dairy";
+      m["ui_nm_hadkaKonaru_mixtureOfTengri"] = "common";
+      m["ui_nm_hadkaKonaru_mountedArcheryChestKey"] = "keys";
+      m["ui_nm_hadkaKonaru_sackOfCowrie"] = "common";
+      m["ui_nm_hadkaKonaru_sackOfRibbons"] = "common";
+      m["ui_nm_handgonneFancy01"] = "handgonne";
+      m["ui_nm_handgonneNormal01"] = "handgonne";
+      m["ui_nm_handwrap"] = "gloves";
+      m["ui_nm_hat_legate"] = "hats";
+      m["ui_nm_havirskyTurnajMediumCrossbow"] = "crossbow";
+      m["ui_nm_henrySword"] = "longsword";
+      m["ui_nm_henrySword_reforged"] = "longsword";
+      m["ui_nm_herb_belladona"] = "herbs";
+      m["ui_nm_herb_chamomile"] = "herbs";
+      m["ui_nm_herb_comfrey"] = "herbs";
+      m["ui_nm_herb_dandelion"] = "herbs";
+      m["ui_nm_herb_dried_belladona"] = "driedherbs";
+      m["ui_nm_herb_dried_chamomile"] = "driedherbs";
+      m["ui_nm_herb_dried_comfrey"] = "driedherbs";
+      m["ui_nm_herb_dried_dandelion"] = "driedherbs";
+      m["ui_nm_herb_dried_eyewort"] = "driedherbs";
+      m["ui_nm_herb_dried_hypericum"] = "driedherbs";
+      m["ui_nm_herb_dried_marigold"] = "driedherbs";
+      m["ui_nm_herb_dried_mint"] = "driedherbs";
+      m["ui_nm_herb_dried_nightshade"] = "driedherbs";
+      m["ui_nm_herb_dried_paris"] = "driedherbs";
+      m["ui_nm_herb_dried_poppy"] = "driedherbs";
+      m["ui_nm_herb_dried_salvia"] = "driedherbs";
+      m["ui_nm_herb_dried_tanacetum"] = "driedherbs";
+      m["ui_nm_herb_dried_thistle"] = "driedherbs";
+      m["ui_nm_herb_dried_urticaria"] = "driedherbs";
+      m["ui_nm_herb_dried_valerian"] = "driedherbs";
+      m["ui_nm_herb_dried_wormwood"] = "driedherbs";
+      m["ui_nm_herb_elderberry"] = "herbs";
+      m["ui_nm_herb_eyewort"] = "herbs";
+      m["ui_nm_herb_ginger"] = "herbs";
+      m["ui_nm_herb_hypericum"] = "herbs";
+      m["ui_nm_herb_marigold"] = "herbs";
+      m["ui_nm_herb_mint"] = "herbs";
+      m["ui_nm_herb_nightshade"] = "herbs";
+      m["ui_nm_herb_paris"] = "herbs";
+      m["ui_nm_herb_poppy"] = "herbs";
+      m["ui_nm_herb_salvia"] = "herbs";
+      m["ui_nm_herb_tanacetum"] = "herbs";
+      m["ui_nm_herb_thistle"] = "herbs";
+      m["ui_nm_herb_urticaria"] = "herbs";
+      m["ui_nm_herb_valerian"] = "herbs";
+      m["ui_nm_herb_weed"] = "herbs";
+      m["ui_nm_herb_wormwood"] = "herbs";
+      m["ui_nm_herring"] = "rawmeat";
+      m["ui_nm_hladAZmar_frenclovaChestKey"] = "keys";
+      m["ui_nm_hladAZmar_lambskinShoes"] = "common";
+      m["ui_nm_hladAZmar_loyalFriendSoup"] = "rawmeat";
+      m["ui_nm_hladAZmar_shoeSoup"] = "rawmeat";
+      m["ui_nm_hladAZmar_strayDogSoup"] = "rawmeat";
+      m["ui_nm_hledaniLichtenstejna_marisCocktail"] = "potion_special";
+      m["ui_nm_honey"] = "spices";
+      m["ui_nm_hood01_m01"] = "hoods";
+      m["ui_nm_hood01_mMonks"] = "hoods";
+      m["ui_nm_hood01_vagrant"] = "hoods";
+      m["ui_nm_hood02_court"] = "hoods";
+      m["ui_nm_hood02_m01"] = "hoods";
+      m["ui_nm_hood03_m01"] = "hoods";
+      m["ui_nm_hood04_m01"] = "hoods";
+      m["ui_nm_hood05_m01"] = "hoods";
+      m["ui_nm_hood06_m01"] = "hoods";
+      m["ui_nm_hood07_m01"] = "hoods";
+      m["ui_nm_hood07_pick"] = "hoods";
+      m["ui_nm_hood08_m01"] = "hoods";
+      m["ui_nm_hood08_mdrowner"] = "hoods";
+      m["ui_nm_hood08_mmushrooms"] = "hoods";
+      m["ui_nm_hood09_m01"] = "hoods";
+      m["ui_nm_hood09_mKrizovnik"] = "hoods";
+      m["ui_nm_hood09_mMonks"] = "hoods";
+      m["ui_nm_hood09_thief"] = "hoods";
+      m["ui_nm_hood11_m01"] = "hoods";
+      m["ui_nm_hood11_mMonks"] = "hoods";
+      m["ui_nm_hood11_teuton"] = "hoods";
+      m["ui_nm_hood12_m01"] = "hoods";
+      m["ui_nm_hoodAbbot"] = "hoods";
+      m["ui_nm_hood_huntsman"] = "hoods";
+      m["ui_nm_hood_twitch"] = "hoods";
+      m["ui_nm_hoodcapon_m01"] = "hoods";
+      m["ui_nm_hoodgodwin_m01"] = "hoods";
+      m["ui_nm_hoodlegate"] = "hoods";
+      m["ui_nm_hoodrabi"] = "hoods";
+      m["ui_nm_hoodsemine"] = "hoods";
+      m["ui_nm_hoodsigi"] = "hoods";
+      m["ui_nm_hookgunFancy01"] = "handgonne";
+      m["ui_nm_hookgunNormal01"] = "handgonne";
+      m["ui_nm_hookgunPushek"] = "handgonne";
+      m["ui_nm_horseMeat"] = "rawmeat";
+      m["ui_nm_horseMeatCooked"] = "cooked";
+      m["ui_nm_horseMeatDried"] = "dried";
+      m["ui_nm_horseMeatSmoked"] = "smoked";
+      m["ui_nm_horseTrading_cheapBridle"] = "bridles";
+      m["ui_nm_horseTrading_cheapSaddle"] = "saddles";
+      m["ui_nm_horseradish"] = "vegetables";
+      m["ui_nm_horseradishCooked"] = "cooked";
+      m["ui_nm_horseshoeFarmer"] = "horseshoes";
+      m["ui_nm_horseshoeMilitary"] = "horseshoes";
+      m["ui_nm_horseshoeNoble"] = "horseshoes";
+      m["ui_nm_horseshoeNomad"] = "horseshoes";
+      m["ui_nm_horseshoeRacing"] = "horseshoes";
+      m["ui_nm_horseshoeSpecial_phantomHorse"] = "horseshoes";
+      m["ui_nm_hosejoine_hunter"] = "hose";
+      m["ui_nm_hosejoined01_m01"] = "hose";
+      m["ui_nm_hosejoined01_mdrowner"] = "hose";
+      m["ui_nm_hosejoined01_thief"] = "hose";
+      m["ui_nm_hosejoined02_courtier"] = "hose";
+      m["ui_nm_hosejoined02_m01"] = "hose";
+      m["ui_nm_hosejoined02_m02"] = "hose";
+      m["ui_nm_hosejoined02_mlegate"] = "hose";
+      m["ui_nm_hosejoined_twitch"] = "hose";
+      m["ui_nm_hoseloose01_m01"] = "hose";
+      m["ui_nm_hoseseparate01_m01"] = "hose";
+      m["ui_nm_hoseseparate01_m02"] = "hose";
+      m["ui_nm_hoseseparate01_vagrant"] = "hose";
+      m["ui_nm_hoseseparate04_m01"] = "hose";
+      m["ui_nm_hoseseparate04_pick"] = "hose";
+   }
+   static function BuildHeaderMap4()
+   {
+      var m = HEADER_MAP;
+      m["ui_nm_hoseseparate05_m01"] = "hose";
+      m["ui_nm_hostinaProChude_sigismundsWine"] = "wine";
+      m["ui_nm_hromovyKamen_exposedFakeThunderstone"] = "common";
+      m["ui_nm_hromovyKamen_fakeThunderstone"] = "common";
+      m["ui_nm_hromovyKamen_ramsHead"] = "mace";
+      m["ui_nm_hromovyKamen_thunderstone"] = "common";
+      m["ui_nm_huntingSwordBasic"] = "huntingsword";
+      m["ui_nm_huntingSwordFalchion"] = "huntingsword";
+      m["ui_nm_huntingSwordGuard"] = "huntingsword";
+      m["ui_nm_huntingSwordMussle"] = "huntingsword";
+      m["ui_nm_huntingSwordSashka"] = "huntingsword";
+      m["ui_nm_huntingSwordSword"] = "huntingsword";
+      m["ui_nm_hunting_map_suchdol"] = "maps";
+      m["ui_nm_jewishBread"] = "baked";
+      m["ui_nm_kejkliri_lute"] = "common";
+      m["ui_nm_kejkliri_luteStrings"] = "common";
+      m["ui_nm_kejkliri_poeticIntestine"] = "common";
+      m["ui_nm_kejkliri_sackcarryable"] = "common";
+      m["ui_nm_kettlehat01_blk"] = "helmets";
+      m["ui_nm_kettlehat01_m01"] = "helmets";
+      m["ui_nm_kettlehat02_m01"] = "helmets";
+      m["ui_nm_kettlehat03_m01"] = "helmets";
+      m["ui_nm_kettlehat04_blk"] = "helmets";
+      m["ui_nm_kettlehat04_m01"] = "helmets";
+      m["ui_nm_kettlehat05_blk"] = "helmets";
+      m["ui_nm_kettlehat05_m01"] = "helmets";
+      m["ui_nm_kettlehat06_m01"] = "helmets";
+      m["ui_nm_kettlehat07_m01"] = "helmets";
+      m["ui_nm_keyname_home"] = "keys";
+      m["ui_nm_keyname_shop"] = "keys";
+      m["ui_nm_keyring"] = "keys";
+      m["ui_nm_kielbasaSmoked"] = "smoked";
+      m["ui_nm_klaster_haystackNeedle"] = "common";
+      m["ui_nm_klasterniTajemstvi_casperWine"] = "wine";
+      m["ui_nm_klasterniTajemstvi_casperWine_bad"] = "wine";
+      m["ui_nm_klasterniTajemstvi_havelAccounts"] = "books";
+      m["ui_nm_klasterniTajemstvi_sackcarryable"] = "common";
+      m["ui_nm_klasterniTajemstvi_sulphurWick"] = "common";
+      m["ui_nm_klasterniTajemstvi_vineyardCellarKey"] = "keys";
+      m["ui_nm_klasterniTajemstvi_wineEncyclopedia"] = "books";
+      m["ui_nm_klasterniTajemstvi_wineSprout"] = "vegetables";
+      m["ui_nm_kocovnickaCest_horsePotion"] = "poisons";
+      m["ui_nm_kocovnickaCest_safeConduct"] = "letters";
+      m["ui_nm_kocovnickaCest_sleepingPotion"] = "poisons";
+      m["ui_nm_kocovnickaCest_tiborsPrisonDoors"] = "keys";
+      m["ui_nm_konecZabomysichValek_borderPeg"] = "common";
+      m["ui_nm_korenarkaZachrana_jakesCompensation"] = "common";
+      m["ui_nm_korenarkaZachrana_killerStone"] = "common";
+      m["ui_nm_korenarkaZachrana_pavelnasNecklace"] = "necklaces";
+      m["ui_nm_kovaniAsiDoVezi_commemorativeCoin"] = "blacksmithing";
+      m["ui_nm_kovaniAsiDoVezi_foundHorseshoe"] = "blacksmithing";
+      m["ui_nm_kovaniAsiDoVezi_holyNail"] = "blacksmithing";
+      m["ui_nm_kovaniAsiDoVezi_protectiveAxe"] = "axe";
+      m["ui_nm_kovaniKatuvSleh_executionersSword"] = "longsword";
+      m["ui_nm_kovaniKatuvSleh_fakeGamblerNoose"] = "hoods";
+      m["ui_nm_kovaniKatuvSleh_magicHorseshoe"] = "horseshoes";
+      m["ui_nm_kovaniKopie_absolver"] = "longsword";
+      m["ui_nm_kovaniKopie_penitent"] = "longsword";
+      m["ui_nm_kovaniKovarskaSoutez_huntingKnifeApprentice"] = "huntingsword";
+      m["ui_nm_kovaniKovarskaSoutez_huntingKnifeForContest"] = "huntingsword";
+      m["ui_nm_kovaniNaKovarne_forgottenContract"] = "letters";
+      m["ui_nm_kovaniNaKovarne_pajslSword"] = "shortsword";
+      m["ui_nm_kovaniNaKovarne_smithsDefense"] = "shortsword";
+      m["ui_nm_kovaniPoklad_adornedAxe"] = "axe";
+      m["ui_nm_kovaniPoklad_ruinedAxe"] = "blacksmithing";
+      m["ui_nm_kovaniRelikvie_swordOfKnightValentin"] = "shortsword";
+      m["ui_nm_kovaniRelikvie_toothOfSaintApollonia"] = "common";
+      m["ui_nm_kovaniSymbolSermirny_brokenGuildSword"] = "blacksmithing";
+      m["ui_nm_kovaniSymbolSermirny_guildSwordRemake"] = "longsword";
+      m["ui_nm_kovaniVajdovaKletba_carbonWater"] = "blacksmithing";
+      m["ui_nm_kovaniVajdovaKletba_rikonaris"] = "sabre";
+      m["ui_nm_kovaniZavodniPodkovy_caulkinHorseshoe"] = "horseshoes";
+      m["ui_nm_kovaniZavodniPodkovy_caulkinHorseshoeOrigin"] = "common";
+      m["ui_nm_kovarskeZakazky_4evangelist"] = "longsword";
+      m["ui_nm_kovarskeZakazky_armoryKey"] = "keys";
+      m["ui_nm_kovarskeZakazky_chastityBelt"] = "common";
+      m["ui_nm_kovarskeZakazky_dragonAxe"] = "axe";
+      m["ui_nm_kovarskeZakazky_dragonAxe_broken"] = "mace";
+      m["ui_nm_kovarskeZakazky_durendal"] = "longsword";
+      m["ui_nm_kovarskeZakazky_durendal_broken"] = "shortsword";
+      m["ui_nm_kovarskeZakazky_durensral"] = "longsword";
+      m["ui_nm_kovarskeZakazky_excalibur"] = "longsword";
+      m["ui_nm_kovarskeZakazky_excalibur_broken"] = "shortsword";
+      m["ui_nm_kovarskeZakazky_fejxcalibur"] = "longsword";
+      m["ui_nm_kovarskeZakazky_magdalenaAxe"] = "axe";
+      m["ui_nm_kovarskeZakazky_magdalenaAxe_broken"] = "mace";
+      m["ui_nm_kovarskeZakazky_magdalenaBrokenAxe"] = "blacksmithing";
+      m["ui_nm_kovarskeZakazky_sniffableRag"] = "common";
+      m["ui_nm_kralovskeStribro_ironworksRegister"] = "books";
+      m["ui_nm_kralovskeStribro_kristiansSafeConduct"] = "letters";
+      m["ui_nm_kralovskeStribro_mapToSecretMint"] = "maps";
+      m["ui_nm_kralovskeStribro_maslosBeerStash"] = "keys";
+      m["ui_nm_kralovskeStribro_miningRegister"] = "books";
+      m["ui_nm_kralovskeStribro_mintDie"] = "common";
+      m["ui_nm_kralovskeStribro_mintRegister"] = "books";
+      m["ui_nm_kralovskeStribro_minterJailKey"] = "keys";
+      m["ui_nm_kralovskeStribro_sackcarryable"] = "common";
+      m["ui_nm_kralovskeStribro_safeConduct"] = "letters";
+      m["ui_nm_kralovskeStribro_secretMintChestKey"] = "keys";
+      m["ui_nm_kubaParalu_ZdenasSatek"] = "common";
+      m["ui_nm_kubaParalu_goclinsKey"] = "keys";
+      m["ui_nm_kubaParalu_hendlsKey"] = "keys";
+      m["ui_nm_kubaParalu_murderTrophies"] = "common";
+      m["ui_nm_kubaParalu_zdenasRing"] = "common";
+      m["ui_nm_kucharskaKniha_knownPotion"] = "potion_special";
+      m["ui_nm_kucharskaKniha_millersRecipe"] = "recipes";
+      m["ui_nm_kucharskaKniha_suspiciousPotion"] = "potion_special";
+      m["ui_nm_kucharskaKniha_unknownPotion"] = "potion_special";
+      m["ui_nm_kucharskakniha_medailon"] = "necklaces";
+      m["ui_nm_kumaniNaTrosecku_peculiarSpirits"] = "liquor";
+      m["ui_nm_kuttenbergBacon"] = "cooked";
+      m["ui_nm_kuttenbergBread"] = "baked";
+      m["ui_nm_kuttenbergKielbasaSmoked"] = "rawmeat";
+      m["ui_nm_kuttenberg_underground_map"] = "maps";
+      m["ui_nm_lambMeat"] = "rawmeat";
+      m["ui_nm_lambMeatCooked"] = "cooked";
+      m["ui_nm_lambMeatDried"] = "dried";
+      m["ui_nm_lambMeatSmoked"] = "smoked";
+      m["ui_nm_lambStomach"] = "rawmeat";
+      m["ui_nm_lambStomachCooked"] = "cooked";
+      m["ui_nm_leek"] = "vegetables";
+      m["ui_nm_legacyOfTheForge_guildKey"] = "keys";
+      m["ui_nm_legacyOfTheForge_sellingChestKey"] = "keys";
+      m["ui_nm_legsbrigandine01_m01"] = "legarmour";
+      m["ui_nm_legsbrigandine03_m01"] = "legarmour";
+      m["ui_nm_legsbrigandine04_m01"] = "legarmour";
+      m["ui_nm_legsbrigandine_twitch"] = "legarmour";
+      m["ui_nm_legspadded01_blk"] = "paddedhose";
+      m["ui_nm_legspadded01_m01"] = "paddedhose";
+      m["ui_nm_legspadded01_m02"] = "paddedhose";
+      m["ui_nm_legspadded01_m03"] = "paddedhose";
+      m["ui_nm_legspadded01_m04"] = "paddedhose";
+      m["ui_nm_legspadded02_m01"] = "paddedhose";
+      m["ui_nm_legspadded02_vagrant"] = "paddedhose";
+      m["ui_nm_legspadded03_m01"] = "paddedhose";
+      m["ui_nm_legspadded03_m02"] = "paddedhose";
+      m["ui_nm_legspadded03_m03"] = "paddedhose";
+      m["ui_nm_legspadded03_m04"] = "paddedhose";
+      m["ui_nm_legspadded03_m05"] = "paddedhose";
+      m["ui_nm_legspadded03_m06"] = "paddedhose";
+      m["ui_nm_legspadded03_m07"] = "paddedhose";
+      m["ui_nm_legspadded03_m08"] = "paddedhose";
+      m["ui_nm_legspadded03_m09"] = "paddedhose";
+      m["ui_nm_legspadded03_m10"] = "paddedhose";
+      m["ui_nm_legspadded03_m11"] = "paddedhose";
+      m["ui_nm_legspadded05_m01"] = "hose_feet";
+      m["ui_nm_legspadded_godwin"] = "paddedhose";
+      m["ui_nm_legsplate01_m01"] = "legarmour";
+      m["ui_nm_legsplate01_m01|icon:LegsPlate01_m02_B3"] = "legarmour_feet";
+      m["ui_nm_legsplate01_m01|icon:LegsPlate01_m03_B3"] = "legarmour_feet";
+      m["ui_nm_legsplate02_m01"] = "legarmour_feet";
+      m["ui_nm_legsplate03_blk"] = "legarmour_feet";
+      m["ui_nm_legsplate03_m01"] = "legarmour_feet";
+      m["ui_nm_legsplate04_m01"] = "legarmour";
+      m["ui_nm_legsplate05_m01"] = "legarmour";
+      m["ui_nm_legsplate05_m01Brunswig"] = "legarmour_feet";
+      m["ui_nm_legsplate05_m01Capon"] = "legarmour";
+      m["ui_nm_legsplate06_m01"] = "legarmour";
+      m["ui_nm_legsplate07_m01"] = "legarmour";
+      m["ui_nm_legsplate08_DLC2"] = "legarmour";
+      m["ui_nm_lepiota"] = "vegetables";
+      m["ui_nm_lepiotaCooked"] = "cooked";
+      m["ui_nm_lepiotaDried"] = "dried";
+      m["ui_nm_listovniTajemstvi_letterToMarkolt"] = "common";
+      m["ui_nm_listovniTajemstvi_letterToTestHenry"] = "letters";
+      m["ui_nm_longSwordDuel"] = "longsword";
+      m["ui_nm_longSwordDuel_khTournament"] = "longsword";
+      m["ui_nm_longSwordEvangelist"] = "longsword";
+      m["ui_nm_longSwordEvangelist_broken"] = "shortsword";
+      m["ui_nm_longSwordLilium"] = "longsword";
+      m["ui_nm_longSwordLilium_broken"] = "shortsword";
+      m["ui_nm_longSwordOld"] = "longsword";
+      m["ui_nm_longswordBohuta"] = "longsword";
+      m["ui_nm_longswordBroad"] = "longsword";
+      m["ui_nm_longswordCommon"] = "longsword";
+      m["ui_nm_longswordDevil"] = "longsword";
+      m["ui_nm_longswordSturdy"] = "longsword";
+      m["ui_nm_longswordTraining"] = "longsword";
+      m["ui_nm_loot_brocade"] = "common";
+      m["ui_nm_loot_candle"] = "common";
+      m["ui_nm_loot_cloth"] = "common";
+      m["ui_nm_loot_comb"] = "valuables";
+      m["ui_nm_loot_copperJug"] = "valuables";
+      m["ui_nm_loot_copperPlate"] = "valuables";
+      m["ui_nm_loot_dogToy_duck"] = "common";
+      m["ui_nm_loot_flute"] = "common";
+      m["ui_nm_loot_goldenChalice"] = "valuables";
+      m["ui_nm_loot_goldenCross"] = "valuables";
+      m["ui_nm_loot_goldenCross|icon:loot_goldenCross"] = "common";
+      m["ui_nm_loot_goldenCup"] = "valuables";
+      m["ui_nm_loot_gooseFeathers"] = "common";
+      m["ui_nm_loot_hairBuckle_bone"] = "valuables";
+      m["ui_nm_loot_lamp"] = "common";
+      m["ui_nm_loot_necklace_gem"] = "valuables";
+      m["ui_nm_loot_necklace_jasperBeads"] = "valuables";
+      m["ui_nm_loot_necklace_riverPearl"] = "valuables";
+      m["ui_nm_loot_oakBark"] = "common";
+      m["ui_nm_loot_oakGallInk"] = "common";
+      m["ui_nm_loot_pepper"] = "common";
+      m["ui_nm_loot_pewterCan"] = "valuables";
+      m["ui_nm_loot_pewterJug"] = "common";
+      m["ui_nm_loot_pewterJugDecorated"] = "valuables";
+      m["ui_nm_loot_pewterJugRound"] = "valuables";
+      m["ui_nm_loot_pewterJugRound|icon:trafficCone"] = "common";
+      m["ui_nm_loot_pewterJug|icon:loot_pewterJug"] = "valuables";
+      m["ui_nm_loot_pin_decorative"] = "valuables";
+      m["ui_nm_loot_pitch"] = "common";
+      m["ui_nm_loot_rattayBridle"] = "bridles";
+      m["ui_nm_loot_rattayHarness"] = "breeching";
+      m["ui_nm_loot_rosary"] = "valuables";
+      m["ui_nm_loot_rosary_bone"] = "valuables";
+      m["ui_nm_loot_rosary_detrich"] = "valuables";
+      m["ui_nm_loot_rosary_expensive"] = "valuables";
+      m["ui_nm_loot_rosary_hroznata"] = "valuables";
+      m["ui_nm_loot_rosary_old"] = "valuables";
+      m["ui_nm_loot_salt"] = "common";
+      m["ui_nm_loot_satin"] = "common";
+      m["ui_nm_loot_sedlecMortuaryKey"] = "keys";
+      m["ui_nm_loot_silverChalice"] = "valuables";
+      m["ui_nm_loot_silverCup"] = "valuables";
+      m["ui_nm_loot_stone"] = "common";
+      m["ui_nm_loot_tar"] = "common";
+      m["ui_nm_loot_threeleggedChalice"] = "valuables";
+      m["ui_nm_loot_tinPlate"] = "valuables";
+      m["ui_nm_loot_troskyArmoryKey"] = "keys";
+      m["ui_nm_lorebook_anthologyOfLovePoems"] = "books";
+      m["ui_nm_lorebook_bookOfPrayers"] = "books";
+      m["ui_nm_lorebook_fleaAndWartRemedy"] = "books";
+      m["ui_nm_lorebook_foxAndJug"] = "books";
+      m["ui_nm_lorebook_groomAndApprentice"] = "books";
+      m["ui_nm_lorebook_kingdomOfBohemia"] = "books";
+      m["ui_nm_lorebook_legendOfChristianus"] = "books";
+      m["ui_nm_lorebook_legendOfSaintDorothy"] = "books";
+      m["ui_nm_lorebook_mandevilla"] = "books";
+      m["ui_nm_lorebook_meadBrewing"] = "books";
+      m["ui_nm_lorebook_monasticRuleOfSaintBenedict"] = "books";
+      m["ui_nm_lorebook_monasticRuleOfSaintBenedict2"] = "books";
+      m["ui_nm_lorebook_onAdamites"] = "books";
+      m["ui_nm_lorebook_onCharlesIV"] = "books";
+      m["ui_nm_lorebook_onCumans"] = "books";
+      m["ui_nm_lorebook_onElectors"] = "books";
+      m["ui_nm_lorebook_onEvilMorals"] = "books";
+      m["ui_nm_lorebook_onLibuseAndPremysl"] = "books";
+      m["ui_nm_lorebook_onLombardyCampaign"] = "books";
+      m["ui_nm_lorebook_onLombardyCampaign2"] = "books";
+      m["ui_nm_lorebook_onMaidensWar"] = "books";
+      m["ui_nm_lorebook_onMaidensWar2"] = "books";
+      m["ui_nm_lorebook_onMargraviateWars"] = "books";
+      m["ui_nm_lorebook_onMelusine"] = "books";
+      m["ui_nm_lorebook_onMelusine2"] = "books";
+   }
+   static function BuildHeaderMap5()
+   {
+      var m = HEADER_MAP;
+      m["ui_nm_lorebook_onNewCouncil"] = "books";
+      m["ui_nm_lorebook_onOldFatherCzech"] = "books";
+      m["ui_nm_lorebook_onPapalSchism"] = "books";
+      m["ui_nm_lorebook_onPrague"] = "books";
+      m["ui_nm_lorebook_onSaintAdalbert"] = "books";
+      m["ui_nm_lorebook_onSaintProcopius"] = "books";
+      m["ui_nm_lorebook_onSaintWenceslaus"] = "books";
+      m["ui_nm_lorebook_onSiegeOfPrague"] = "books";
+      m["ui_nm_lorebook_onSigismund"] = "books";
+      m["ui_nm_lorebook_onSimony"] = "books";
+      m["ui_nm_lorebook_onTournaments"] = "books";
+      m["ui_nm_lorebook_onWenceslasIV"] = "books";
+      m["ui_nm_lorebook_onWickedBlacksmiths"] = "books";
+      m["ui_nm_lorebook_onWilgefortis"] = "books";
+      m["ui_nm_lorebook_queensCourtManuscript"] = "books";
+      m["ui_nm_lorebook_songOfMerryPoor"] = "books";
+      m["ui_nm_lorebook_threeCrusaderKings"] = "books";
+      m["ui_nm_lovNaBanditu_rareBook"] = "skillbooks";
+      m["ui_nm_lovVlku_brokenArrow"] = "common";
+      m["ui_nm_lovVlku_sheepEar"] = "common";
+      m["ui_nm_lovVlku_sheepRemains"] = "common";
+      m["ui_nm_mace01"] = "mace";
+      m["ui_nm_mace02"] = "mace";
+      m["ui_nm_mace03"] = "mace";
+      m["ui_nm_mace04"] = "mace";
+      m["ui_nm_maceBailiff"] = "mace";
+      m["ui_nm_maceBuchar"] = "mace";
+      m["ui_nm_maceClub"] = "mace";
+      m["ui_nm_maceClubSpiked"] = "mace";
+      m["ui_nm_maceClubTraining"] = "mace";
+      m["ui_nm_maceDagger"] = "mace";
+      m["ui_nm_maceHetman"] = "mace";
+      m["ui_nm_maceZizka"] = "mace";
+      m["ui_nm_magicShop_nepomukNeedle"] = "common";
+      m["ui_nm_magicShop_polearm_broken"] = "polearm";
+      m["ui_nm_magicShop_veilOfLudmila"] = "womens";
+      m["ui_nm_magicShop_veilOfSaintVeronica"] = "common";
+      m["ui_nm_magickySip_magic_arrow"] = "common";
+      m["ui_nm_magickySip_magickaSipka"] = "shot";
+      m["ui_nm_magickySip_pechCrossbow"] = "crossbow";
+      m["ui_nm_magickySip_sackcarryable"] = "common";
+      m["ui_nm_maillong01_m01"] = "mail";
+      m["ui_nm_maillong02_m01"] = "mail";
+      m["ui_nm_mailshort01_m01"] = "mail";
+      m["ui_nm_mailshort02_m01"] = "mail";
+      m["ui_nm_malirZlodejske_sketch"] = "common";
+      m["ui_nm_malir_die_b"] = "dice";
+      m["ui_nm_malir_die_g"] = "dice";
+      m["ui_nm_malir_die_r"] = "dice";
+      m["ui_nm_malir_paintbrushes"] = "common";
+      m["ui_nm_malir_skull"] = "common";
+      m["ui_nm_maliruvLek_emptyPotionBottle"] = "common";
+      m["ui_nm_maliruvLek_freshwaterPearl"] = "alchemy";
+      m["ui_nm_maliruvLek_mandrakeRoot"] = "alchemy";
+      m["ui_nm_maliruvLek_mandrakeStashKey"] = "keys";
+      m["ui_nm_maliruvLek_potion"] = "potion_weak";
+      m["ui_nm_maliruvLek_potion_best"] = "potion_best";
+      m["ui_nm_maliruvLek_potion_high"] = "potion_strong";
+      m["ui_nm_maliruvLek_potion_medium"] = "potion_normal";
+      m["ui_nm_malovanoJest_lapisLazuli"] = "common";
+      m["ui_nm_marikasScarf"] = "womens";
+      m["ui_nm_mead"] = "liquor";
+      m["ui_nm_milk"] = "dairy";
+      m["ui_nm_mlynaruvUcen_book"] = "books";
+      m["ui_nm_mlynaruvUcen_lockpickingTutorialDeadRat"] = "common";
+      m["ui_nm_mlynaruvUcen_sackcarryable"] = "common";
+      m["ui_nm_mlynaruvUcen_stealthClothesChestKey"] = "keys";
+      m["ui_nm_mlynaruvUcen_trismegistosSupply"] = "letters";
+      m["ui_nm_mlynaruvUcen_zinkChestKey"] = "keys";
+      m["ui_nm_money"] = "groschen";
+      m["ui_nm_mountedArchery_slowingBridle"] = "bridles";
+      m["ui_nm_mountedArchery_slowingCaparison"] = "caparisons";
+      m["ui_nm_mountedArchery_slowingHorseshoes"] = "horseshoes";
+      m["ui_nm_mountedArchery_slowingSaddle"] = "saddles";
+      m["ui_nm_mysi1_paintForBull"] = "common";
+      m["ui_nm_mysi_bullsBarn"] = "keys";
+      m["ui_nm_naTroskach_axeKolda"] = "axe";
+      m["ui_nm_naTroskach_koldaChestKey"] = "keys";
+      m["ui_nm_naTroskach_sackcarryable"] = "common";
+      m["ui_nm_naTroskach_turqoiseRosary"] = "common";
+      m["ui_nm_naTroskach_vezniNaTroskachKeys"] = "common";
+      m["ui_nm_naTroskach_vezniNaTroskachOrders"] = "common";
+      m["ui_nm_naTroskach_zapiskyFelcara"] = "books";
+      m["ui_nm_nakaza_ParfumeBook"] = "books";
+      m["ui_nm_nakaza_bastRope"] = "common";
+      m["ui_nm_nakaza_cryptKey"] = "keys";
+      m["ui_nm_nakaza_dirtyPageFromCrypt"] = "maps";
+      m["ui_nm_nakaza_hungarianMoney"] = "common";
+      m["ui_nm_nakaza_mapOfCrypt"] = "maps";
+      m["ui_nm_nakaza_templeKey"] = "keys";
+      m["ui_nm_nalezeniDelnici_denesDagger"] = "dagger";
+      m["ui_nm_nalezeniDelnici_hopStorageKey"] = "keys";
+      m["ui_nm_nalezeniDelnici_keyToBodies"] = "keys";
+      m["ui_nm_nalezeniDelnici_oilFlask"] = "common";
+      m["ui_nm_navstevaLekare_lordPisekCredentials"] = "letters";
+      m["ui_nm_navstevaLekare_pleaForHelp"] = "letters";
+      m["ui_nm_nebakovObrana_sackcarryable"] = "common";
+      m["ui_nm_nebakovPruzkum_Cap21_m01_C_nebakClue"] = "hats";
+      m["ui_nm_nebakovPruzkum_lordsOfLeipaShield"] = "shield";
+      m["ui_nm_nebakovPruzkum_lowerTowerKey"] = "keys";
+      m["ui_nm_nebakovPruzkum_prisonKey"] = "keys";
+      m["ui_nm_nebakovPruzkum_storageKey"] = "keys";
+      m["ui_nm_necklace01_Vajda"] = "necklaces";
+      m["ui_nm_necklace_golden_cross_garnet"] = "necklaces";
+      m["ui_nm_necklace_golden_cross_pearl"] = "necklaces";
+      m["ui_nm_necklace_scapular_letter"] = "necklaces";
+      m["ui_nm_necklace_scapular_saint"] = "necklaces";
+      m["ui_nm_necklace_scapular_window"] = "necklaces";
+      m["ui_nm_necklace_silver_cross_garnet"] = "necklaces";
+      m["ui_nm_necklace_silver_cross_insignia"] = "necklaces";
+      m["ui_nm_necklace_tin_cross"] = "necklaces";
+      m["ui_nm_nemcuvPoklad_mapStashLoot_1"] = "maps";
+      m["ui_nm_nemcuvPoklad_mapStashLoot_2"] = "maps";
+      m["ui_nm_nemcuvPoklad_treasureChestKey1"] = "keys";
+      m["ui_nm_noblebridle01_m01"] = "bridles";
+      m["ui_nm_noblebridle02_m01"] = "bridles";
+      m["ui_nm_noblecaparison01_m01"] = "caparisons";
+      m["ui_nm_noblecaparison01_mJezek"] = "caparisons";
+      m["ui_nm_noblecaparison01_mLeipa"] = "caparisons";
+      m["ui_nm_noblecaparison02_m01"] = "caparisons";
+      m["ui_nm_noblecaparison02_mLeipa"] = "caparisons";
+      m["ui_nm_noblecaparison02_mMarkvart"] = "caparisons";
+      m["ui_nm_noblecaparison03_m01"] = "caparisons";
+      m["ui_nm_noblecaparison03_mLeipa"] = "caparisons";
+      m["ui_nm_noblecaparison04_m01"] = "caparisons";
+      m["ui_nm_noblecaparison04_mMarkvart"] = "caparisons";
+      m["ui_nm_noblecaparison05_m01"] = "caparisons";
+      m["ui_nm_noblecaparison06_m01"] = "caparisons";
+      m["ui_nm_noblecaparison07_m01"] = "caparisons";
+      m["ui_nm_noblecaparison08_m01"] = "caparisons";
+      m["ui_nm_noblecaparison_twitch"] = "caparisons";
+      m["ui_nm_noblesaddle01_m01"] = "saddles";
+      m["ui_nm_noblesaddle02_m01"] = "saddles";
+      m["ui_nm_noblesaddle03_m01"] = "saddles";
+      m["ui_nm_nomadbridle01_m01"] = "bridles";
+      m["ui_nm_oblehaniSuchdole_oldSword"] = "longsword";
+      m["ui_nm_onion"] = "vegetables";
+      m["ui_nm_onionCooked"] = "cooked";
+      m["ui_nm_paddedcaparison01_m01"] = "caparisons";
+      m["ui_nm_paddedcaparison02_m01"] = "caparisons";
+      m["ui_nm_paddedcaparison03_m01"] = "caparisons";
+      m["ui_nm_paddedcaparison04_m01"] = "caparisons";
+      m["ui_nm_paddedcaparison05_m01"] = "caparisons";
+      m["ui_nm_papezkyLegat_vavakLetter"] = "letters";
+      m["ui_nm_papezskyLegat_treasuryKey"] = "common";
+      m["ui_nm_paralysisPoison"] = "poisons";
+      m["ui_nm_paralysisPoison_best"] = "poisons";
+      m["ui_nm_paralysisPoison_high"] = "poisons";
+      m["ui_nm_paralysisPoison_medium"] = "poisons";
+      m["ui_nm_parsnip"] = "vegetables";
+      m["ui_nm_peaches"] = "fruit";
+      m["ui_nm_pear"] = "fruit";
+      m["ui_nm_pearCooked"] = "cooked";
+      m["ui_nm_pearDried"] = "dried";
+      m["ui_nm_perch"] = "rawmeat";
+      m["ui_nm_perchCooked"] = "cooked";
+      m["ui_nm_perchDried"] = "dried";
+      m["ui_nm_perchSmoked"] = "smoked";
+      m["ui_nm_perfumeStink"] = "perfumes";
+      m["ui_nm_perfume_longWeak"] = "perfumes";
+      m["ui_nm_perfume_longWeak_best"] = "perfumes";
+      m["ui_nm_perfume_longWeak_high"] = "perfumes";
+      m["ui_nm_perfume_longWeak_medium"] = "perfumes";
+      m["ui_nm_perfume_morovyOblek_aetherOil"] = "perfumes";
+      m["ui_nm_perfume_morovyOblek_aetherOil_best"] = "perfumes";
+      m["ui_nm_perfume_morovyOblek_aetherOil_high"] = "perfumes";
+      m["ui_nm_perfume_morovyOblek_aetherOil_medium"] = "perfumes";
+      m["ui_nm_perfume_shortStrong"] = "perfumes";
+      m["ui_nm_perfume_shortStrong_best"] = "perfumes";
+      m["ui_nm_perfume_shortStrong_high"] = "perfumes";
+      m["ui_nm_perfume_shortStrong_medium"] = "perfumes";
+      m["ui_nm_pickpocketingTutorial_trainingItem"] = "common";
+      m["ui_nm_pieceOfWatermelon"] = "vegetables";
+      m["ui_nm_pigLiver"] = "rawmeat";
+      m["ui_nm_pigLiverCooked"] = "cooked";
+      m["ui_nm_pigMeat"] = "rawmeat";
+      m["ui_nm_pigMeatCooked"] = "cooked";
+      m["ui_nm_pigMeatDried"] = "dried";
+      m["ui_nm_pigMeatSmoked"] = "smoked";
+      m["ui_nm_pigTenderloin"] = "rawmeat";
+      m["ui_nm_pigTenderloinCooked"] = "cooked";
+      m["ui_nm_pigTenderloinDried"] = "dried";
+      m["ui_nm_pigTenderloinSmoked"] = "smoked";
+      m["ui_nm_placeholder_maceHeavy"] = "mace";
+      m["ui_nm_plagueSuit"] = "hoods";
+      m["ui_nm_player_lockpick"] = "tools";
+      m["ui_nm_player_shovel"] = "tools";
+      m["ui_nm_player_shovel_wolfram"] = "tools";
+      m["ui_nm_plums"] = "fruit";
+      m["ui_nm_poPytlackeStezce_machKey"] = "keys";
+      m["ui_nm_poPytlackeStezce_squirrelTail"] = "common";
+      m["ui_nm_poPytlackeStezce_whiteDeerHide"] = "hides";
+      m["ui_nm_poPytlackeStezce_youngWhiteDeerHide"] = "hides";
+      m["ui_nm_podMostem_tunic"] = "shirts";
+      m["ui_nm_poetryProkopLucemburk"] = "books";
+      m["ui_nm_poetryVagabound"] = "books";
+      m["ui_nm_poi_MapkaZlodeje_map"] = "maps";
+      m["ui_nm_poi_duelOstrostrelcu_key"] = "keys";
+      m["ui_nm_poi_duelOstrostrelcu_skillbook_bow"] = "skillbooks";
+      m["ui_nm_poi_duelOstrostrelcu_skillbook_crossbow"] = "skillbooks";
+      m["ui_nm_poi_dvaLapkoveNaKopanine_key"] = "keys";
+      m["ui_nm_poi_earthworm"] = "rawmeat";
+      m["ui_nm_poi_havarovanyDvoukolak_stashKey"] = "keys";
+      m["ui_nm_poi_hroby_noose"] = "common";
+      m["ui_nm_poi_kostlivecVMocalech_map"] = "maps";
+      m["ui_nm_poi_luffy_strawhat"] = "armour_other";
+      m["ui_nm_poi_matkaADite_childsSkull"] = "common";
+      m["ui_nm_poi_matkaADite_mothersSkull"] = "common";
+      m["ui_nm_poi_mezholezy_HerbalistStashKey"] = "keys";
+      m["ui_nm_poi_mnichovaSchovka_map"] = "maps";
+      m["ui_nm_poi_nedostavenaChalupa_huntingSpotsMap"] = "maps";
+      m["ui_nm_poi_nedostavenaChalupa_key"] = "keys";
+      m["ui_nm_poi_opustenaChalupa_key"] = "keys";
+      m["ui_nm_poi_opustenaZemnice_key"] = "keys";
+      m["ui_nm_poi_opusteneOpatovice_burnedKey"] = "keys";
+      m["ui_nm_poi_opusteneOpatovice_mead"] = "liquor";
+      m["ui_nm_poi_opustenyLom_drenchedMap"] = "common";
+      m["ui_nm_poi_podMostem_key_fisherman"] = "keys";
+      m["ui_nm_poi_podMostem_key_hunter"] = "keys";
+      m["ui_nm_poi_podMostem_key_zelejovHouse"] = "keys";
+      m["ui_nm_poi_podseminstiDrevorubci_map"] = "maps";
+      m["ui_nm_poi_pokladPodTroskami_key"] = "keys";
+      m["ui_nm_poi_pokladPodTroskami_oldSpirit"] = "liquor";
+      m["ui_nm_poi_prchajiciMnich_key"] = "keys";
+      m["ui_nm_poi_rajskaZahrada_gardeningBook"] = "skillbooks";
+      m["ui_nm_poi_ratborschButcherAxe"] = "axe";
+      m["ui_nm_poi_ruinaRabstejnky_alchemistChestkey"] = "keys";
+      m["ui_nm_poi_skrysStarehoPytlaka_poachersBow"] = "bow";
+      m["ui_nm_poi_skryseSPitim_map"] = "maps";
+      m["ui_nm_poi_strelnice_blackArrow"] = "arrow";
+      m["ui_nm_poi_tachovskyVodopad_philosophyBasics"] = "skillbooks";
+      m["ui_nm_poi_thiefsWarning"] = "letters";
+      m["ui_nm_poi_tretiKrizovatkaVPodzemi_smugglersMap"] = "maps";
+      m["ui_nm_poi_troskovickyHrbitov_key"] = "keys";
+      m["ui_nm_poi_troskovickyHrbitov_map"] = "maps";
+      m["ui_nm_poi_vinnySklep_specialWine_1"] = "wine";
+      m["ui_nm_poi_vinnySklep_specialWine_2"] = "wine";
+      m["ui_nm_poi_vinnySklep_specialWine_3"] = "wine";
+      m["ui_nm_poi_vinnySklep_specialWine_4"] = "wine";
+      m["ui_nm_poi_vinnySklep_specialWine_5"] = "wine";
+      m["ui_nm_poi_vinnySklep_specialWine_6"] = "wine";
+      m["ui_nm_poi_vinnySklep_specialWine_7"] = "wine";
+      m["ui_nm_poi_vodnik_treasureMap"] = "maps";
+      m["ui_nm_poi_vodnik_vodnikovyKalhoty"] = "armour_other";
+      m["ui_nm_poi_vuzVJezirku_key"] = "keys";
+      m["ui_nm_poi_vyplataDrevorubcu_key"] = "keys";
+      m["ui_nm_poi_vyplavenyPoklad_map"] = "maps";
+      m["ui_nm_poi_vyplavenyPoklad_treasureChestKey"] = "keys";
+      m["ui_nm_poi_vyrabovanaHajovna_stashKey"] = "keys";
+      m["ui_nm_poi_zarostlaZemince_chestKey"] = "keys";
+   }
+   static function BuildHeaderMap6()
+   {
+      var m = HEADER_MAP;
+      m["ui_nm_poi_zaspyanyDobrodruh_stolenSilver"] = "common";
+      m["ui_nm_poi_zavrenyDul_key"] = "keys";
+      m["ui_nm_poi_zlodejZeli_sauerkraut"] = "vegetables";
+      m["ui_nm_polearmBardiche"] = "polearm";
+      m["ui_nm_polearmBruncvik"] = "polearm";
+      m["ui_nm_polearmGlaive"] = "polearm";
+      m["ui_nm_polearmGuisarme"] = "polearm";
+      m["ui_nm_polearmMorgenstern"] = "polearm";
+      m["ui_nm_polearmPitchfork"] = "polearm";
+      m["ui_nm_polearmPitchforkSedlakaMateje"] = "polearm";
+      m["ui_nm_polearmPoleaxe"] = "polearm";
+      m["ui_nm_polearmSpear"] = "polearm";
+      m["ui_nm_polearmTraining"] = "polearm";
+      m["ui_nm_polearmVoulge"] = "polearm";
+      m["ui_nm_pomatenec_brokenSword"] = "shortsword";
+      m["ui_nm_pomatenec_brokenSword|icon:pomatenec_brokenSword"] = "longsword";
+      m["ui_nm_pomatenec_longsword"] = "longsword";
+      m["ui_nm_poppyseedcake"] = "baked";
+      m["ui_nm_potion_aesop"] = "potion_weak";
+      m["ui_nm_potion_aesop_best"] = "potion_best";
+      m["ui_nm_potion_aesop_high"] = "potion_strong";
+      m["ui_nm_potion_aesop_medium"] = "potion_normal";
+      m["ui_nm_potion_antiIflammatoryPotion"] = "potion_weak";
+      m["ui_nm_potion_antiIflammatoryPotion_best"] = "potion_best";
+      m["ui_nm_potion_antiIflammatoryPotion_high"] = "potion_strong";
+      m["ui_nm_potion_antiIflammatoryPotion_medium"] = "potion_normal";
+      m["ui_nm_potion_antiPlaguePotion"] = "potion_weak";
+      m["ui_nm_potion_antiPlaguePotion_best"] = "potion_best";
+      m["ui_nm_potion_antiPlaguePotion_high"] = "potion_strong";
+      m["ui_nm_potion_antiPlaguePotion_medium"] = "potion_normal";
+      m["ui_nm_potion_antidote"] = "potion_weak";
+      m["ui_nm_potion_antidote_best"] = "potion_best";
+      m["ui_nm_potion_antidote_high"] = "potion_strong";
+      m["ui_nm_potion_antidote_medium"] = "potion_normal";
+      m["ui_nm_potion_aquaVitalis"] = "potion_weak";
+      m["ui_nm_potion_aquaVitalis_best"] = "potion_best";
+      m["ui_nm_potion_aquaVitalis_high"] = "potion_strong";
+      m["ui_nm_potion_aquaVitalis_medium"] = "potion_normal";
+      m["ui_nm_potion_artemisia"] = "potion_weak";
+      m["ui_nm_potion_artemisia_best"] = "potion_best";
+      m["ui_nm_potion_artemisia_high"] = "potion_strong";
+      m["ui_nm_potion_artemisia_medium"] = "potion_normal";
+      m["ui_nm_potion_bard"] = "potion_weak";
+      m["ui_nm_potion_bard_best"] = "potion_best";
+      m["ui_nm_potion_bard_high"] = "potion_strong";
+      m["ui_nm_potion_bard_medium"] = "potion_normal";
+      m["ui_nm_potion_bowmanBrew"] = "potion_weak";
+      m["ui_nm_potion_bowmanBrew_best"] = "potion_best";
+      m["ui_nm_potion_bowmanBrew_high"] = "potion_strong";
+      m["ui_nm_potion_bowmanBrew_medium"] = "potion_normal";
+      m["ui_nm_potion_chamomile_decoction"] = "potion_weak";
+      m["ui_nm_potion_chamomile_decoction_best"] = "potion_best";
+      m["ui_nm_potion_chamomile_decoction_high"] = "potion_strong";
+      m["ui_nm_potion_chamomile_decoction_medium"] = "potion_normal";
+      m["ui_nm_potion_ebrocation"] = "potion_weak";
+      m["ui_nm_potion_embrocation_best"] = "potion_best";
+      m["ui_nm_potion_embrocation_high"] = "potion_strong";
+      m["ui_nm_potion_embrocation_medium"] = "potion_normal";
+      m["ui_nm_potion_fevertonic"] = "potion_special";
+      m["ui_nm_potion_generic"] = "potion_special";
+      m["ui_nm_potion_hair_o_dog"] = "potion_weak";
+      m["ui_nm_potion_hair_o_dog_best"] = "potion_best";
+      m["ui_nm_potion_hair_o_dog_high"] = "potion_strong";
+      m["ui_nm_potion_hair_o_dog_medium"] = "potion_normal";
+      m["ui_nm_potion_hooch"] = "liquor";
+      m["ui_nm_potion_insomnia"] = "potion_weak";
+      m["ui_nm_potion_insomnia_best"] = "potion_best";
+      m["ui_nm_potion_insomnia_high"] = "potion_strong";
+      m["ui_nm_potion_insomnia_medium"] = "potion_normal";
+      m["ui_nm_potion_marigold"] = "potion_weak";
+      m["ui_nm_potion_marigold_best"] = "potion_best";
+      m["ui_nm_potion_marigold_high"] = "potion_strong";
+      m["ui_nm_potion_marigold_medium"] = "potion_normal";
+      m["ui_nm_potion_nighthawk"] = "potion_weak";
+      m["ui_nm_potion_nighthawk_best"] = "potion_best";
+      m["ui_nm_potion_nighthawk_high"] = "potion_strong";
+      m["ui_nm_potion_nighthawk_medium"] = "potion_normal";
+      m["ui_nm_potion_padfoot"] = "potion_weak";
+      m["ui_nm_potion_padfoot_best"] = "potion_best";
+      m["ui_nm_potion_padfoot_high"] = "potion_strong";
+      m["ui_nm_potion_padfoot_medium"] = "potion_normal";
+      m["ui_nm_potion_painkiller"] = "potion_weak";
+      m["ui_nm_potion_painkiller_best"] = "potion_best";
+      m["ui_nm_potion_painkiller_high"] = "potion_strong";
+      m["ui_nm_potion_painkiller_medium"] = "potion_normal";
+      m["ui_nm_potion_respec"] = "potion_special";
+      m["ui_nm_potion_saviourSchnapps"] = "saviour";
+      m["ui_nm_potion_saviourSchnapps_best"] = "saviour";
+      m["ui_nm_potion_saviourSchnapps_high"] = "saviour";
+      m["ui_nm_potion_saviourSchnapps_medium"] = "saviour";
+      m["ui_nm_potion_stamina"] = "potion_weak";
+      m["ui_nm_potion_stamina_best"] = "potion_best";
+      m["ui_nm_potion_stamina_high"] = "potion_strong";
+      m["ui_nm_potion_stamina_medium"] = "potion_normal";
+      m["ui_nm_potion_steakTartarePerkUnlocker"] = "potion_special";
+      m["ui_nm_pouch_1slot"] = "pouches";
+      m["ui_nm_pouch_2slot"] = "pouches";
+      m["ui_nm_pouch_3slot"] = "pouches";
+      m["ui_nm_pouch_4slot"] = "pouches";
+      m["ui_nm_poustevnik_brokenSwordAmbroz"] = "blacksmithing";
+      m["ui_nm_poustevnik_edictOrderAmbroz"] = "books";
+      m["ui_nm_poustevnik_konradDiary"] = "books";
+      m["ui_nm_poustevnik_oldBonesOfAmbrozBrother"] = "common";
+      m["ui_nm_poustevnik_oldOrderPaperAmbroz"] = "books";
+      m["ui_nm_poustevnik_oldPaperFireAmbroz"] = "letters";
+      m["ui_nm_poustevnik_oldPaperInquisitionAmbroz"] = "letters";
+      m["ui_nm_poustevnik_oldShoddyCloakOfAmbroz"] = "common";
+      m["ui_nm_poustevnik_sackcarryable"] = "common";
+      m["ui_nm_poustevnik_seminSword"] = "longsword";
+      m["ui_nm_poustevnik_woodenCrossAmbrozWidow"] = "common";
+      m["ui_nm_pracharna_concubineDress"] = "womens";
+      m["ui_nm_pracharna_emptyPotionBottle"] = "common";
+      m["ui_nm_pracharna_finishedBook"] = "skillbooks";
+      m["ui_nm_pracharna_loveLetter"] = "letters";
+      m["ui_nm_pracharna_rentedBooksNotice"] = "letters";
+      m["ui_nm_predaniVChramu_fakeWenceslasMedicalRecord"] = "common";
+      m["ui_nm_predaniVChramu_pursuitBasementKey"] = "keys";
+      m["ui_nm_predaniVChramu_wenceslasMedicalRecord"] = "books";
+      m["ui_nm_prepadeniVlasskehoDvora_armoryKey"] = "keys";
+      m["ui_nm_prepadeniVlasskehoDvora_barboraStatue"] = "common";
+      m["ui_nm_prepadeniVlasskehoDvora_csabasStashKey"] = "keys";
+      m["ui_nm_prepadeniVlasskehoDvora_fakeCross"] = "common";
+      m["ui_nm_prepadeniVlasskehoDvora_fakeTheodorik"] = "common";
+      m["ui_nm_prepadeniVlasskehoDvora_fancyJailKey"] = "keys";
+      m["ui_nm_prepadeniVlasskehoDvora_juniperSchnapps"] = "liquor";
+      m["ui_nm_prepadeniVlasskehoDvora_mintersTools"] = "common";
+      m["ui_nm_prepadeniVlasskehoDvora_silverBits"] = "common";
+      m["ui_nm_prepadeni_banditBow"] = "bow";
+      m["ui_nm_prepadeni_dieBarn"] = "dice";
+      m["ui_nm_prepadeni_voves_ring"] = "rings";
+      m["ui_nm_pretzel"] = "baked";
+      m["ui_nm_problemovejParchant_pearlDice"] = "dice";
+      m["ui_nm_puvodNemoci_finishedDecameronTranslation"] = "books";
+      m["ui_nm_puvodNemoci_funnyJoke"] = "letters";
+      m["ui_nm_puvodNemoci_keyToCenfessorsRoom"] = "keys";
+      m["ui_nm_puvodNemoci_keyToChestInCellar"] = "keys";
+      m["ui_nm_puvodNemoci_keyToDilutingRoom"] = "keys";
+      m["ui_nm_puvodNemoci_keyToPantry"] = "keys";
+      m["ui_nm_puvodNemoci_keyToSecretRoom"] = "keys";
+      m["ui_nm_puvodNemoci_keyToTranslatorsChest"] = "keys";
+      m["ui_nm_puvodNemoci_keyToWardensRoom"] = "keys";
+      m["ui_nm_puvodNemoci_petrParler"] = "skillbooks";
+      m["ui_nm_puvodNemoci_planOfBasement"] = "maps";
+      m["ui_nm_pytlakPtacek_caponEvidence"] = "common";
+      m["ui_nm_pytlakPtacek_kopaninaSniffableClue"] = "common";
+      m["ui_nm_pytlakPtacek_poachersHuntingKnife"] = "common";
+      m["ui_nm_pytlakPtacek_podseminEvidence"] = "common";
+      m["ui_nm_pytlakPtacek_podseminEvidenceOnBody"] = "common";
+      m["ui_nm_pytlakPtacek_slatejovSniffableClue"] = "common";
+      m["ui_nm_pytlakPtacek_vezakEvidenceOnBody"] = "common";
+      m["ui_nm_pytlakPtacek_vezakSniffableClue"] = "common";
+      m["ui_nm_pytlakPtacek_vidlakChestKey"] = "keys";
+      m["ui_nm_pytlakPtacek_vidlakEvidenceOnBody"] = "common";
+      m["ui_nm_pytlakPtacek_vidlakSniffableClue"] = "common";
+      m["ui_nm_rabbitLiver"] = "rawmeat";
+      m["ui_nm_rabbitLiverCooked"] = "cooked";
+      m["ui_nm_rabbitMeat"] = "rawmeat";
+      m["ui_nm_rabbitMeatCooked"] = "cooked";
+      m["ui_nm_rabbitMeatDried"] = "dried";
+      m["ui_nm_rabbitMeatSmoked"] = "smoked";
+      m["ui_nm_radzigSword"] = "longsword";
+      m["ui_nm_radzigSword_reforged"] = "longsword";
+      m["ui_nm_rasuvUcen_dogsShed"] = "keys";
+      m["ui_nm_rasuvUcen_knackersGloves"] = "gloves";
+      m["ui_nm_rasuvUcen_sackcarryable"] = "common";
+      m["ui_nm_rasuvUcen_slatejovRuinsKey"] = "keys";
+      m["ui_nm_ratbor_cisnicka_capka"] = "hats";
+      m["ui_nm_ratbor_cisnicky_kabatec"] = "outerwear";
+      m["ui_nm_recipe_absintiumPotion"] = "recipes";
+      m["ui_nm_recipe_antiPlaguePotion"] = "recipes";
+      m["ui_nm_recipe_antidotePotion"] = "recipes";
+      m["ui_nm_recipe_axeCalvaria"] = "recipes";
+      m["ui_nm_recipe_axebattle01"] = "recipes";
+      m["ui_nm_recipe_axebattle02"] = "recipes";
+      m["ui_nm_recipe_axebattle03"] = "recipes";
+      m["ui_nm_recipe_axebattle04"] = "recipes";
+      m["ui_nm_recipe_axecuman"] = "recipes";
+      m["ui_nm_recipe_axefancy"] = "recipes";
+      m["ui_nm_recipe_axework01"] = "recipes";
+      m["ui_nm_recipe_axework02"] = "recipes";
+      m["ui_nm_recipe_banePotion"] = "recipes";
+      m["ui_nm_recipe_bardPotion"] = "recipes";
+      m["ui_nm_recipe_basic_horseshoe"] = "recipes";
+      m["ui_nm_recipe_bowmansBrewPotion"] = "recipes";
+      m["ui_nm_recipe_chamomileDecoction"] = "recipes";
+      m["ui_nm_recipe_embrocationPotion"] = "recipes";
+      m["ui_nm_recipe_energyPotion"] = "recipes";
+      m["ui_nm_recipe_fevertonicPotion"] = "recipes";
+      m["ui_nm_recipe_hairodogPotion"] = "recipes";
+      m["ui_nm_recipe_healthSmallPotion"] = "recipes";
+      m["ui_nm_recipe_hoochPotion"] = "recipes";
+      m["ui_nm_recipe_horsemanPotion"] = "recipes";
+      m["ui_nm_recipe_horseshoeMilitary"] = "recipes";
+      m["ui_nm_recipe_horseshoeNoble"] = "recipes";
+      m["ui_nm_recipe_horseshoeNomad"] = "recipes";
+      m["ui_nm_recipe_horseshoeRacing"] = "recipes";
+      m["ui_nm_recipe_huntingSwordBasic"] = "recipes";
+      m["ui_nm_recipe_huntingSwordSword"] = "recipes";
+      m["ui_nm_recipe_huntingswordfalchion"] = "recipes";
+      m["ui_nm_recipe_huntingswordmussle"] = "recipes";
+      m["ui_nm_recipe_huntingswordsashka"] = "recipes";
+      m["ui_nm_recipe_longSwordLilium"] = "recipes";
+      m["ui_nm_recipe_longswordbroad"] = "recipes";
+      m["ui_nm_recipe_longswordcommon"] = "recipes";
+      m["ui_nm_recipe_longswordduel"] = "recipes";
+      m["ui_nm_recipe_longswordold"] = "recipes";
+      m["ui_nm_recipe_longswordsturdy"] = "recipes";
+      m["ui_nm_recipe_morovyOblek_aetherOil"] = "recipes";
+      m["ui_nm_recipe_nighthakwPotion"] = "recipes";
+      m["ui_nm_recipe_painkillerPotion"] = "recipes";
+      m["ui_nm_recipe_paralysisPotion"] = "recipes";
+      m["ui_nm_recipe_perfumeLongWeak"] = "recipes";
+      m["ui_nm_recipe_perfumeShortStrong"] = "recipes";
+      m["ui_nm_recipe_polearmBruncvik"] = "recipes";
+      m["ui_nm_recipe_respecPotion"] = "recipes";
+      m["ui_nm_recipe_sabreLionHead"] = "recipes";
+      m["ui_nm_recipe_sabrecommon"] = "recipes";
+      m["ui_nm_recipe_sabrenoble"] = "recipes";
+      m["ui_nm_recipe_savePotion"] = "recipes";
+      m["ui_nm_recipe_shortSwordStGeorge"] = "recipes";
+      m["ui_nm_recipe_shortswordHeavy"] = "recipes";
+      m["ui_nm_recipe_shortswordbasilard"] = "recipes";
+      m["ui_nm_recipe_shortswordbroad"] = "recipes";
+      m["ui_nm_recipe_shortswordceremony"] = "recipes";
+      m["ui_nm_recipe_shortswordcleaver"] = "recipes";
+      m["ui_nm_recipe_shortswordcommon"] = "recipes";
+      m["ui_nm_recipe_shotBall"] = "recipes";
+      m["ui_nm_recipe_shotScatter"] = "recipes";
+      m["ui_nm_recipe_sleepPotion"] = "recipes";
+      m["ui_nm_recipe_sneakPotion"] = "recipes";
+      m["ui_nm_recipe_soap"] = "recipes";
+      m["ui_nm_recipe_staminaPotion"] = "recipes";
+      m["ui_nm_recipe_vitalityPotion"] = "recipes";
+      m["ui_nm_recipesbook_alchemy"] = "skillbooks";
+      m["ui_nm_reciple_antiInflammatoryPotion"] = "recipes";
+      m["ui_nm_relikviarProCimburky_reliquary"] = "common";
+      m["ui_nm_relikviarProCimburky_sarkansChestKey"] = "keys";
+      m["ui_nm_repairKit_armourSmall"] = "repairkits";
+      m["ui_nm_repairKit_bowyerSmall"] = "repairkits";
+      m["ui_nm_repairKit_cobblersSmall"] = "repairkits";
+      m["ui_nm_repairKit_rifleSmall"] = "repairkits";
+      m["ui_nm_repairKit_tailorsSmall"] = "repairkits";
+      m["ui_nm_repairKit_weaponSmall"] = "repairkits";
+      m["ui_nm_ring_engraved_gem"] = "rings";
+      m["ui_nm_ring_gem"] = "rings";
+      m["ui_nm_ring_golden_cross"] = "rings";
+      m["ui_nm_ring_golden_large"] = "rings";
+      m["ui_nm_ring_poi_cistenaStudanka"] = "rings";
+      m["ui_nm_ring_silver_engraved"] = "rings";
+      m["ui_nm_ring_silver_gem"] = "rings";
+   }
+   static function BuildHeaderMap7()
+   {
+      var m = HEADER_MAP;
+      m["ui_nm_roastedPeas"] = "cooked";
+      m["ui_nm_roastedPiglet"] = "cooked";
+      m["ui_nm_rodinnaChlouba_astrolabe"] = "common";
+      m["ui_nm_roeDeerLoin"] = "rawmeat";
+      m["ui_nm_roeDeerLoinCooked"] = "cooked";
+      m["ui_nm_roeDeerLoinDried"] = "dried";
+      m["ui_nm_roeDeerLoinSmoked"] = "smoked";
+      m["ui_nm_roeDeerMeat"] = "rawmeat";
+      m["ui_nm_roeDeerMeatCooked"] = "cooked";
+      m["ui_nm_roeDeerMeatDried"] = "dried";
+      m["ui_nm_roeDeerMeatSmoked"] = "smoked";
+      m["ui_nm_roeKidney"] = "rawmeat";
+      m["ui_nm_roeKidneyCooked"] = "cooked";
+      m["ui_nm_rozinaKniha_universalName"] = "books";
+      m["ui_nm_rytiriVeSpitale_moneyPouch"] = "common";
+      m["ui_nm_sMlynariNejsouZerty_goldenRing"] = "common";
+      m["ui_nm_sMlynariNejsouZerty_keyFromShed"] = "keys";
+      m["ui_nm_sabotazLazni_exoticFragrantOil"] = "common";
+      m["ui_nm_sabotazLazni_fleabittenQuilt"] = "common";
+      m["ui_nm_sabrecommon"] = "sabre";
+      m["ui_nm_sabrenoble"] = "sabre";
+      m["ui_nm_sabresabreLionHead"] = "sabre";
+      m["ui_nm_sabresabreLionHead_broken"] = "shortsword";
+      m["ui_nm_salami"] = "rawmeat";
+      m["ui_nm_salamiDried"] = "dried";
+      m["ui_nm_salamiSmoked"] = "smoked";
+      m["ui_nm_sauerkraut"] = "vegetables";
+      m["ui_nm_scatterShot"] = "shot";
+      m["ui_nm_sedmStatecnych2_pillory"] = "keys";
+      m["ui_nm_sedmStatecnychDva_borutsMap"] = "maps";
+      m["ui_nm_sedmStatecnychDva_hansSausage"] = "rawmeat";
+      m["ui_nm_sedmStatecnych_bundleOfWeapons"] = "common";
+      m["ui_nm_semin_blacksmith_chest"] = "keys";
+      m["ui_nm_sermiri_fencingHallKey"] = "keys";
+      m["ui_nm_sermiryHuntingSwordJimram"] = "huntingsword";
+      m["ui_nm_sermiry_guildSword"] = "longsword";
+      m["ui_nm_sermiry_longSwordMenhart"] = "longsword";
+      m["ui_nm_sermiry_trainingSword"] = "longsword";
+      m["ui_nm_sesivaniTonici_elsePerfume"] = "perfumes";
+      m["ui_nm_sesivaniTonici_freshFlowersHidden"] = "common";
+      m["ui_nm_sesivaniTonici_sestakBraies"] = "common";
+      m["ui_nm_setkaniNaRatbori_stolenDagger"] = "dagger";
+      m["ui_nm_setkaniVRatbori1_fineGloves"] = "common";
+      m["ui_nm_setkaniVRatbori1_stolenGoblet"] = "common";
+      m["ui_nm_setkaniVRatbori_apprenticeshipCertificate"] = "common";
+      m["ui_nm_setkaniVRatbori_copperJug"] = "common";
+      m["ui_nm_setkaniVRatbori_copperJug_big"] = "common";
+      m["ui_nm_setkanivRatbori_Annas_Documents"] = "common";
+      m["ui_nm_setkanivRatbori_Annas_Documents_Fake"] = "common";
+      m["ui_nm_shieldHeater"] = "shield";
+      m["ui_nm_shieldHeater_holohlav"] = "shield";
+      m["ui_nm_shieldHeater_lipa"] = "shield";
+      m["ui_nm_shieldHeater_pisek"] = "shield";
+      m["ui_nm_shieldHeater_prague"] = "shield";
+      m["ui_nm_shieldHeater_sigi"] = "shield";
+      m["ui_nm_shieldHeater_zavis"] = "shield";
+      m["ui_nm_shieldKite"] = "shield";
+      m["ui_nm_shieldKiteCuman"] = "shield";
+      m["ui_nm_shieldKiteCuman_summer"] = "shield";
+      m["ui_nm_shieldKiteTraining"] = "shield";
+      m["ui_nm_shieldKite_Skalitz_01"] = "shield";
+      m["ui_nm_shieldKite_Skalitz_01_broken"] = "shield";
+      m["ui_nm_shieldKite_Skalitz_02"] = "shield";
+      m["ui_nm_shieldKite_Skalitz_02_broken"] = "shield";
+      m["ui_nm_shieldKite_autumn"] = "shield";
+      m["ui_nm_shieldKite_bergov"] = "shield";
+      m["ui_nm_shieldKite_cech_A"] = "shield";
+      m["ui_nm_shieldKite_cech_B"] = "shield";
+      m["ui_nm_shieldKite_cech_C"] = "shield";
+      m["ui_nm_shieldKite_cech_D"] = "shield";
+      m["ui_nm_shieldKite_cech_E"] = "shield";
+      m["ui_nm_shieldKite_cech_F"] = "shield";
+      m["ui_nm_shieldKite_cimburk"] = "shield";
+      m["ui_nm_shieldKite_deserter"] = "shield";
+      m["ui_nm_shieldKite_holohlav"] = "shield";
+      m["ui_nm_shieldKite_kuttenberg"] = "shield";
+      m["ui_nm_shieldKite_nebak"] = "shield";
+      m["ui_nm_shieldKite_owl_blackknight"] = "shield";
+      m["ui_nm_shieldKite_owl_blackknight_broken"] = "shield";
+      m["ui_nm_shieldKite_polner"] = "shield";
+      m["ui_nm_shieldKite_prague"] = "shield";
+      m["ui_nm_shieldKite_redStar"] = "shield";
+      m["ui_nm_shieldKite_ruthard"] = "shield";
+      m["ui_nm_shieldKite_semin"] = "shield";
+      m["ui_nm_shieldKite_sigi"] = "shield";
+      m["ui_nm_shieldKite_spring"] = "shield";
+      m["ui_nm_shieldKite_teuton_01"] = "shield";
+      m["ui_nm_shieldKite_twitch"] = "shield";
+      m["ui_nm_shieldKite_vavak"] = "shield";
+      m["ui_nm_shieldPavise_bergov"] = "shield";
+      m["ui_nm_shieldPavise_half"] = "shield";
+      m["ui_nm_shieldPavise_hungary"] = "shield";
+      m["ui_nm_shieldPavise_painted"] = "shield";
+      m["ui_nm_shieldPavise_prague"] = "shield";
+      m["ui_nm_shieldPavise_suchdol"] = "shield";
+      m["ui_nm_shieldPavise_teuton_01"] = "shield";
+      m["ui_nm_shieldPavise_winter"] = "shield";
+      m["ui_nm_shieldRemnants"] = "shield";
+      m["ui_nm_shieldRemnantsPagan"] = "shield";
+      m["ui_nm_shoes01_m01"] = "boots";
+      m["ui_nm_shoes02_m01"] = "boots";
+      m["ui_nm_shoes03_m01"] = "boots";
+      m["ui_nm_shoes03_mlegate"] = "boots";
+      m["ui_nm_shoes03_thief"] = "boots";
+      m["ui_nm_shoes04_m01"] = "boots";
+      m["ui_nm_shoes04_vagrant"] = "boots";
+      m["ui_nm_shoes05_m01"] = "boots";
+      m["ui_nm_shoes_twitch"] = "boots";
+      m["ui_nm_shortSwordBasilard"] = "shortsword";
+      m["ui_nm_shortswordBroad"] = "shortsword";
+      m["ui_nm_shortswordCeremony"] = "shortsword";
+      m["ui_nm_shortswordCommon"] = "shortsword";
+      m["ui_nm_shortswordCommon_khTournament"] = "shortsword";
+      m["ui_nm_shortswordHeavy"] = "shortsword";
+      m["ui_nm_shortswordTraining"] = "shortsword";
+      m["ui_nm_shortswordcleaver"] = "shortsword";
+      m["ui_nm_skin_boar"] = "hides";
+      m["ui_nm_skin_dog"] = "hides";
+      m["ui_nm_skin_hare"] = "hides";
+      m["ui_nm_skin_horse"] = "hides";
+      m["ui_nm_skin_roe"] = "hides";
+      m["ui_nm_skin_sheep"] = "hides";
+      m["ui_nm_skin_wolf"] = "hides";
+      m["ui_nm_skullcap01_m01"] = "helmets";
+      m["ui_nm_skullcap02_m01"] = "helmets";
+      m["ui_nm_skullcap03_m01"] = "helmets";
+      m["ui_nm_skullcap04_m01"] = "helmets";
+      m["ui_nm_sleepingPoison"] = "poisons";
+      m["ui_nm_sleepingPoison_best"] = "poisons";
+      m["ui_nm_sleepingPoison_high"] = "poisons";
+      m["ui_nm_sleepingPoison_medium"] = "poisons";
+      m["ui_nm_soap"] = "bandages";
+      m["ui_nm_soapKCD"] = "bandages";
+      m["ui_nm_socky_sackcarryable"] = "common";
+      m["ui_nm_specialIventory_eatenBone"] = "common";
+      m["ui_nm_specialIventory_eatenSkull"] = "common";
+      m["ui_nm_special_attire"] = "alchemy";
+      m["ui_nm_special_bezoar"] = "blacksmithing";
+      m["ui_nm_special_bilin"] = "alchemy";
+      m["ui_nm_special_charcoal"] = "alchemy";
+      m["ui_nm_special_charcoalImproved"] = "alchemy";
+      m["ui_nm_special_cobweb"] = "alchemy";
+      m["ui_nm_special_cowSkin"] = "hides";
+      m["ui_nm_special_deerSkin"] = "hides";
+      m["ui_nm_special_featherBlack"] = "common";
+      m["ui_nm_special_featherRaven"] = "common";
+      m["ui_nm_special_featherRed"] = "common";
+      m["ui_nm_special_featherRooster"] = "common";
+      m["ui_nm_special_featherWhite"] = "common";
+      m["ui_nm_special_horn"] = "common";
+      m["ui_nm_special_lard"] = "common";
+      m["ui_nm_special_mushroomAmanita"] = "alchemy";
+      m["ui_nm_special_mushroomCave"] = "alchemy";
+      m["ui_nm_special_olibanum"] = "alchemy";
+      m["ui_nm_special_pigSkin"] = "hides";
+      m["ui_nm_special_saltpeter"] = "alchemy";
+      m["ui_nm_special_sulfur"] = "alchemy";
+      m["ui_nm_special_teethBoar"] = "alchemy";
+      m["ui_nm_special_teethWolf"] = "common";
+      m["ui_nm_spectacles01_m01"] = "spectacles";
+      m["ui_nm_spectacles01_m01_parler"] = "spectacles";
+      m["ui_nm_spirits"] = "liquor";
+      m["ui_nm_spizovaciOddil_fakeMilk"] = "common";
+      m["ui_nm_spizovaciOddil_freshMilk"] = "dairy";
+      m["ui_nm_spizovaciOddil_hiddenValuables"] = "common";
+      m["ui_nm_spizovaciOddil_keyToBeerDoor"] = "keys";
+      m["ui_nm_spizovaciOddil_ringFromPlagueGrave"] = "rings";
+      m["ui_nm_spizovaciOddil_vrbasRewardNecklace"] = "necklaces";
+      m["ui_nm_spravedlnost_book"] = "skillbooks";
+      m["ui_nm_spravedlnost_boots"] = "boots";
+      m["ui_nm_spravedlnost_ring"] = "rings";
+      m["ui_nm_spravedlnost_rosary"] = "common";
+      m["ui_nm_spravedlnost_silverBracelet"] = "common";
+      m["ui_nm_spravedlnost_vejmolaHouseKey"] = "keys";
+      m["ui_nm_spurs01_m01"] = "spurs";
+      m["ui_nm_spurs01_m02"] = "spurs";
+      m["ui_nm_spurs01_m03"] = "spurs";
+      m["ui_nm_spurs01_m04"] = "spurs";
+      m["ui_nm_stareKosti_brokenBone"] = "common";
+      m["ui_nm_stareKosti_brokenSkull"] = "common";
+      m["ui_nm_stareKosti_skull"] = "common";
+      m["ui_nm_stareKosti_song_1"] = "letters";
+      m["ui_nm_stareKosti_song_2"] = "letters";
+      m["ui_nm_stareKosti_song_3"] = "letters";
+      m["ui_nm_staryMistr_hideoutBasement"] = "keys";
+      m["ui_nm_staryMistr_symbols"] = "letters";
+      m["ui_nm_staryMistr_symbols_unread"] = "letters";
+      m["ui_nm_stealthMiseZaJindru_aulitzHouseKey"] = "keys";
+      m["ui_nm_stealthMiseZaJindru_aulitzSword"] = "longsword";
+      m["ui_nm_stealthMiseZaJindru_brabantsChestKey"] = "keys";
+      m["ui_nm_stealthMiseZaJindru_samHuntingKnife"] = "huntingsword";
+      m["ui_nm_strasidlo_krasekKey"] = "keys";
+      m["ui_nm_strasidlo_scaryThings"] = "common";
+      m["ui_nm_svatba_broth"] = "spices";
+      m["ui_nm_svatba_drinkForMoravians"] = "common";
+      m["ui_nm_svatba_foodForPoor"] = "common";
+      m["ui_nm_svatba_longswordTourname"] = "longsword";
+      m["ui_nm_svatba_ringFromChamberlein"] = "rings";
+      m["ui_nm_svatba_tournamentCheapRing"] = "rings";
+      m["ui_nm_svatba_tournamentRewardNecklace"] = "necklaces";
+      m["ui_nm_svatba_wine"] = "wine";
+      m["ui_nm_svatyAntonin_horseYoke"] = "common";
+      m["ui_nm_svatyAntonin_saintGameSign"] = "common";
+      m["ui_nm_svatyAntonin_svancaraAntonFlag"] = "polearm";
+      m["ui_nm_svatyAntonin_tavernSvatychCellarDoor"] = "keys";
+      m["ui_nm_svatyne_dagger"] = "dagger";
+      m["ui_nm_swordStGeorge"] = "shortsword";
+      m["ui_nm_swordStGeorge_broken"] = "shortsword";
+      m["ui_nm_taborCertovka_exoticItem_glassWare"] = "common";
+      m["ui_nm_taborCertovka_exoticItem_romanCoins"] = "common";
+      m["ui_nm_taborCertovka_exoticItem_sfinx"] = "common";
+      m["ui_nm_taborOdboje_keyBandageChest"] = "keys";
+      m["ui_nm_taboryKutnohorsko_pukavecCap"] = "hats";
+      m["ui_nm_taboryLapkuTrosecko_plesnivecMace"] = "mace";
+      m["ui_nm_taboryLapkuTrosecko_tlamaShield"] = "shield";
+      m["ui_nm_taboryTrosecko_casperRing"] = "rings";
+      m["ui_nm_taboryTrosecko_karlikCap"] = "hats";
+      m["ui_nm_taboryUCesty_barnabasSilverRing"] = "common";
+      m["ui_nm_taboryUCesty_barnabasSilverRingSecond"] = "rings";
+      m["ui_nm_taboryUCesty_darkosTreasureMap"] = "maps";
+      m["ui_nm_taboryUcesty_ostatkyKostSvaty"] = "common";
+      m["ui_nm_taboryUcesty_ostatkyNehetSvaty"] = "common";
+      m["ui_nm_taboryUcesty_ostatkyOdevSvaty"] = "common";
+      m["ui_nm_taboryUcesty_ostatkyVlasySvaty"] = "common";
+      m["ui_nm_taboryUcesty_ostatkylebkaSvaty"] = "common";
+      m["ui_nm_tarasMura_contract"] = "letters";
+      m["ui_nm_tarasMura_diary1"] = "letters";
+      m["ui_nm_tarasMura_diary2"] = "letters";
+      m["ui_nm_tarasMura_diary3"] = "letters";
+      m["ui_nm_tarasMura_diary4"] = "letters";
+      m["ui_nm_tarasMura_foodForTaras"] = "common";
+      m["ui_nm_tarasMura_tarasContractKey"] = "keys";
+      m["ui_nm_the_die_e"] = "dice";
+      m["ui_nm_torch"] = "torch";
+      m["ui_nm_torsopainter_m02"] = "armour_other";
+      m["ui_nm_tournament_kuttenbergSword"] = "longsword";
+      m["ui_nm_tournament_maceHerald"] = "mace";
+      m["ui_nm_tournament_shieldHeaterGold"] = "shield";
+      m["ui_nm_tournament_shieldHeaterRed"] = "shield";
+      m["ui_nm_traskavePoselstvi_gunpowderChestKey"] = "keys";
+      m["ui_nm_traskavePoselstvi_gunpowderKeg"] = "common";
+      m["ui_nm_traskavePoselstvi_gunpowderRecords"] = "letters";
+      m["ui_nm_treasureHunter_map1"] = "common";
+      m["ui_nm_treasureHunter_map2"] = "common";
+      m["ui_nm_treasureHunter_map3"] = "common";
+      m["ui_nm_treasureHunter_map4"] = "common";
+      m["ui_nm_trout"] = "rawmeat";
+      m["ui_nm_troutCooked"] = "cooked";
+      m["ui_nm_troutDried"] = "dried";
+      m["ui_nm_troutSmoked"] = "smoked";
+   }
+   static function BuildHeaderMap8()
+   {
+      var m = HEADER_MAP;
+      m["ui_nm_truhlari_handplane"] = "common";
+      m["ui_nm_truhlari_motherMaryStatue"] = "common";
+      m["ui_nm_tuniclong01_m01"] = "shirts";
+      m["ui_nm_tuniclong01_pick"] = "shirts";
+      m["ui_nm_tuniclong02_m02"] = "shirts";
+      m["ui_nm_tuniclong03_m01"] = "shirts";
+      m["ui_nm_tuniclong03_mbutcher"] = "shirts";
+      m["ui_nm_tuniclong04_m01"] = "shirts";
+      m["ui_nm_tuniclong04_vagrant"] = "shirts";
+      m["ui_nm_tuniclong05_m01"] = "shirts";
+      m["ui_nm_tunicshort01_m01"] = "shirts";
+      m["ui_nm_tunicshort03_m01"] = "shirts";
+      m["ui_nm_tunicshort04_courtier"] = "shirts";
+      m["ui_nm_tunicshort04_m01"] = "shirts";
+      m["ui_nm_tunicshort05_m01"] = "shirts";
+      m["ui_nm_tunicshort05_m02"] = "shirts";
+      m["ui_nm_tunicshort06_m01"] = "shirts";
+      m["ui_nm_tunicshort07_m01"] = "shirts";
+      m["ui_nm_tunicshort08_m01"] = "shirts";
+      m["ui_nm_tunicshort08_thief"] = "shirts";
+      m["ui_nm_tunicshortlegate_m01"] = "shirts";
+      m["ui_nm_turnip"] = "vegetables";
+      m["ui_nm_tyche_gold_badge"] = "badges_gold";
+      m["ui_nm_uchazec_floorKey"] = "keys";
+      m["ui_nm_uchazec_guildSword"] = "longsword";
+      m["ui_nm_uchazec_planOrloje"] = "plans";
+      m["ui_nm_uchazec_sackcarryable"] = "common";
+      m["ui_nm_undoneLetterFlorian"] = "letters";
+      m["ui_nm_utokNaNebakov_osinaStash"] = "keys";
+      m["ui_nm_utokNebakov_FridusSilverRing"] = "common";
+      m["ui_nm_utokNebakov_letterBusekDub"] = "letters";
+      m["ui_nm_utokNebakov_letterHankoTurnov"] = "letters";
+      m["ui_nm_utokNebakov_letterOtteKoch"] = "letters";
+      m["ui_nm_vajduv_amulet"] = "necklaces";
+      m["ui_nm_vezniNaTroskach_bergovBook1"] = "books";
+      m["ui_nm_vezniNaTroskach_scribeBook1"] = "books";
+      m["ui_nm_vezniNaTroskach_scribeBook2"] = "books";
+      m["ui_nm_vezniNaTroskch_godwinsRing"] = "rings";
+      m["ui_nm_viktorka_strangeHerbs"] = "common";
+      m["ui_nm_viktorka_viktorkaScarf"] = "common";
+      m["ui_nm_vrah_murderersHelmet"] = "helmets";
+      m["ui_nm_vrah_murderersHelmetPainted"] = "helmets";
+      m["ui_nm_waffenrock01_m01"] = "outerwear";
+      m["ui_nm_waffenrock01_m01_prague"] = "outerwear";
+      m["ui_nm_waffenrock01_teutonTau"] = "outerwear";
+      m["ui_nm_waffenrock02_m01"] = "outerwear";
+      m["ui_nm_waffenrock03_m01"] = "outerwear";
+      m["ui_nm_waffenrock03_m01_prague"] = "outerwear";
+      m["ui_nm_waffenrock04_m01"] = "outerwear";
+      m["ui_nm_waffenrock04_teuton"] = "outerwear";
+      m["ui_nm_waffenrock08_m01"] = "outerwear";
+      m["ui_nm_waffenrock08_m01_prague"] = "outerwear";
+      m["ui_nm_waffenrock09_m01"] = "outerwear";
+      m["ui_nm_waffenrock09_mPros"] = "outerwear";
+      m["ui_nm_waffenrock09_teuton"] = "outerwear";
+      m["ui_nm_waffenrock_polner"] = "outerwear";
+      m["ui_nm_waffenrock_redStar"] = "outerwear";
+      m["ui_nm_waffenrock_scaring_m01"] = "outerwear";
+      m["ui_nm_waffenrock_twitch"] = "outerwear";
+      m["ui_nm_walnutcake"] = "baked";
+      m["ui_nm_walnuts"] = "vegetables";
+      m["ui_nm_warchanfron01_m01"] = "chanfrons";
+      m["ui_nm_warchanfron02_m01"] = "chanfrons";
+      m["ui_nm_warchanfron03_m01"] = "chanfrons";
+      m["ui_nm_warhammer01"] = "mace";
+      m["ui_nm_warhammer02"] = "mace";
+      m["ui_nm_warhammer03"] = "mace";
+      m["ui_nm_warhammer03_trollslayer"] = "mace";
+      m["ui_nm_warhammer03_trollslayer_broken"] = "mace";
+      m["ui_nm_warhammer04"] = "mace";
+      m["ui_nm_warhammerBasilisc"] = "mace";
+      m["ui_nm_warhammerRaven"] = "mace";
+      m["ui_nm_warhammerStab"] = "mace";
+      m["ui_nm_warning"] = "armour_other";
+      m["ui_nm_warning|icon:trafficCone"] = "womens";
+      m["ui_nm_warsaddle01_m01"] = "saddles";
+      m["ui_nm_warsaddle02_m01"] = "saddles";
+      m["ui_nm_warsaddle03_m01"] = "saddles";
+      m["ui_nm_water"] = "water";
+      m["ui_nm_watermelon"] = "fruit";
+      m["ui_nm_weaponstub"] = "shortsword";
+      m["ui_nm_weaponstub|icon:axe_broken"] = "mace";
+      m["ui_nm_weaponstub|icon:longsword_broken"] = "longsword";
+      m["ui_nm_weaponstub|icon:maceBuchar_broken"] = "mace";
+      m["ui_nm_weaponstub|icon:mace_broken"] = "mace";
+      m["ui_nm_weaponstub|icon:poustevnik_seminLongSword_broken"] = "longsword";
+      m["ui_nm_weaponstub|icon:warhammerBasilisc_broken"] = "mace";
+      m["ui_nm_wedding_beer1"] = "beer";
+      m["ui_nm_wedding_beer2"] = "beer";
+      m["ui_nm_wedding_beer3"] = "beer";
+      m["ui_nm_wedding_beer4"] = "beer";
+      m["ui_nm_wine"] = "wine";
+      m["ui_nm_wineCharl"] = "wine";
+      m["ui_nm_wineCheap"] = "wine";
+      m["ui_nm_wineGood"] = "wine";
+      m["ui_nm_wineLorec"] = "wine";
+      m["ui_nm_wolfHeart"] = "rawmeat";
+      m["ui_nm_wolfHeartCooked"] = "cooked";
+      m["ui_nm_wolfMeat"] = "rawmeat";
+      m["ui_nm_wolfMeatCooked"] = "cooked";
+      m["ui_nm_wolfMeatDried"] = "dried";
+      m["ui_nm_wolfMeatSmoked"] = "smoked";
+      m["ui_nm_wreath_twitch"] = "coifs";
+      m["ui_nm_zaby_heniksCellar"] = "keys";
+      m["ui_nm_zaby_laxativeForAlsik"] = "common";
+      m["ui_nm_zaby_tachovMaypole"] = "common";
+      m["ui_nm_zachranaPtacka_caponRewardBow"] = "bow";
+      m["ui_nm_zachranaPtacka_hastalChestKey"] = "keys";
+      m["ui_nm_zachranaPtacka_keyMalessovFortress"] = "keys";
+      m["ui_nm_zachranaPtacka_keyMalessovNoblemanRooms"] = "keys";
+      m["ui_nm_zachranaPtacka_keyMalessovTopFortressFloor"] = "keys";
+      m["ui_nm_zachranaPtacka_klobas_die"] = "dice";
+      m["ui_nm_zachranaPtacka_malesovExterior"] = "maps";
+      m["ui_nm_zachranaPtacka_malesovInterior"] = "maps";
+      m["ui_nm_zachranaPtacka_mud_die"] = "dice";
+      m["ui_nm_zachranaPtacka_rozasBook"] = "books";
+      m["ui_nm_zachranaPtacka_sad_sargeant_die"] = "dice";
+      m["ui_nm_zachranaPtacka_trojak_die"] = "dice";
+      m["ui_nm_zakopanyZitrek_familyHeirloom"] = "common";
+      m["ui_nm_zakopanyZitrek_mysteriousMap"] = "maps";
+      m["ui_nm_zakopanyZitrek_preciousCloths"] = "common";
+      m["ui_nm_zbranePanaSemina_sukClub"] = "mace";
+      m["ui_nm_zbranePanaSemina_sukCrossbow"] = "crossbow";
+      m["ui_nm_zbranePanaSemina_sukGambeson"] = "gambesons";
+      m["ui_nm_zbranePanaSemina_sukHelmet"] = "helmets";
+      m["ui_nm_zbranePanaSemina_vasekMap"] = "maps";
+      m["ui_nm_zikmunduvTabor_albikPoisonBook"] = "books";
+      m["ui_nm_zikmunduvTabor_catherineShoe"] = "common";
+      m["ui_nm_zikmunduvTabor_cherthanChestKey"] = "keys";
+      m["ui_nm_zikmunduvTabor_cherthanIOU"] = "letters";
+      m["ui_nm_zikmunduvTabor_defectorsKey"] = "keys";
+      m["ui_nm_zikmunduvTabor_grozavGotchaDie"] = "dice";
+      m["ui_nm_zikmunduvTabor_musasChestKey"] = "keys";
+      m["ui_nm_zikmunduvTabor_stabProofDagger"] = "dagger";
+      m["ui_nm_zikmunduvTabor_stolenShoe"] = "common";
+      m["ui_nm_zizka_stuff"] = "common";
+      m["ui_nm_zlatyMedailon_basketWithNeedlework"] = "common";
+      m["ui_nm_zlatyMedailon_sapphireRing"] = "common";
+      m["ui_nm_zlatyMedailon_vojtasScarf"] = "common";
+      m["ui_nm_zranenyLovci_emptyWaterSkin"] = "common";
+      m["ui_nm_zranenyLovci_filledWaterSkin"] = "common";
+      m["ui_nm_zranenyLovci_pepikHorseBriddle"] = "common";
+      m["ui_nm_ztracenaCest_jezeksArms"] = "sleeves";
+      m["ui_nm_ztracenaCest_jezeksCaparison"] = "caparisons";
+      m["ui_nm_ztracenaCest_jezeksCuirass"] = "plate";
+      m["ui_nm_ztracenaCest_jezeksGauntlets"] = "gloves";
+      m["ui_nm_ztracenaCest_jezeksHelmet"] = "helmets";
+      m["ui_nm_ztracenaCest_jezeksLegs"] = "legarmour";
+      m["ui_nm_ztracenaCest_jezeksSpurs"] = "spurs";
+      m["ui_nm_ztracenaCest_jezeksWaffenrock"] = "outerwear";
+      m["ui_nm_ztracenaCest_lordsOfHolohlavShield"] = "shield";
+      m["ui_nm_ztracenaCest_zavisChest"] = "keys";
+      m["ui_nm_ztratyANalezy_booze"] = "liquor";
+      m["ui_nm_ztratyANalezy_helmet"] = "helmets";
+      m["ui_nm_ztratyANalezy_hose"] = "hose";
+      m["ui_nm_ztratyANalezy_knife"] = "common";
+      m["ui_nm_ztratyANalezy_purse"] = "common";
+      m["ui_nm_ztratyANalezy_shoes"] = "boots";
+      m["ui_nm_ztratyANalezy_strawHat"] = "hats";
+      m["ui_nm_ztratyANalezy_wreath"] = "womens";
+      m["ui_test_nm_dvojityAgent_petrsShortSword"] = "shortsword";
+      m["un_nm_pocestny_bookPageRhyme"] = "common";
+      m["unarmed_skillbook_lvl1_ui_c7vX"] = "skillbooks";
+      m["unarmed_skillbook_lvl2_ui_b32M"] = "skillbooks";
+      m["unarmed_skillbook_lvl3_ui_aji9"] = "skillbooks";
+      m["unarmed_skillbook_lvl4_ui_N4RF"] = "skillbooks";
+      m["vlasskatransmise_hollande_3H0a"] = "books";
+      m["wedding_contract_2_uiname_5b0p"] = "letters";
+      m["weddingbanquetlist_uiname_r9p1"] = "letters";
+      m["weddingcontract_uiname_kCCc"] = "letters";
+      m["zik_uiname_OnOA"] = "letters";
+      m["zizkaletter_fromsokolneba_gkyI"] = "letters";
+      m["zizkaletter_fromsokolneba_oQTb"] = "letters";
+      m["ztracenytovarys_weightcal_VEcn"] = "plans";
+   }
+   static var CATEGORY_BUYING = "Buying";
+   static var CATEGORY_SELLING = "Selling";
+   static var CATEGORY_USABLE = "tools";
+   static var CATEGORY_COMMON = "common";
+   static var CATEGORY_MONEY = "Money";
+   static var CATEGORY_HORSE_EQUIP = "HorseEquipment";
+   static var CATEGORY_UNKNOWN = "Unknown";
+   static var INFO_CATEGORY_NAMES = ["ShortSword","LongSword","Axe","Mace","Polearm","Shield","Bow","Crossbow","Rifle","Torch","Dagger","Arrow","Bolt","Ball","Shotgun","Coat","Gloves","Ring","Necklace","Collar","Hood","Boot","Coif","CoifPadded","Cap","CapHelmet","Cloth","ClothPadded","Chainmail","Belt","Pouch","Plate","Sleeves","Trousers","TrousersPadded","LegArmor","Spur","HorseTorso","HorseHead","HorseSaddle","HorseShoe","OtherClothes","Food","Potion","Poison","LoreBook","SkillBook","Map","Letter","Plan","Recipe","Alchemy","Blacksmithing","Usable","Ointment","Die","Badge","Common"];
+   static var INFO_CATEGORY_BELT = "Belt";
+   static var INFO_CATEGORY_POUCH = "Pouch";
+   static var FILTER_WEAPONS_BEGIN = -1;
+   static var FILTER_WEAPONS_END = -1;
+   static var FILTER_ARMOUR_BEGIN = -1;
+   static var FILTER_ARMOUR_END = -1;
+   static var FILTER_FOOD_BEGIN = -1;
+   static var FILTER_FOOD_END = -1;
+   static var FILTER_DOCUMENT_BEGIN = -1;
+   static var FILTER_DOCUMENT_END = -1;
+   static var FILTER_CRAFTING_BEGIN = -1;
+   static var FILTER_CRAFTING_END = -1;
+   static var FILTER_OTHER_BEGIN = -1;
+   static var FILTER_OTHER_END = -1;
+   static var SORT_NAME_ASC = 0;
+   static var SORT_NAME_DES = 1;
+   static var SORT_EQUIP_ASC = 2;
+   static var SORT_EQUIP_DES = 3;
+   static var SORT_AMOUNT_DES = 4;
+   static var SORT_AMOUNT_ASC = 5;
+   static var SORT_STAT_DES = 6;
+   static var SORT_STAT_ASC = 7;
+   static var SORT_HEALTH_DES = 8;
+   static var SORT_HEALTH_ASC = 9;
+   static var SORT_WEIGHT_DES = 10;
+   static var SORT_WEIGHT_ASC = 11;
+   static var SORT_PRICE_DES = 12;
+   static var SORT_PRICE_ASC = 13;
+   static var SORT_COST_DES = 14;
+   static var SORT_COST_ASC = 15;
+   static var FILTER_ALL = 0;
+   static var FILTER_WEAPONS = 1;
+   static var FILTER_ARMOUR = 2;
+   static var FILTER_FOOD = 3;
+   static var FILTER_DOCUMENT = 4;
+   static var FILTER_CRAFTING = 5;
+   static var FILTER_QUEST = 6;
+   static var FILTER_OTHER = 7;
+   static var FILTER_HORSE = 8;
+   static var FILTER_BASKET = 9;
+   static var HEALTH_GOOD = 0;
+   static var HEALTH_BAD = 1;
+   static var HEALTH_CRITICAL = 2;
+   static var BLOOD_THRESHOLD = 0.25;
+   static var DIRT_THRESHOLD = 0.5;
+   static var QUEST_DELIVERY_COUNT = 4;
+   static var OUTFIT_COUNT = 3;
+   static var HORSE_EQUIP = 1 << OUTFIT_COUNT;
+   static var BUFF_STATE_NONE = 1;
+   static var BUFF_STATE_POISON = 2;
+   static var BUFF_STATE_HARDENER = 4;
+   static var BUFF_STATE_RAZOR = 8;
+   static var BUFF_STATE_SEVEN = 16;
+   static var BUFF_STATE_BOOTS = 32;
+   static var BUFF_STATE_ARCHER = 64;
+   static var BUFF_STATE_POWDER = 128;
+   static var DELIVERY_MODE_MORE = 0;
+   static var DELIVERY_MODE_LESS = 1;
+   static var DELIVERY_MODE_EXAC = 2;
+   static var DELIVERY_MODE_ANY = 3;
+   static var DELIVERY_MODE_INF = 4;
+   static var DELIVERY_STATE_DEF = 0;
+   static var DELIVERY_STATE_PASS = 1;
+   static var DELIVERY_STATE_FAIL = 2;
+   static var INFO_ITEM_CATEGORY_DEFAULT = 0;
+   static var INFO_ITEM_CATEGORY_DESTRUCTIBLE = 1;
+   static var INFO_ITEM_CATEGORY_FOOD = 2;
+   static var INFO_ITEM_CATEGORY_ARMOR = 3;
+   static var INFO_ITEM_CATEGORY_MELEE = 4;
+   static var INFO_ITEM_CATEGORY_MISSILE = 5;
+   static var INFO_ITEM_CATEGORY_AMMO = 6;
+   static var INFO_ITEM_CATEGORY_DOCUMENT = 7;
+   static var INFO_ITEM_CATEGORY_SKILLBOOK = 8;
+   static var INFO_ITEM_CATEGORY_DURABILITY = 9;
+   static var INFO_ITEM_CATEGORY_HORSE = 10;
+   static var INFO_ITEM_CATEGORY_QAM_CONTAINER = 11;
+   static var INFO_ITEM_CATEGORY_SHIELD = 12;
+   static var INFO_ITEM_CATEGORY_ARMOR_SIMPLE = 13;
+   static var INFO_ITEM_CATEGORY_HORSE_SHOE = 14;
+   static var INFO_ITEM_CATEGORY_HORSE_SADDLE = 15;
+   static var COMBINE_TYPE_UNKNOWN = 0;
+   static var COMBINE_TYPE_POISON = 1;
+   static var COMBINE_TYPE_REPAIRKIT = 2;
+   static var MODAL_DIALOG_ITEM_FRAME_MELEE = 1;
+   static var MODAL_DIALOG_ITEM_FRAME_ARMOR = 2;
+   static var MODAL_DIALOG_ITEM_FRAME_ALCHEMY = 3;
+   static var MODAL_DIALOG_ITEM_FRAME_OTHER = 4;
+   static var TEXT_REPAIR = LOCALIZABLE_TOKEN + "ui_shop_pay";
+   static var TEXT_WASH = LOCALIZABLE_TOKEN + "ui_shop_consume";
+   static var TEXT_MY = "ui_inv_inventory";
+   static var TEXT_STORE = "ui_inv_store";
+   static var TEXT_LOOT = "ui_inv_npc";
+   static var TEXT_ALL = "ui_tab_all";
+   static var TEXT_WEAPONS = "ui_tab_weapons";
+   static var TEXT_ARMOUR = "ui_tab_armor";
+   static var TEXT_FOOD = "ui_tab_food";
+   static var TEXT_DOCUMENT = "ui_tab_documents";
+   static var TEXT_CRAFTING = "ui_tab_ingredients";
+   static var TEXT_QUEST = "ui_tab_quest";
+   static var TEXT_OTHER = "ui_tab_other";
+   static var TEXT_HORSE = "ui_tab_horse";
+   static var TEXT_BASKET = "ui_tab_basket";
+   static var TEXT_STOLEN_IN = "ui_stolen_in";
+   static var TEXT_INFO_WEIGHT = LOCALIZABLE_TOKEN + "ui_weight";
+   static var TEXT_INFO_PRICE = LOCALIZABLE_TOKEN + "ui_price";
+   static var TEXT_INFO_FRESHNESS = LOCALIZABLE_TOKEN + "ui_quality_stat_food";
+   static var TEXT_INFO_CONDITION = LOCALIZABLE_TOKEN + "ui_quality_stat";
+   static var TEXT_INFO_DECAY_TIME = LOCALIZABLE_TOKEN + "ui_quality_food";
+   static var TEXT_INFO_QUALITY = LOCALIZABLE_TOKEN + "ui_quality";
+   static var TEXT_INFO_DURABILITY = LOCALIZABLE_TOKEN + "ui_durability";
+   static var TEXT_INFO_NUTRITION = LOCALIZABLE_TOKEN + "ui_nutrition";
+   static var TEXT_INFO_REFRESH_BENEFIT = LOCALIZABLE_TOKEN + "ui_refreshment";
+   static var TEXT_INFO_HEALTH_BENEFIT = LOCALIZABLE_TOKEN + "ui_healing";
+   static var TEXT_INFO_ALCOHOL = LOCALIZABLE_TOKEN + "ui_alcohol";
+   static var TEXT_INFO_SATIETY = LOCALIZABLE_TOKEN + "ui_satiety";
+   static var TEXT_INFO_MIN_STRENGTH = LOCALIZABLE_TOKEN + "ui_min_strength";
+   static var TEXT_INFO_MIN_AGILITY = LOCALIZABLE_TOKEN + "ui_min_agility";
+   static var TEXT_INFO_VISIBILITY = LOCALIZABLE_TOKEN + "ui_visibility";
+   static var TEXT_INFO_CONSPIC = LOCALIZABLE_TOKEN + "ui_conspicuousness";
+   static var TEXT_INFO_NOISE = LOCALIZABLE_TOKEN + "ui_noise";
+   static var TEXT_INFO_CHARISMA = LOCALIZABLE_TOKEN + "ui_charisma";
+   static var TEXT_INFO_SLASH_ARMOUR = LOCALIZABLE_TOKEN + "ui_armor_slash";
+   static var TEXT_INFO_STAB_ARMOUR = LOCALIZABLE_TOKEN + "ui_armor_stab";
+   static var TEXT_INFO_BLUNT_ARMOUR = LOCALIZABLE_TOKEN + "ui_armor_blunt";
+   static var TEXT_INFO_SLASH_DAMAGE = LOCALIZABLE_TOKEN + "ui_damage_slash";
+   static var TEXT_INFO_STAB_DAMAGE = LOCALIZABLE_TOKEN + "ui_damage_stab";
+   static var TEXT_INFO_SMASH_DAMAGE = LOCALIZABLE_TOKEN + "ui_damage_blunt";
+   static var TEXT_INFO_DEFENSE = LOCALIZABLE_TOKEN + "ui_defense";
+   static var TEXT_INFO_BLOOD = LOCALIZABLE_TOKEN + "ui_blood";
+   static var TEXT_INFO_DIRT = LOCALIZABLE_TOKEN + "ui_dirt";
+   static var TEXT_INFO_POWER = LOCALIZABLE_TOKEN + "ui_power";
+   static var TEXT_INFO_POWER_MOD = LOCALIZABLE_TOKEN + "ui_power_mod";
+   static var TEXT_INFO_PROGRESS = LOCALIZABLE_TOKEN + "ui_progreass";
+   static var TEXT_INFO_BOOK_LENGTH = LOCALIZABLE_TOKEN + "ui_length";
+   static var TEXT_INFO_REQ_SKILL = LOCALIZABLE_TOKEN + "ui_req_skill";
+   static var TEXT_INFO_REQ_SKILL_LEVEL = LOCALIZABLE_TOKEN + "ui_req_skill_level";
+   static var TEXT_INFO_SLOTS_BELT = LOCALIZABLE_TOKEN + "ui_slots_belt";
+   static var TEXT_INFO_SLOTS_POUCH = LOCALIZABLE_TOKEN + "ui_slots_pouch";
+   static var TEXT_INFO_REPAINTED = LOCALIZABLE_TOKEN + "ui_repainted";
+   static var TEXT_SELLING = LOCALIZABLE_TOKEN + "ui_selling";
+   static var TEXT_BUYING = LOCALIZABLE_TOKEN + "ui_buying";
+   static var TEXT_TOTAL_GET = LOCALIZABLE_TOKEN + "ui_get";
+   static var TEXT_TOTAL_PAY = LOCALIZABLE_TOKEN + "ui_pay";
+   static var TEXT_PLAYER_MONEY = LOCALIZABLE_TOKEN + "ui_player_money";
+   static var TEXT_TRADER_MONEY = LOCALIZABLE_TOKEN + "ui_trader_money";
+   static var TEXT_AMOUNT = LOCALIZABLE_TOKEN + "ui_amount";
+   static var TEXT_SNIFFABLE = LOCALIZABLE_TOKEN + "ui_item_sniffable_by_dog";
+   static var TEXT_SELECT_ITEM_USE = LOCALIZABLE_TOKEN + "ui_select_item_use";
+   static var TEXT_SELECT_ITEMS_USE = LOCALIZABLE_TOKEN + "ui_select_items_use";
+   static var TEXT_SELECT_ITEMS_REPAIR = LOCALIZABLE_TOKEN + "ui_select_items_repair";
+   static var TEXT_SELECT_ITEMS_WASH = LOCALIZABLE_TOKEN + "ui_select_items_wash";
+   static var INFO_MC_NAME_PRICE = "price";
+   static var INFO_MC_NAME_WEIGHT = "weight";
+   static var INFO_MC_NAME_HEALTH = "health";
+   static var INFO_MC_NAME_QUALITY = "quality";
+   static var INFO_MC_NAME_DURABILITY = "durability";
+   static var INFO_MC_NAME_BLOOD = "blood";
+   static var INFO_MC_NAME_DIRT = "dirt";
+   static var INFO_MC_NAME_CHARISMA = "charisma";
+   static var INFO_MC_NAME_NOISE = "noise";
+   static var INFO_MC_NAME_CONSPIC = "conspic";
+   static var INFO_MC_NAME_VISIBILITY = "visibility";
+   static var INFO_MC_NAME_SMASH = "smash";
+   static var INFO_MC_NAME_SLASH = "slash";
+   static var INFO_MC_NAME_STAB = "stab";
+   static var INFO_MC_NAME_STRENGTH_REQ = "strengthReq";
+   static var INFO_ITEM_OFFSET_Y = 59;
+   static var SHOP_TEXT_OFFSET_X = 12;
+   function InvEnum()
+   {
+   }
+   static function GetFrameByMode(mode)
+   {
+      switch(mode)
+      {
+         case MODE_FILTER:
+         case MODE_MULTISELECT:
+         case MODE_MINIGAME:
+         case MODE_MINIGAME_NO_AMOUNT:
+            return "basic";
+         case MODE_REPAIR:
+            return "repair";
+         case MODE_WASH:
+            return "wash";
+         case MODE_QUEST_DELIVERY:
+            return "quest";
+         default:
+            return undefined;
+      }
+   }
+   static function EnsureCategories()
+   {
+      if(CATEGORY_NAMES == null)
+      {
+         CATEGORY_NAMES = HEADER_IDS.concat();
+      }
+   }
+   static function GetCategoryId(categoryName)
+   {
+      EnsureCategories();
+      if(CATEGORY_UNKNOWN == categoryName)
+      {
+         return CATEGORY_NAMES.length;
+      }
+      var _loc2_ = CATEGORY_NAMES.length;
+      var _loc1_ = 0;
+      while(_loc1_ < _loc2_)
+      {
+         if(CATEGORY_NAMES[_loc1_] == categoryName)
+         {
+            return _loc1_;
+         }
+         _loc1_ = _loc1_ + 1;
+      }
+      return CATEGORY_NAMES.length;
+   }
+   static function InitFilterBeginEndConsts()
+   {
+      EnsureCategories();
+      FILTER_WEAPONS_BEGIN = GetCategoryId(TAB_FIRST_WEAPONS);
+      FILTER_WEAPONS_END = GetCategoryId(TAB_LAST_WEAPONS);
+      FILTER_ARMOUR_BEGIN = GetCategoryId(TAB_FIRST_ARMOUR);
+      FILTER_ARMOUR_END = GetCategoryId(TAB_LAST_ARMOUR);
+      FILTER_FOOD_BEGIN = GetCategoryId(TAB_FIRST_FOOD);
+      FILTER_FOOD_END = GetCategoryId(TAB_LAST_FOOD);
+      FILTER_DOCUMENT_BEGIN = GetCategoryId(TAB_FIRST_BOOKS);
+      FILTER_DOCUMENT_END = GetCategoryId(TAB_LAST_BOOKS);
+      FILTER_CRAFTING_BEGIN = GetCategoryId(TAB_FIRST_MATERIALS);
+      FILTER_CRAFTING_END = GetCategoryId(TAB_LAST_MATERIALS);
+      FILTER_OTHER_BEGIN = GetCategoryId(TAB_FIRST_OTHER);
+      FILTER_OTHER_END = GetCategoryId(TAB_LAST_OTHER);
+   }
+   static function IsHorseEquip(categoryName)
+   {
+      return HeaderIsHorse(categoryName);
+   }
+   static function IsBasketHeading(categoryName)
+   {
+      return categoryName == CATEGORY_BUYING || categoryName == CATEGORY_SELLING;
+   }
+   static function GetEquipOrder(outfitPresenceMask, currentOutfit)
+   {
+      if(outfitPresenceMask & 1 << currentOutfit || outfitPresenceMask & HORSE_EQUIP)
+      {
+         return 0;
+      }
+      var _loc1_ = 0;
+      while(_loc1_ < OUTFIT_COUNT)
+      {
+         if(outfitPresenceMask & 1 << _loc1_)
+         {
+            return _loc1_ + 1;
+         }
+         _loc1_ = _loc1_ + 1;
+      }
+      return OUTFIT_COUNT + 1;
+   }
+   static function GetEquipMarker(outfitPresenceMask, currentOutfit, isQAMSubmenuOpen)
+   {
+      var _loc4_ = 0;
+      var _loc3_ = 1;
+      var _loc2_ = 2;
+      if(isQAMSubmenuOpen && !(outfitPresenceMask & 1 << currentOutfit))
+      {
+         outfitPresenceMask += 1 << currentOutfit;
+      }
+      if(outfitPresenceMask & 1 << _loc4_ && outfitPresenceMask & 1 << _loc3_ && outfitPresenceMask & 1 << _loc2_)
+      {
+         switch(currentOutfit)
+         {
+            case _loc4_:
+               return 18;
+            case _loc3_:
+               return 17;
+            case _loc2_:
+               return 19;
+         }
+      }
+      else if(outfitPresenceMask & 1 << _loc4_ && outfitPresenceMask & 1 << _loc3_)
+      {
+         switch(currentOutfit)
+         {
+            case _loc4_:
+               return 8;
+            case _loc3_:
+               return 9;
+            case _loc2_:
+               return 10;
+         }
+      }
+      else if(outfitPresenceMask & 1 << _loc4_ && outfitPresenceMask & 1 << _loc2_)
+      {
+         switch(currentOutfit)
+         {
+            case _loc4_:
+               return 11;
+            case _loc3_:
+               return 12;
+            case _loc2_:
+               return 13;
+         }
+      }
+      else if(outfitPresenceMask & 1 << _loc3_ && outfitPresenceMask & 1 << _loc2_)
+      {
+         switch(currentOutfit)
+         {
+            case _loc3_:
+               return 14;
+            case _loc2_:
+               return 15;
+            case _loc4_:
+               return 16;
+         }
+      }
+      else if(outfitPresenceMask & 1 << _loc4_)
+      {
+         switch(currentOutfit)
+         {
+            case _loc4_:
+               return 2;
+            case _loc3_:
+            case _loc2_:
+               return 5;
+         }
+      }
+      else if(outfitPresenceMask & 1 << _loc3_)
+      {
+         switch(currentOutfit)
+         {
+            case _loc3_:
+               return 3;
+            case _loc4_:
+            case _loc2_:
+               return 6;
+         }
+      }
+      else if(outfitPresenceMask & 1 << _loc2_)
+      {
+         switch(currentOutfit)
+         {
+            case _loc2_:
+               return 4;
+            case _loc4_:
+            case _loc3_:
+               return 7;
+         }
+      }
+      else if(outfitPresenceMask & HORSE_EQUIP)
+      {
+         return 20;
+      }
+      return 1;
+   }
+   static function GetTabFromFilter(filter, mode)
+   {
+      if(filter == FILTER_BASKET && mode == MODE_SHOP_TRADER)
+      {
+         return FILTER_HORSE;
+      }
+      return filter;
+   }
+   static function GetFilterFromTab(tab, mode)
+   {
+      if(tab == FILTER_HORSE && mode == MODE_SHOP_TRADER)
+      {
+         return FILTER_BASKET;
+      }
+      return tab;
+   }
+   static function GetTabText(filter)
+   {
+      switch(filter)
+      {
+         case FILTER_ALL:
+            return LOCALIZABLE_TOKEN + TEXT_ALL;
+         case FILTER_WEAPONS:
+            return LOCALIZABLE_TOKEN + TEXT_WEAPONS;
+         case FILTER_ARMOUR:
+            return LOCALIZABLE_TOKEN + TEXT_ARMOUR;
+         case FILTER_FOOD:
+            return LOCALIZABLE_TOKEN + TEXT_FOOD;
+         case FILTER_DOCUMENT:
+            return LOCALIZABLE_TOKEN + TEXT_DOCUMENT;
+         case FILTER_CRAFTING:
+            return LOCALIZABLE_TOKEN + TEXT_CRAFTING;
+         case FILTER_QUEST:
+            return LOCALIZABLE_TOKEN + TEXT_QUEST;
+         case FILTER_OTHER:
+            return LOCALIZABLE_TOKEN + TEXT_OTHER;
+         case FILTER_HORSE:
+            return LOCALIZABLE_TOKEN + TEXT_HORSE;
+         case FILTER_BASKET:
+            return LOCALIZABLE_TOKEN + TEXT_BASKET;
+         default:
+            return undefined;
+      }
+   }
+   static function GetSortFrame(sortId)
+   {
+      switch(sortId)
+      {
+         case SORT_NAME_ASC:
+         case SORT_EQUIP_ASC:
+         case SORT_AMOUNT_ASC:
+         case SORT_STAT_ASC:
+         case SORT_HEALTH_ASC:
+         case SORT_WEIGHT_ASC:
+         case SORT_PRICE_ASC:
+            return "selectDown";
+         case SORT_NAME_DES:
+         case SORT_EQUIP_DES:
+         case SORT_AMOUNT_DES:
+         case SORT_STAT_DES:
+         case SORT_HEALTH_DES:
+         case SORT_WEIGHT_DES:
+         case SORT_PRICE_DES:
+            return "selectUp";
+         default:
+            return;
+      }
+   }
+   static function GetSortTooltipCombine(type)
+   {
+      switch(type)
+      {
+         case MODE_COMBINE_POISON:
+            return "ui_tip_cost_poison";
+         case MODE_COMBINE_REPAIR:
+            return "ui_tip_cost_repair";
+         default:
+            return "";
+      }
+   }
+   static function GetSortTooltip(sortId, mode)
+   {
+      switch(sortId)
+      {
+         case SORT_NAME_ASC:
+         case SORT_NAME_DES:
+            return "ui_tip_alphabet";
+         case SORT_EQUIP_ASC:
+         case SORT_EQUIP_DES:
+            return "ui_tip_flag";
+         case SORT_AMOUNT_ASC:
+         case SORT_AMOUNT_DES:
+            return "ui_tip_count";
+         case SORT_STAT_ASC:
+         case SORT_STAT_DES:
+            return "ui_tip_main_stat";
+         case SORT_HEALTH_ASC:
+         case SORT_HEALTH_DES:
+            return "ui_tip_health";
+         case SORT_WEIGHT_ASC:
+         case SORT_WEIGHT_DES:
+            return "ui_tip_weight";
+         case SORT_PRICE_ASC:
+         case SORT_PRICE_DES:
+            return "ui_tip_price";
+         case SORT_COST_ASC:
+         case SORT_COST_DES:
+            if(mode == MODE_WASH)
+            {
+               return "ui_tip_cost_wash";
+            }
+            return "ui_tip_cost_repair";
+            break;
+         default:
+            return;
+      }
+   }
+   static function GetHtmlQuestInfoState(state)
+   {
+      switch(state)
+      {
+         case DELIVERY_STATE_PASS:
+            return ColorScheme.DARK_POSITIVE;
+         case DELIVERY_STATE_FAIL:
+            return ColorScheme.DARK_NEGATIVE;
+         case DELIVERY_STATE_DEF:
+         default:
+            return "";
+      }
+   }
+   static function GetItemCategoryName(category)
+   {
+      if(category == CATEGORY_BUYING || category == CATEGORY_SELLING || category == CATEGORY_UNKNOWN)
+      {
+         return LOCALIZABLE_TOKEN + "ui_item_category_" + category;
+      }
+      return HeaderText(category);
+   }
+   static function GetItemInfoCategoryName(category)
+   {
+      if(category == CATEGORY_MONEY)
+      {
+         category = CATEGORY_USABLE;
+      }
+      return LOCALIZABLE_TOKEN + "ui_item_info_category_" + category;
+   }
+   static function GetItemInfoType(category)
+   {
+      switch(category)
+      {
+         case "SkillBook":
+            return INFO_ITEM_CATEGORY_SKILLBOOK;
+         case "LoreBook":
+         case "Map":
+         case "Letter":
+         case "Recipe":
+            return INFO_ITEM_CATEGORY_DOCUMENT;
+         case "Arrow":
+         case "Bolt":
+         case "Ball":
+         case "Shotgun":
+            return INFO_ITEM_CATEGORY_AMMO;
+         case "Bow":
+         case "Crossbow":
+         case "Rifle":
+            return INFO_ITEM_CATEGORY_MISSILE;
+         case "ShortSword":
+         case "LongSword":
+         case "Axe":
+         case "Mace":
+         case "Polearm":
+            return INFO_ITEM_CATEGORY_MELEE;
+         case "Shield":
+            return INFO_ITEM_CATEGORY_SHIELD;
+         case "Coat":
+         case "Gloves":
+         case "Collar":
+         case "Hood":
+         case "Boot":
+         case "Coif":
+         case "CoifPadded":
+         case "Cap":
+         case "CapHelmet":
+         case "Cloth":
+         case "ClothPadded":
+         case "Chainmail":
+         case "Plate":
+         case "Sleeves":
+         case "Trousers":
+         case "TrousersPadded":
+         case "LegArmor":
+            return INFO_ITEM_CATEGORY_ARMOR;
+         case "Necklace":
+         case "Ring":
+         case "Spur":
+            return INFO_ITEM_CATEGORY_ARMOR_SIMPLE;
+         case "HorseTorso":
+         case "HorseHead":
+            return INFO_ITEM_CATEGORY_HORSE;
+         case "HorseShoe":
+            return INFO_ITEM_CATEGORY_HORSE_SHOE;
+         case "HorseSaddle":
+            return INFO_ITEM_CATEGORY_HORSE_SADDLE;
+         case "OtherClothes":
+            return INFO_ITEM_CATEGORY_DURABILITY;
+         case "Food":
+         case "Potion":
+            return INFO_ITEM_CATEGORY_FOOD;
+         case "Poison":
+         case "Ointment":
+            return INFO_ITEM_CATEGORY_DESTRUCTIBLE;
+         case "Belt":
+         case "Pouch":
+            return INFO_ITEM_CATEGORY_QAM_CONTAINER;
+         case "HorseSaddle":
+         case "Torch":
+         case "Dagger":
+         default:
+            return INFO_ITEM_CATEGORY_DEFAULT;
+      }
+   }
+   static function GetCombineTitleBySourceItemType(type)
+   {
+      switch(type)
+      {
+         case COMBINE_TYPE_POISON:
+            return LOCALIZABLE_TOKEN + "ui_select_items_to_poison";
+         case COMBINE_TYPE_REPAIRKIT:
+            return LOCALIZABLE_TOKEN + "ui_select_items_to_repair";
+         default:
+            return "";
+      }
+   }
+   static function GetModalDialogItemFrame(category)
+   {
+      var _loc1_ = GetItemInfoType(category);
+      switch(_loc1_)
+      {
+         case INFO_ITEM_CATEGORY_MELEE:
+            return MODAL_DIALOG_ITEM_FRAME_MELEE;
+         case INFO_ITEM_CATEGORY_ARMOR:
+         case INFO_ITEM_CATEGORY_HORSE:
+            return MODAL_DIALOG_ITEM_FRAME_ARMOR;
+         case INFO_ITEM_CATEGORY_DURABILITY:
+            return MODAL_DIALOG_ITEM_FRAME_OTHER;
+         case INFO_ITEM_CATEGORY_FOOD:
+         case INFO_ITEM_CATEGORY_DESTRUCTIBLE:
+         default:
+            return MODAL_DIALOG_ITEM_FRAME_ALCHEMY;
+      }
+   }
+   static function GetMultiplicatorByCombineType(type)
+   {
+      if(type == COMBINE_TYPE_REPAIRKIT)
+      {
+         return 100;
+      }
+      return 1;
+   }
+   static function IsPoison(buffIconMask)
+   {
+      return (buffIconMask & BUFF_STATE_POISON) != 0;
+   }
+   static function IsBuffed(buffIconMask)
+   {
+      return buffIconMask >= BUFF_STATE_POISON + BUFF_STATE_NONE;
+   }
+   static function GetItemInfoIconName(type)
+   {
+      switch(type)
+      {
+         case INFO_MC_NAME_PRICE:
+            return "stat_strength";
+         case INFO_MC_NAME_WEIGHT:
+            return "";
+         case INFO_MC_NAME_HEALTH:
+            return "";
+         case INFO_MC_NAME_QUALITY:
+            return "";
+         case INFO_MC_NAME_DURABILITY:
+            return "";
+         case INFO_MC_NAME_BLOOD:
+            return "";
+         case INFO_MC_NAME_DIRT:
+            return "";
+         case INFO_MC_NAME_CHARISMA:
+            return "character_charisma";
+         case INFO_MC_NAME_NOISE:
+            return "character_noise";
+         case INFO_MC_NAME_CONSPIC:
+            return "character_conspicuousness";
+         case INFO_MC_NAME_VISIBILITY:
+            return "character_visibility";
+         case INFO_MC_NAME_SMASH:
+            return "";
+         case INFO_MC_NAME_SLASH:
+            return "";
+         case INFO_MC_NAME_STAB:
+            return "";
+         case INFO_MC_NAME_STRENGTH_REQ:
+            return "stat_strength";
+         default:
+            return "";
+      }
+   }
+}

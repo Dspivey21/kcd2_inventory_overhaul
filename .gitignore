@@ -1,0 +1,21 @@
+# Warhorse's unmodified game files
+vanilla_original/
+
+# other people's mods
+arsi_1.4_original/
+compat_patch/
+
+# build outputs (rebuilt by build_v1.ps1 / asi\build.ps1 / release\package.ps1)
+build/
+release/*.zip
+asi/*.asi
+
+# dead scripts
+_old/
+
+# scratch
+*.log
+*.tmp
+
+# JPEXS decompile of the vanilla gfx (reseed source for toolsssemble_v1.py)
+vanilla_dec/

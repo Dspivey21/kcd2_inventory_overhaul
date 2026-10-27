@@ -1,0 +1,400 @@
+{
+ "weapons": [
+  {
+   "id": "longsword",
+   "text": "Longswords - Both hands"
+  },
+  {
+   "id": "shortsword",
+   "text": "Short swords - Right hand"
+  },
+  {
+   "id": "huntingsword",
+   "text": "Hunting swords - Right hand"
+  },
+  {
+   "id": "sabre",
+   "text": "Sabres - Right hand"
+  },
+  {
+   "id": "axe",
+   "text": "Axes - Right hand"
+  },
+  {
+   "id": "mace",
+   "text": "Maces - Right hand"
+  },
+  {
+   "id": "polearm",
+   "text": "Polearms - Both hands"
+  },
+  {
+   "id": "dagger",
+   "text": "Daggers"
+  },
+  {
+   "id": "bow",
+   "text": "Bows - Ranged"
+  },
+  {
+   "id": "arrow",
+   "text": "Arrows - Ammo"
+  },
+  {
+   "id": "crossbow",
+   "text": "Crossbows - Ranged"
+  },
+  {
+   "id": "bolt",
+   "text": "Bolts - Ammo"
+  },
+  {
+   "id": "handgonne",
+   "text": "Handgonnes - Ranged"
+  },
+  {
+   "id": "shot",
+   "text": "Shot - Ammo"
+  },
+  {
+   "id": "shield",
+   "text": "Shields - Left hand"
+  },
+  {
+   "id": "torch",
+   "text": "Torches"
+  },
+  {
+   "id": "weapon_other",
+   "text": "Other weapons"
+  }
+ ],
+ "armour": [
+  {
+   "id": "coifs",
+   "text": "Coifs - Head I"
+  },
+  {
+   "id": "helmets",
+   "text": "Helmets - Head II"
+  },
+  {
+   "id": "hats",
+   "text": "Hats - Head II"
+  },
+  {
+   "id": "collars",
+   "text": "Collars - Head III"
+  },
+  {
+   "id": "hoods",
+   "text": "Hoods - Head IV"
+  },
+  {
+   "id": "shirts",
+   "text": "Shirts - Body I"
+  },
+  {
+   "id": "gambesons",
+   "text": "Gambesons - Body I"
+  },
+  {
+   "id": "mail",
+   "text": "Mail - Body II"
+  },
+  {
+   "id": "plate",
+   "text": "Plate - Body III"
+  },
+  {
+   "id": "outerwear",
+   "text": "Outerwear - Body IV"
+  },
+  {
+   "id": "sleeves",
+   "text": "Sleeves - Arms I"
+  },
+  {
+   "id": "gloves",
+   "text": "Gloves - Arms II"
+  },
+  {
+   "id": "belts",
+   "text": "Belts - Waist I"
+  },
+  {
+   "id": "pouches",
+   "text": "Pouches - Waist II"
+  },
+  {
+   "id": "hose",
+   "text": "Hose - Legs I"
+  },
+  {
+   "id": "hose_feet",
+   "text": "Hose - Legs I + Feet I"
+  },
+  {
+   "id": "paddedhose",
+   "text": "Padded hose - Legs I"
+  },
+  {
+   "id": "legarmour",
+   "text": "Leg armour - Legs II"
+  },
+  {
+   "id": "legarmour_feet",
+   "text": "Leg armour - Legs II + Feet I"
+  },
+  {
+   "id": "boots",
+   "text": "Boots - Feet I"
+  },
+  {
+   "id": "spurs",
+   "text": "Spurs - Feet II"
+  },
+  {
+   "id": "necklaces",
+   "text": "Necklaces - Neck I"
+  },
+  {
+   "id": "brooches",
+   "text": "Brooches - Neck I"
+  },
+  {
+   "id": "rings",
+   "text": "Rings - Fingers I"
+  },
+  {
+   "id": "spectacles",
+   "text": "Spectacles - Neck I"
+  },
+  {
+   "id": "saddles",
+   "text": "Saddles",
+   "horse": true
+  },
+  {
+   "id": "bridles",
+   "text": "Bridles",
+   "horse": true
+  },
+  {
+   "id": "chanfrons",
+   "text": "Chanfrons",
+   "horse": true
+  },
+  {
+   "id": "caparisons",
+   "text": "Caparisons",
+   "horse": true
+  },
+  {
+   "id": "breeching",
+   "text": "Breeching",
+   "horse": true
+  },
+  {
+   "id": "horseshoes",
+   "text": "Horseshoes",
+   "horse": true
+  },
+  {
+   "id": "womens",
+   "text": "Women's clothing"
+  },
+  {
+   "id": "armour_other",
+   "text": "Other clothing"
+  }
+ ],
+ "food": [
+  {
+   "id": "dried",
+   "text": "Dried"
+  },
+  {
+   "id": "smoked",
+   "text": "Smoked"
+  },
+  {
+   "id": "cooked",
+   "text": "Cooked"
+  },
+  {
+   "id": "baked",
+   "text": "Baked goods"
+  },
+  {
+   "id": "dairy",
+   "text": "Dairy & eggs"
+  },
+  {
+   "id": "fruit",
+   "text": "Fruit"
+  },
+  {
+   "id": "vegetables",
+   "text": "Vegetables"
+  },
+  {
+   "id": "rawmeat",
+   "text": "Raw meat"
+  },
+  {
+   "id": "rawfish",
+   "text": "Raw fish"
+  },
+  {
+   "id": "spices",
+   "text": "Spices & honey"
+  },
+  {
+   "id": "beer",
+   "text": "Beer"
+  },
+  {
+   "id": "wine",
+   "text": "Wine"
+  },
+  {
+   "id": "liquor",
+   "text": "Liquor"
+  },
+  {
+   "id": "water",
+   "text": "Water"
+  },
+  {
+   "id": "saviour",
+   "text": "Saviour Schnapps"
+  },
+  {
+   "id": "potion_best",
+   "text": "Best potions"
+  },
+  {
+   "id": "potion_strong",
+   "text": "Strong potions"
+  },
+  {
+   "id": "potion_normal",
+   "text": "Normal potions"
+  },
+  {
+   "id": "potion_weak",
+   "text": "Weak potions"
+  },
+  {
+   "id": "potion_special",
+   "text": "Special potions"
+  },
+  {
+   "id": "poisons",
+   "text": "Poisons"
+  },
+  {
+   "id": "food_other",
+   "text": "Other food"
+  }
+ ],
+ "books": [
+  {
+   "id": "skillbooks",
+   "text": "Skill books"
+  },
+  {
+   "id": "books",
+   "text": "Regular books"
+  },
+  {
+   "id": "recipes",
+   "text": "Recipes"
+  },
+  {
+   "id": "plans",
+   "text": "Blacksmith plans"
+  },
+  {
+   "id": "maps",
+   "text": "Maps"
+  },
+  {
+   "id": "letters",
+   "text": "Letters & notes"
+  }
+ ],
+ "materials": [
+  {
+   "id": "herbs",
+   "text": "Herbs"
+  },
+  {
+   "id": "driedherbs",
+   "text": "Dried herbs"
+  },
+  {
+   "id": "alchemy",
+   "text": "Alchemy ingredients"
+  },
+  {
+   "id": "blacksmithing",
+   "text": "Blacksmithing"
+  },
+  {
+   "id": "hides",
+   "text": "Hides & skins"
+  }
+ ],
+ "other": [
+  {
+   "id": "groschen",
+   "text": "Groschen"
+  },
+  {
+   "id": "tools",
+   "text": "Tools"
+  },
+  {
+   "id": "repairkits",
+   "text": "Repair kits"
+  },
+  {
+   "id": "bandages",
+   "text": "Bandages & soap"
+  },
+  {
+   "id": "dice",
+   "text": "Dice"
+  },
+  {
+   "id": "badges_gold",
+   "text": "Gold badges"
+  },
+  {
+   "id": "badges_silver",
+   "text": "Silver badges"
+  },
+  {
+   "id": "badges_tin",
+   "text": "Tin badges"
+  },
+  {
+   "id": "perfumes",
+   "text": "Perfumes"
+  },
+  {
+   "id": "valuables",
+   "text": "Valuables"
+  },
+  {
+   "id": "common",
+   "text": "Common"
+  },
+  {
+   "id": "keys",
+   "text": "Keys"
+  }
+ ]
+}

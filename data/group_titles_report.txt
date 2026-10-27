@@ -1,0 +1,115 @@
+meshes with titles: 319   multi-name meshes: 113   ties: 2   overrides: 0
+
+      bascinetopen01         -> Open bascinet                      Open bascinet x4 | Nuremberg bascinet x2 | Hounskull bascinet x1
+      bascinetopen03         -> Bascinet with bretèche             Bascinet with bretèche x3 | Warhorse bascinet x1
+      bascinetvisor05        -> Italian bascinet                   Italian bascinet x7 | Jezhek's helmet x1
+      basicbridle01          -> Soft leather bridle                Soft leather bridle x10 | Damaged leather bridle x1 | Tengri's Bridle x1
+      basicbridle02          -> Bridle with plating                Bridle with plating x9 | Soft leather bridle x1
+      basicbridle03          -> Noseband bridle                    Noseband bridle x10 | Rattay bridle x1
+      basicharness03         -> Hague breeching                    Hague breeching x15 | Rattay breeching x1
+      bootsankle01           -> Work boots                         Work boots x6 | Quiet boots x1 | Working boots x1
+      bootsankle03           -> Vagrant's boots                    Vagrant's boots x8 | Warhorse boots x1
+      bootsankle05           -> Firm boots                         Firm boots x7 | Pickpocket's shoes x1
+      bootsknee01            -> Noble boots                        Noble boots x8 | Fine shoes of cobbler Vejmola x1
+      bootsknee03            -> Riding boots                       Riding boots x7 | Soft boots x1
+      bootsknee04            -> High boots                         High boots x7 | Thief's shoes x1
+      brigandine02           -> Bandit's brigandine                Bandit's brigandine x4 | Bandit's brigandine - dark x1
+      brigandine03           -> Saxon brigandine                   Saxon brigandine x9 | Robber baron's brigandine x1
+      brigandine05           -> Milanese brigandine                Milanese brigandine x8 | Milanese brigandine - dark x1 | Teutonic brigandine x1
+      brigandinearm03        -> Reinforced tempered sleeves        Reinforced tempered sleeves x8 | Warhorse brigandine sleeves x1
+      brigandinearm05        -> Silesian brigandine sleeves        Silesian brigandine sleeves x11 | Jezhek's plate pauldrons x1
+      caftan05               -> Quilted caftan                     Quilted caftan x11 | Quilted caftan - black x1
+      cap01                  -> Round cap                          Round cap x14 | Royal waiter's hat x1
+      cap07                  -> Embroidered chaperon               Embroidered chaperon x12 | Istvan's chaperon x1 | Lord Toth's chaperon x1
+      cap10                  -> Hunting cap                        Hunting cap x9 | Mikush's cap x1 | Pointy cap x1
+      cap12                  -> Wanderer's hat                     Wanderer's hat x9 | Burgher's hat x2 | Eggman's hat x1 | Vagrant's hat x1
+      cap19                  -> Miner's cap                        Miner's cap x9 | Pickpocket's hat x1
+      cap21                  -> Silesian cap                       Silesian cap x11 | Cap from Nebakov x1 | Thief's cap x1
+      cap24                  -> Master huntsman's hat              Master huntsman's hat x10 | Charlie's hat x1 | Handsome Charlie's hat x1
+      cap33                  -> Master huntsman's hat              Master huntsman's hat x5 | Courtier's hat x1 | Master Raven's hat x1
+      caparison01            -> Plain tourney caparison            Plain tourney caparison x14 | Skalitz caparison x1 | Warhorse tournament caparison x1
+      caparison02            -> Executioner's caparison simple     Executioner's caparison simple x8 | Teutonic caparison x1
+      caparison03            -> Caparison á la peytral simple      Caparison á la peytral simple x8 | Caparison of the Lords of Leipa x4 | Caparison of the Lord Ruthard x2 | Caparison of the Lord of Semine x1
+      coat02                 -> Coat of arms surcoat               Coat of arms surcoat x15 | Ordinary coat x11 | Teutonic lay brothers's surcoat x1 | Teutonic surcoat x1 | Vagrant's coat x1
+      coat04                 -> Ordinary coat                      Ordinary coat x11 | Ordinary coat with crest x5 | Ordinary Praguers' coat with crest x1 | Royal waiter's coat x1
+      coat05                 -> Hunting coat                       Hunting coat x10 | Thief's coat x1
+      coat06                 -> Jester's disguise                  Jester's disguise x5 | Jimbo's costume x1
+      coat08                 -> Fitted coat                        Fitted coat x10 | Courtier's coat x1
+      coat11                 -> Embroidered coat                   Embroidered coat x10 | Embroidered heater coat x2
+      coiflarge01            -> Broad battle coif                  Broad battle coif x14 | Broad battle coif - black x1 | Tournament padded coif x1
+      coiflarge02            -> Padded hood                        Padded hood x14 | Padded hood - black x1
+      coifsmall01            -> Padded coif                        Padded coif x8 | Padded coif - black x1
+      coifsmall02            -> Crude padded coif                  Crude padded coif x7 | Quilted vagrant's cap x1
+      coifsmall03            -> Padded coif                        Padded coif x7 | Padded coif - black x1
+      cuirass01              -> Smooth cuirass                     Smooth cuirass x7 | Smooth cuirass - blackened x1
+      cuirass04              -> Mended cuirass                     Mended cuirass x4 | Mended cuirass - dark x1
+      cuirass05              -> Riding cuirass                     Riding cuirass x4 | Riding cuirass - blackened x1
+      cuirass06              -> Rusted plate                       Rusted plate x7 | Rusted plate - dark x1
+      cuirass07              -> Noble cuirass                      Noble cuirass x8 | Kuttenberg ornated cuirass x1
+      cuirass09              -> Brigandine with plate              Brigandine with plate x6 | Miser's cuirass x1
+      eastsaddle01           -> Lovari saddle                      Lovari saddle x12 | Tengri's Saddle x1
+      eastsaddle02           -> Moglen saddle                      Moglen saddle x12 | Moglen saddle of poor quality leather x1
+      f_cotehardie01         -> Noblewoman's cotehardie            Noblewoman's cotehardie x14 | Tyrol brocade cotehardie x1
+      f_shoes02              -> Common ladies shoes                Common ladies shoes x9 | Ladies shoes x1
+      f_simpledress04        -> Frilled dress                      Frilled dress x15 | Frilled colourful dress x3
+      f_simpledress05        -> Festive dress                      Festive dress x22 | Colorful festive dress x2 | Women's hood x1
+      f_veil03               -> Frilled veil                       Frilled veil x2 | Saint Ludmila's veil x1
+      f_wreath01             -> Wreath                             Wreath x5 | Round cap x1
+      gambesonlong01         -> Long gambeson                      Long gambeson x19 | Drowner's gambeson x1 | Long gambeson - black x1 | Tournament gambeson x1
+      gambesonlong03         -> Long pourpoint                     Long pourpoint x15 | Erik's pourpoint x1 | Long pourpoint - black x1 | Warhorse pourpoint x1
+      gambesonlong04         -> Noble gambeson                     Noble gambeson x14 | Long gambeson x1
+      gambesonshort02        -> Worn gambeson                      Worn gambeson x11 | Gnarly's jupon x1 | Vagrant's gambeson x1
+      gambesonshort03        -> Short pourpoint                    Short pourpoint x9 | Short aketon x2 | Short pourpoint - black x1
+      gambesonshort04        -> Short aketon                       Short aketon x13 | Robber baron's aketon x1
+      gauntlets01            -> Hourglass gauntlets                Hourglass gauntlets x4 | Jezhek's gloves x1
+      gauntlets02            -> Milanese gauntlets                 Milanese gauntlets x3 | Tournament gauntlets x1
+      gauntlets08            -> Brigandine gauntlets               Brigandine gauntlets x7 | Warhorse gauntlets x1
+      gloves01               -> Leather gloves                     Leather gloves x7 | Pickpocket's gloves x1
+      gloves02               -> Mitts                              Mitts x8 | Drowned man's gloves x1
+      gloves05               -> Riding gloves                      Riding gloves x10 | Cutpurse's gloves x1 | Henry's blacksmith gloves x1 | Knacker's gloves x1 | Thief's gloves x1
+      gloves06               -> Noble gloves                       Noble gloves x15 | Legate's gloves x1
+      habit02                -> Lord's overcoat                    Lord's overcoat x6 | Cleric habit x3
+      hood01                 -> Simple hood                        Simple hood x10 | Cutpurse's hood x1 | Wanderer's hood x1
+      hood02                 -> Hemmed hood                        Hemmed hood x9 | Courtier's hood x1
+      hood07                 -> Wanderer's hood                    Wanderer's hood x7 | Pickpocket's hood x1
+      hood08                 -> Miner's hood                       Miner's hood x10 | Drowner's hood x1 | Passionate mushroom-picker's hood x1
+      hood09                 -> Cleric's hood                      Cleric's hood x10 | Monk's hood x3 | Knights of the Cross hood x2 | Thief's hood x1
+      hood11                 -> Servant's hood                     Servant's hood x24 | Teutonic hood x1
+      hosejoined01           -> Hose joined                        Hose joined x13 | Drowner's hose x1 | Plain troubadours' hose x1 | Thief's hose x1
+      hosejoined02           -> Gartered hose                      Gartered hose x25 | Tied jester's hose x4 | Courtier's hose x1 | Cutpurse's hose x1 | Legate's hose x1 | The hose of a royal waiter x1
+      hoseseparate01         -> Simple hose                        Simple hose x21 | Plain troubadours' hose x7 | Master huntsman's hose x1 | Vagrant's hose x1
+      hoseseparate04         -> Beggar's hose                      Beggar's hose x13 | Pickpocket's hose x1
+      kettlehat01            -> Kettle hat                         Kettle hat x2 | Gnarly's old helmet x1 | Kettle hat - dark x1
+      kettlehat03            -> Spined kettle hat                  Spined kettle hat x3 | Tournament kettle hat x1
+      kettlehat04            -> Beaked kettle hat                  Beaked kettle hat x4 | Beaked kettle hat - dark x1
+      kettlehat05            -> Bell-shaped kettle hat             Bell-shaped kettle hat x2 | Kettle hat - dark x1
+TIE   kettlehat09            -> Killer's helmet                    Killer's helmet x1 | Murderer’s painted helmet x1
+      legsbrigandine03       -> Noble brigandine legs              Noble brigandine legs x13 | Jezhek's plate chausses x1 | Warhorse plate leg armour x1
+      legspadded01           -> Quilted hose                       Quilted hose x7 | Padded chausses x3 | Quilted hose - dark x1
+      legspadded02           -> Old quilted hose                   Old quilted hose x13 | Vagrant's quilted hose x1
+      legspadded03           -> Noble's quilted hose               Noble's quilted hose x9 | Mended padded leggings x1 | Noble quilted trousers x1
+      legsplate03            -> Noble's plate legs                 Noble's plate legs x4 | Noble's plate legs - dark x1
+      noblecaparison01       -> Tournament caparison decorated     Tournament caparison decorated x12 | Lords of Holohlavy caparison x2 | Tournament caparison in colours of Leipa x2
+      noblecaparison02       -> Caparison decorated                Caparison decorated x14 | Caparison sewn in Leipa colours x2
+      noblecaparison03       -> Executioner's caparison decorated  Executioner's caparison decorated x14 | Executioner’s caparison in colours of Leipa x2
+      noblecaparison04       -> Executioner caparison w/ breeching Executioner caparison w/ breeching x10 | Markvart von Aulitz's caparison x1
+      noblecaparison06       -> Caparison á la crupper decorated   Caparison á la crupper decorated x10 | Executioner’s caparison in colours of Leipa x1
+      noblecaparison07       -> Executioner caparison w/ breeching Executioner caparison w/ breeching x8 | Executioner’s caparison in colours of Leipa x1
+      paddedcaparison01      -> Tournament caparison quilted       Tournament caparison quilted x16 | Tengri's Caparison x1
+      shoes01                -> Simple shoes                       Simple shoes x8 | Cutpurse's shoes x1
+      shoes03                -> Soft shoes                         Soft shoes x7 | Legate's shoes x1 | Thief's shoes x1
+      shoes04                -> Simple shoes                       Simple shoes x3 | Vagrant's shoes x1
+      spectacles01           -> Spectacles                         Spectacles x2 | Cellarius' spectacles x1 | Parler's spectacles x1
+TIE   spurs01                -> Hungarian spurs                    Hungarian spurs x1 | Jezhek's spurs x1 | Knight's spurs x1 | Noble's spurs x1 | Rowel spurs x1
+      tuniclong01            -> Tunic                              Tunic x11 | Pickpocket's tunic x1
+      tuniclong03            -> Leather apron                      Leather apron x10 | Butcher's apron x4 | Painter Vojtiech's apron x1
+      tuniclong04            -> Worn tunic                         Worn tunic x9 | Wanderer's tunic x1
+      tuniclong05            -> Beggar tunic                       Beggar tunic x12 | Old tunic x1
+      tunicshort04           -> Burgher pourpoint                  Burgher pourpoint x10 | Courtier's pourpoint x1
+      tunicshort05           -> Leather apron                      Leather apron x10 | Short butcher apron x4 | Henry's blacksmith apron x1
+      tunicshort08           -> Embroidered shirt                  Embroidered shirt x10 | Thief's tunic x1
+      waffenrock01           -> Hemmed waffenrock                  Hemmed waffenrock x11 | Crusaders of the Red Star waffenrock x3 | Praguers' hemmed waffenrock x2 | House of Polner waffenrock x1 | Teutonic lay brother's waffenrock x1 | Waffenrock of the Lords of Garbow x1 | Warhorse waffenrock x1
+      waffenrock03           -> Fastened waffenrock                Fastened waffenrock x9 | Praguers' waffenrock with buttons x1
+      waffenrock04           -> Ornate waffenrock                  Ornate waffenrock x7 | Halved Teutonic waffenrock x1
+      waffenrock08           -> Riding waffenrock                  Riding waffenrock x29 | Crusaders of the Red Star waffenrock x2 | Praguers' riding waffenrock x1 | Tournament waffenrock x1
+      waffenrock09           -> Knight's waffenrock                Knight's waffenrock x20 | Teutonic waffenrock x1 | Waffenrock of Henry's Forge x1

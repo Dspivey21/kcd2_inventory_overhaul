@@ -1,0 +1,120 @@
+items considered: 5065   name keys: 2158   map entries: 2174   unique name keys (item__unique + item__rewards, not used by plain items): 101 of 152
+
+UNMAPPED (0):
+
+NAME-KEY CONFLICTS (10) - same name key in two headers, icon overrides added:
+  ui_nm_cap01_m01                          Round cap                    {'hats': 14, 'coifs': 1}
+  ui_nm_weaponstub                         Weapon stub                  {'shortsword': 48, 'mace': 33, 'longsword': 2}
+  ui_nm_warning                            A suspicious bag             {'spices': 4, 'armour_other': 121, 'repairkits': 4, 'beer': 1, 'potion_special': 2, 'womens': 1}
+  ui_nm_coifmail01_m01                     Mail coif                    {'coifs': 6, 'hoods': 1}
+  ui_nm_legsplate01_m01                    Bavarian plate legs          {'legarmour_feet': 2, 'legarmour': 3}
+  ui_nm_loot_pewterJugRound                Rounded pewter jug           {'valuables': 1, 'common': 1}
+  ui_nm_loot_goldenCross                   Golden crucifix              {'valuables': 1, 'common': 1}
+  ui_nm_loot_pewterJug                     Tin pitcher                  {'common': 1, 'valuables': 1}
+  ui_nm_artefakt_BavorCoatofArms_drawing   Boleslav Bavor's coat of arm {'common': 1, 'maps': 1}
+  ui_nm_pomatenec_brokenSword              Madman's broken sword        {'shortsword': 1, 'longsword': 1}
+
+REAL ITEMS IN OTHER ARMOUR (0) - placeholders/props excluded; decide a header or leave:
+
+COUNTS PER HEADER (player-facing items only):
+  [weapons]
+    Longswords - Both hands              45   Battle longsword; Blacksmiths' guild longsword; Broad longsword; Common longsword; Dry Devil's longsword
+    Short swords - Right hand            75   Balshan's sword; Basilard; Blacksmith's defender; Boleslav Bavor's broken sword; Boleslav Bavor's reforged sword
+    Hunting swords - Right hand          10   Burgher's hunting sword; Competition hunting sword; Competition sword; Cuman shashka; Emmeram's hunting sword
+    Sabres - Right hand                   6   Ataman's sabre; Common sabre; Lion's roar Kilij; Owl’s Claw sabre; Rikonaris' sabre
+    Axes - Right hand                    18   Adorned axe; Bearded axe; Broad axe; Broken weapon; Calvaria axe
+    Maces - Right hand                   63   Axe from Skalitz stub; Bailiff's mace; Basilisk warhammer; Buchar mace; Canker's mace
+    Polearms - Both hands                24   Balshanka; Bardiche; Billhook; Broken Roman soldier's spear; Broken polearm
+    Daggers                               7   Bloody knife; Brunswick's dagger; Dagger; Denes' dagger; Old dagger
+    Shields - Left hand                 363   Apothecary guild knight shield; Baker guild knight shield; Broken Shield; Broken round shield; Broken shield
+    Bows - Ranged                        22   Ash hunting bow; Ash longbow; Ash village bow; Cuman chief's bow; Cuman folded bow
+    Arrows - Ammo                        14   Battle arrow; Black arrow; Crude arrow; Hunting arrow; Improved hunting arrow
+    Crossbows - Ranged                   13   Artemis' crossbow; Decorated field crossbow; Field crossbow; Gnarly's crossbow; Heavy crossbow
+    Bolts - Ammo                         14   Battle bolt; Common bolt; Crude bolt; Fine bolt; Hunting bolt
+    Handgonnes - Ranged                   5   Hook gun; Marksman's hook gun; Master's handgonne; Pistole; Pushko's Push'em
+    Shot - Ammo                           4   Arrow from Karel's Head; Battle shot; Lead ball; Scattershot
+    Torches                               2   Torch
+    Other weapons                         0   
+  [armour]
+    Coifs - Head I                       87   Alluring wreath; Broad battle coif; Broad battle coif - black; Brunswick's chainmail coif; Coif
+    Helmets - Head II                   128   Bascinet with aventail; Bascinet with bretèche; Beaked kettle hat; Beaked kettle hat - dark; Bell-shaped bascinet
+    Hats - Head II                      309   Baggy cap; Bohemian cap; Burgher's hat; Burgundian hat; Cap from Nebakov
+    Collars - Head III                   26   Mail collar; Mail collar with badge; Padded collar
+    Hoods - Head IV                     149   Abbot's hood; Beggar's hood; Black hood; Brocade hood; Burgher's hood
+    Shirts - Body I                     158   Beggar tunic; Beggar's shirt; Burgher pourpoint; Butcher's apron; Courtier's pourpoint.
+    Gambesons - Body I                  169   Capon's gambeson; Cuman caftan; Cutpurse's pourpoint; Drowner's gambeson; Erik's pourpoint
+    Mail - Body II                       15   Hauberk long; Italian hauberk; Saxon hauberk; Short chainmail
+    Plate - Body III                    116   Bandit's brigandine; Bandit's brigandine - dark; Brigandine with plate; Brunswick's brigandine; Cuirass with falds
+    Outerwear - Body IV                 296   Beggar's coat; Burgher coat; Cleric habit; Coat of arms surcoat; Colour from the bull
+    Sleeves - Arms I                     76   Brunswick's plate sleeves; Couters; Couters with rondel; Jezhek's plate pauldrons; Kuttenberg plate sleeves
+    Gloves - Arms II                     86   Brigandine gauntlets; Brunswick's gauntlets; Chainmail gauntlets; Cutpurse's gloves; Drowned man's gloves
+    Belts - Waist I                       3   Hunter's belt; Knight's belt; Noble's belt
+    Pouches - Waist II                    4   Hunter's pouch; Knight's pouch; Noble's pouch; Wanderer's pouch
+    Hose - Legs I                       128   Beggar's hose; Courtier's hose; Cutpurse's hose; Drowner's hose; Gartered hose
+    Hose - Legs I + Feet I                5   Riding boots - high
+    Padded hose - Legs I                 37   Mended padded leggings; Noble quilted trousers; Noble's quilted hose; Old quilted hose; Padded chausses
+    Leg armour - Legs II                 61   Bavarian plate legs; Capon' plate chausses; Half plate legs; Jezhek's plate chausses; Kuttenberg plate legs
+    Leg armour - Legs II + Feet I        12   Bavarian plate legs; Brunswick's plate leg armour; Milanese plate leg armour; Noble's plate legs; Noble's plate legs - dark
+    Boots - Feet I                      136   Burgher's shoes; Courtier's boots; Courtiers boots; Cuman boots; Cutpurse's shoes
+    Spurs - Feet II                       5   Hungarian spurs; Jezhek's spurs; Knight's spurs; Noble's spurs; Rowel spurs
+    Necklaces - Neck I                   16   Golden cross with garnets; Golden cross with pearls; Head bandage; Lord Semine's necklace; Pavlena's necklace
+    Brooches - Neck I                     6   Brass brooch with lettering; Golden heraldic brooch; Golden initial brooch; Silver brooch; Silver brooch enamelled
+    Rings - Fingers I                    16   Barnabas' Ring; Casper's ring; Chamberlain's ring; Cheap ring; Engraved gemstone ring
+    Spectacles - Face I                   4   Cellarius' spectacles; Parler's spectacles; Spectacles
+    Saddles                             148   Bravante saddle; Bridon saddle; Cracowian saddle; Dragon saddle; Hungarian saddle
+    Bridles                              64   Bridle of the Holy Roman Empire; Bridle with plating; Damaged leather bridle; Noseband bridle; Rattay bridle
+    Chanfrons                            33   Dragon chanfron; Karachin's chanfron; Milanese chanfron; Tyrolian chanfron; Unicorn chanfron
+    Caparisons                          222   Brunswick's caparison; Caparison decorated; Caparison of the Lord Ruthard; Caparison of the Lord of Semine; Caparison of the Lords of Leipa
+    Breeching                            44   Hague breeching; Mainz breeching; Rattay breeching; Wielun breeching
+    Horseshoes                            9   Farmer's horseshoes; Ghostly horseshoe; Ghostly horseshoes; Knight's horseshoes; Lovarian horseshoes
+    Women's clothing                    327   Bonnet; Colorful festive dress; Colourful headscarf; Common ladies shoes; Decorated headpiece
+    Other clothing                       16   Hounskull bascinet; Italian bascinet; Long gambeson; Noble's bascinet; Nuremberg bascinet
+  [food]
+    Dried                                26   Dried apple; Dried beef; Dried beef tenderloin; Dried boar meat; Dried boar rump
+    Smoked                               23   Smoked beef; Smoked beef tenderloin; Smoked boar meat; Smoked boar rump; Smoked boar tenderloin
+    Cooked                               49   Bacon; Boiled horse meat; Boiled pork liver; Boiled wolf meat; Cooked apple
+    Baked goods                          11   Bagel; Bread; Bread roll; Jewish bread; Kuttenberg bread
+    Dairy & eggs                          7   Cheese; Cream; Curd cheese; Egg; Fresh milk
+    Fruit                                 7   Apple; Bitten apple; Peach; Pear; Plums
+    Vegetables                           16   Beet; Boletus edulis; Cabbage; Carrot; Garlic
+    Raw meat                             38   Beef; Beef kidneys; Beef tenderloin; Beef tongue; Boar kidneys
+    Raw fish                              2   Blue crayfish; Crayfish
+    Spices & honey                        8   Cinnamon; Clove; Honey; Mustard; Nutmeg
+    Beer                                 10   Aujezd beer; Beer; Black anvil; Henry's bread; Jitschine beer
+    Wine                                 21   Cellar wine; Cheap wine; Fine wine; Flushing from the barrel; Pinot Grigio 1401
+    Liquor                               14   Ancient moonshine; Juniper schnapps; Mead; Meaningless moonshine; Moonshine
+    Water                                 1   Drinking water
+    Saviour Schnapps                      4   Henry's Saviour Schnapps; Saviour Schnapps; Strong Saviour Schnapps; Weak Saviour Schnapps
+    Best potions                         18   Henry's Aesop; Henry's Anti-inflammatory potion; Henry's Aqua Vitalis; Henry's Artemisia; Henry's Bowman's brew
+    Strong potions                       18   Strong Aesop; Strong Anti-inflammatory potion; Strong Aqua Vitalis; Strong Artemisia; Strong Bowman's brew
+    Normal potions                       18   Aesop; Anti-inflammatory potion; Aqua Vitalis; Artemisia; Bowman's brew
+    Weak potions                         18   Weak Aesop; Weak Anti-inflammatory potion; Weak Aqua Vitalis; Weak Artemisia; Weak Bowman's brew
+    Special potions                       8   Fever tonic; Kuba's potion; Lethean Water; Lousy Mary's concoction; Strange potion
+    Poisons                              15   Aranka's concoction; Aranka's potion; Bane poison; Dollmaker poison; Henry's Bane poison
+    Other food                            0   
+  [books]
+    Skill books                          95   A book by the Wysoka parish priest.; A treatise on the beauty of the crossbow; Aim and Fire! I; Aim and Fire! II; Aim and Fire! III
+    Regular books                       111   A collection of somewhat bawdy poems; About Saint Dorothy; Account Records from the Sedletz Monastery; Against Fleas and Warts; Antidotarium Nicolai
+    Recipes                              67   Aqua Vitalis recipe; Bowman's brew recipe; Cockerel recipe; Miller's recipe; Moonshine recipe
+    Blacksmith plans                     10   Old Machine Sketch; Sketch for armourer I; Sketch for armourer II; Sketch for armourer III; Sketch for armourer IV
+    Maps                                 38   Bandit's treasure map; Bohuta's map; Boleslav Bavor's coat of arms sketch; Brunswick's map I; Brunswick's map II
+    Letters & notes                      82   A peculiar poem; Bawdy Whistle Tune; Bellissimo's contract; Beware of Burkhard!; Buresh's safe conduct
+  [materials]
+    Herbs                                20   Belladonna; Chamomile; Comfrey; Dandelion; Elderberry leaves
+    Dried herbs                          17   Dried St. John's wort; Dried belladonna; Dried chamomile; Dried comfrey; Dried dandellion
+    Alchemy ingredients                  13   Amanita muscaria; Antler shards; Boar's tusk; Cave mushroom; Charcoal
+    Blacksmithing                        34   Acidum chloridum; Ambrose's broken sword; Bezoar; Broken axe; Broken escapement crankshaft
+    Hides & skins                        12   Boar hide; Cow skin; Deer skin; Dog skin; Hare pelt
+  [other]
+    Groschen                              1   Groschen
+    Tools                                 3   Lockpick; Spade; Wolfram's spade
+    Repair kits                           6   Armourer's kit; Blacksmith's kit; Cobbler's kit; Gunsmith's kit; Marksman's kit
+    Bandages & soap                       4   Bandage; Knight's soap; Soap; Strong bandage
+    Dice                                 45   Aranka's die; Balatro's die; Cautious cheater's die; Ci die; Devil's head die
+    Gold badges                          14   Gold Balatro's badge; Gold Defence badge; Gold Doppelganger badge; Gold Emperor's badge; Gold Fortune badge
+    Silver badges                        12   Bird King's badge; Executioner's Advantage badge; Silver Balatro's badge; Silver Defence badge; Silver Doppelganger badge
+    Tin badges                            9   Carpenter's Advantage badge; Tin Balatro's badge; Tin Defence badge; Tin Fortune badge; Tin Headstart badge
+    Perfumes                             14   Else's perfume; Fragrant oil; Henry's Fragrant oil; Henry's Lion perfume; Henry's Mintha perfume
+    Valuables                            25   Bone comb; Bone rosary; Copper jug; Copper plate; Decorative pins
+    Common                              275   Adult's skull; Alum; Ambrose's cross; Anvil; Apprentice's belongings
+    Keys                                 97   Adam's chambers' key; Alchemist's key; Apollonia skeleton's key; Bandit's key; Barrel chest key

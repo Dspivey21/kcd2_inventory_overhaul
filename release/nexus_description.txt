@@ -1,0 +1,33 @@
+[size=5][b]Ultimate Inventory Overhaul[/b][/size]
+
+Henry knows what is in his chest. Now you do too.
+
+A quality-of-life overhaul of every inventory, trade, loot and stash screen. Nothing changes what Henry can do; it only shows you what the character already knows, where you need it. Replaces A Real Sorted Inventory and Sorted Inventory.
+
+[size=4][b]Headers that name the slot[/b][/size]
+Every tab is split under headers written for people, not for the engine. Armour is headed by the slot it fills: Coifs - Head I, Helmets - Head II, Collars - Head III, Hoods - Head IV, Shirts and Gambesons - Body I, Mail - Body II, Plate - Body III, Outerwear - Body IV, Sleeves - Arms I, Gloves - Arms II, Belts - Waist I, Pouches - Waist II, Hose - Legs I, Leg armour - Legs II, Boots - Feet I, Spurs - Feet II, Necklaces and Brooches - Neck I, Rings - Fingers I, Spectacles - Neck I, then the horse gear. Weapons by type (Longswords - Both hands, Short swords - Right hand, Hunting swords, Sabres, Axes, Maces, Polearms, Daggers, Bows, Arrows, Crossbows, Bolts, Handgonnes, Shot, Shields - Left hand, Torches). Food by Dried, Smoked, Cooked, Baked goods, Dairy and eggs, Fruit, Vegetables, Raw meat and so on; books, materials and the rest by kind. New players stop guessing which slot a piece goes in; old players stop scrolling.
+
+[size=4][b]Colour variants folded into one row[/b][/size]
+Six colours of the same gambeson become one group row: combined count, weight and price, average condition coloured by the worst piece, the best stat, a star if a unique is inside. Expand it to see every piece, with a minus on each member row so you always know you are inside a group. Expand or collapse everything at once. Food, potions and materials that spoil or wear are grouped the same way.
+
+[size=4][b]HAVE (n)[/b][/size]
+At traders, when looting bodies and animals and when opening chests and containers, every row you do not own yet shows HAVE (n): how many you already own across Henry, the horse and the stash, with the best grade you own next to it. A Steel skullcap III on the ground, HAVE (1) with a I mark in the row: you know whether to pick it up without walking home.
+
+[size=4][b]Quality details[/b][/size]
+[list]
+[*]Long names shrink to fit instead of being cut off; nothing bleeds into the next column.
+[*]At traders the HAVE sits in the unused "equipped" column, with the divider moved so it reads as its own column.
+[*]Keyboard and controller: E/Enter or A expands a group, B collapses without leaving the screen, hold Y or press V for expand/collapse all, hold A/E on a group to take or sell the whole group. Button hints at the bottom follow the row you are on.
+[*]Inconsistent English spellings across colour variants are fixed.
+[/list]
+
+[size=4][b]Install[/b][/size]
+Extract into the game folder so you get Mods\zz_inventory_overhaul and Bin\Win64MasterMasterSteamPGO\Inventory_Overhaul.asi. Controller support needs [b]Ultimate ASI Loader[/b]; keyboard and mouse work without it. Remove A Real Sorted Inventory and Sorted Inventory. To uninstall, delete the two. Nothing is written to your save.
+
+[size=4][b]Compatibility[/b][/size]
+Replaces ApseInventoryList, ItemTransfer, ItemSelection and hud (gfx and UIElements xml) and the English item-name text file; anything else that edits those will conflict. Tested on the Steam build; other stores use their own Bin folder for the .asi. Headers are English in every language.
+
+[size=4][b]Known issues[/b][/size]
+A chest within four metres of one of your stash chests is treated as the stash (no HAVE). Keyboard drop on a group title row is not blocked; expand the group and drop a piece.
+
+Bugs: attach kcd.log and Bin\Win64MasterMasterSteamPGO\Inventory_Overhaul.log.

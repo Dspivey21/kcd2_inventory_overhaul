@@ -1,0 +1,19 @@
+SCREENSHOTS (Nexus page: the first one is the header image, pick the busiest tab)
+
+ 1. Armour tab, collapsed, showing the slot headers (Helmets - Head II ... Boots - Feet I).
+ 2. Same tab, one colour group expanded: title row with combined totals + member rows with the minus.
+ 3. Weapons tab, headers in order, Shields after Shot.
+ 4. Food tab with groups (dried / smoked / cooked ...) collapsed and one group open.
+ 5. Trader buy list: HAVE (n) with a best-grade mark in the equipped column, divider moved.
+ 6. Trader with a long name shrunk to fit (Executioner caparison w/ breeching is the one).
+ 7. Loot window on a body: HAVE (n) + grade mark right of the name, a graded row and an ungraded row.
+ 8. A world chest with HAVE showing; the stash with no HAVE (two shots, side by side if you want).
+ 9. Bottom button hints: on a group row (Expand only, no Equip/Drop) and on a member row.
+10. Vanilla before / mod after of the same tab, same save (biggest selling shot).
+
+VIDEO (60 - 90 s, no commentary needed, controller)
+ - Open inventory, scroll the armour tab past three or four headers.
+ - A on a group: expands. B: collapses without leaving. Hold Y: expand all, hold again: collapse all.
+ - Walk to a trader, scroll the buy list past a few HAVE rows, stop on one with a grade mark.
+ - Loot a body, show HAVE, then open a chest and show HAVE there.
+ - Open the stash: no HAVE.
