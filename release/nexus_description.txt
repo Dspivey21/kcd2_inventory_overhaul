@@ -1,33 +1,98 @@
 [size=5][b]Ultimate Inventory Overhaul[/b][/size]
 
-Henry knows what is in his chest. Now you do too.
+I got sick of scrolling through 2,000 items trying to figure out what to sell. So I rebuilt the inventory screens.
 
-A quality-of-life overhaul of every inventory, trade, loot and stash screen. Nothing changes what Henry can do; it only shows you what the character already knows, where you need it. Replaces A Real Sorted Inventory and Sorted Inventory.
+This isn't a sort-order mod. I went into the actual Flash files for the inventory, the trade screen, the loot/stash screen and the HUD and changed how they work. As far as I know nobody has done the inventory this way before. Nothing touches your save and nothing changes what Henry can carry or do. It just shows you stuff the game already knows.
 
-[size=4][b]Headers that name the slot[/b][/size]
-Every tab is split under headers written for people, not for the engine. Armour is headed by the slot it fills: Coifs - Head I, Helmets - Head II, Collars - Head III, Hoods - Head IV, Shirts and Gambesons - Body I, Mail - Body II, Plate - Body III, Outerwear - Body IV, Sleeves - Arms I, Gloves - Arms II, Belts - Waist I, Pouches - Waist II, Hose - Legs I, Leg armour - Legs II, Boots - Feet I, Spurs - Feet II, Necklaces and Brooches - Neck I, Rings - Fingers I, Spectacles - Neck I, then the horse gear. Weapons by type (Longswords - Both hands, Short swords - Right hand, Hunting swords, Sabres, Axes, Maces, Polearms, Daggers, Bows, Arrows, Crossbows, Bolts, Handgonnes, Shot, Shields - Left hand, Torches). Food by Dried, Smoked, Cooked, Baked goods, Dairy and eggs, Fruit, Vegetables, Raw meat and so on; books, materials and the rest by kind. New players stop guessing which slot a piece goes in; old players stop scrolling.
+[size=4][b]Headers[/b][/size]
+Every tab gets split under headers that actually mean something. Armour is grouped by the slot it goes in, and the number tells you which pieces compete for the same slot:
 
-[size=4][b]Colour variants folded into one row[/b][/size]
-Six colours of the same gambeson become one group row: combined count, weight and price, average condition coloured by the worst piece, the best stat, a star if a unique is inside. Expand it to see every piece, with a minus on each member row so you always know you are inside a group. Expand or collapse everything at once. Food, potions and materials that spoil or wear are grouped the same way.
-
-[size=4][b]HAVE (n)[/b][/size]
-At traders, when looting bodies and animals and when opening chests and containers, every row you do not own yet shows HAVE (n): how many you already own across Henry, the horse and the stash, with the best grade you own next to it. A Steel skullcap III on the ground, HAVE (1) with a I mark in the row: you know whether to pick it up without walking home.
-
-[size=4][b]Quality details[/b][/size]
 [list]
-[*]Long names shrink to fit instead of being cut off; nothing bleeds into the next column.
-[*]At traders the HAVE sits in the unused "equipped" column, with the divider moved so it reads as its own column.
-[*]Keyboard and controller: E/Enter or A expands a group, B collapses without leaving the screen, hold Y or press V for expand/collapse all, hold A/E on a group to take or sell the whole group. Button hints at the bottom follow the row you are on.
-[*]Inconsistent English spellings across colour variants are fixed.
+[*]Head I Coifs / Head II Helmets, Hats / Head III Collars / Head IV Hoods
+[*]Body I Shirts, Gambesons / Body II Mail / Body III Plate / Body IV Outerwear
+[*]Arms I Sleeves / Arms II Gloves / Waist I Belts / Waist II Pouches
+[*]Legs I Hose / Legs II Leg armour / Feet I Boots / Feet II Spurs
+[*]Neck I Necklaces, Brooches / Fingers I Rings / Face I Spectacles
+[*]Horse: Saddles, Bridles, Chanfrons, Caparisons, Breeching, Horseshoes
 [/list]
 
+Weapons split by type: Longswords, Short swords, Hunting swords, Sabres, Axes, Maces, Polearms, Daggers, Shields, Bows, Arrows, Crossbows, Bolts, Handgonnes, Shot, Torches. Food gets Dried, Smoked, Cooked, Baked goods, Dairy and eggs, Fruit, Vegetables, Raw meat, Raw fish, Spices and honey, Beer, Wine, Liquor, Water, Saviour Schnapps, potions by strength, Special potions, Poisons. Books, materials and the Other tab get the same treatment (Skill books, Recipes, Blacksmith plans, Herbs, Dried herbs, Repair kits, Dice, Keys, and so on). About 90 headers total. Collapse them with L3 like vanilla.
+
+If you're new you stop guessing what goes where. If you're not, you stop scrolling.
+
+[size=4][b]Colour variants get one row[/b][/size]
+You've got six colours of the same gambeson? Now it's one row with a + in front. That row shows:
+
+[list]
+[*]A number in brackets after the name. That's how many different looks of the item you own.
+[*]The count column is the total pieces across all of them.
+[*]Weight and price are totals for everything inside.
+[*]Condition is the average, but the colour comes from the WORST piece inside. Red row = something in there is wrecked.
+[*]Stat and grade are the best piece inside.
+[*]A * after the name means a unique or reward item is hiding in there.
+[/list]
+
+Open it up and every piece is listed with a - in front so you know you're inside a group. Close it and it folds back up. You can also expand or collapse everything at once if you want the plain old flat list back, say to sort every single piece by condition. Food, potions, herbs, anything that comes in different conditions gets grouped the same way. Weapons group by name, so all your Longswords sit in one row no matter what condition they're in. If two different items share a name they get V1 and V2 so they don't get mixed up.
+
+[size=4][b]HAVE (n)[/b][/size]
+At a trader, looting a body, opening a chest: every row you don't own yet shows HAVE (n). That's how many you already have between Henry, the horse and your stash, with the best grade you own drawn next to it. You see a Steel skullcap III on the ground, the row says HAVE (1) with a I next to it, you know it's an upgrade without riding home to check.
+
+At traders I put HAVE in the equipped column, which is empty there anyway, and moved the divider so it reads as its own column. It doesn't show in your own inventory or the stash screen because it'd just be clutter there.
+
+[size=4][b]Reading the rows[/b][/size]
+Some things that aren't obvious until you've used it a bit:
+
+[list]
+[*]If the number in brackets is lower than the count column, you've got spares. (3) and a count of 7 means seven pieces in three colours. Four of those are duplicates. Sell them.
+[*]If the bracket number matches the count, you've got one of each.
+[*]Group row is orange or red but the average looks fine? One bad piece is dragging it down. Open it, it's the lowest one.
+[*]Star on the group row? Open it before you sell the lot. There's a unique in there.
+[*]HAVE (0) means you own none. No HAVE at all means the row is already yours.
+[*]Trader's piece is a higher grade than your HAVE mark? Upgrade.
+[*]Highlighting a group row previews the top piece on Henry and shows its stats like a normal row would.
+[/list]
+
+[size=4][b]Controls[/b][/size]
+[list]
+[*][b]Keyboard[/b]: E or Enter on a group row opens or closes it. V closes the group you're in from any row inside it. G opens or closes everything. Hold E on a group row to take, store or sell the whole group at once.
+[*][b]Controller[/b]: A on a group row opens it. B inside an open group closes it instead of kicking you out of the menu. B on a normal row still exits like always. Hold Y to open or close everything. Hold A on a group row to take, store or sell the whole group.
+[*]The button hints at the bottom change depending on what row you're on, so they say Expand, Collapse or Expand all when that's what the button does.
+[*]Group rows show the basket mark at traders like any other row.
+[/list]
+
+[size=4][b]Names[/b][/size]
+I kept the original names. No renaming for taste, no lore touched. What I did fix is the stuff that was just wrong: "Gambeson long" and "Gambeson short" are now Long gambeson and Short gambeson like every other long and short thing in the game, Courtier's boots got its apostrophe back, Courtier's pourpoint lost the stray full stop on the end, and the executioner's caparison was spelled two different ways with two different apostrophes so the two could never sort together. 19 entries total. English only, other languages are untouched.
+
 [size=4][b]Install[/b][/size]
-Extract into the game folder so you get Mods\zz_inventory_overhaul and Bin\Win64MasterMasterSteamPGO\Inventory_Overhaul.asi. Controller support needs [b]Ultimate ASI Loader[/b]; keyboard and mouse work without it. Remove A Real Sorted Inventory and Sorted Inventory. To uninstall, delete the two. Nothing is written to your save.
+Extract the archive into the game folder (the one with Bin and Mods in it). You end up with:
+
+Mods\zz_inventory_overhaul
+Bin\Win64MasterMasterSteamPGO\Inventory_Overhaul.asi
+
+Controller support needs [b]Ultimate ASI Loader[/b] so the .asi gets loaded. Keyboard and mouse work without it. If you have A Real Sorted Inventory or Sorted Inventory, remove them, this does both their jobs. To uninstall, delete those two paths. Your save is untouched either way.
+
+Tested on Steam with Xbox pads. The plugin hooks both input paths the game uses (GameInput and XInput). PlayStation pads through Steam Input look like XInput to the game so they should be fine. If you run a DualSense without Steam Input, let me know how it goes, I don't have one to test.
 
 [size=4][b]Compatibility[/b][/size]
-Replaces ApseInventoryList, ItemTransfer, ItemSelection and hud (gfx and UIElements xml) and the English item-name text file; anything else that edits those will conflict. Tested on the Steam build; other stores use their own Bin folder for the .asi. Headers are English in every language.
+This replaces the inventory, transfer and selection screens, the HUD and the English item name table. The game takes whole files, last mod loaded wins, so:
+
+[list]
+[*][b]Won't work with[/b]: other inventory UI mods (sorting, filters, trader tweaks), HUD mods that ship their own hud.gfx, and mods that rename items or replace the English localization.
+[*][b]Fine[/b]: stat and balance mods, new items, textures, models, camera mods, the camping mod and its compatibility patch. New items just land under whatever header their slot and icon put them in.
+[/list]
+
+If you want to make a compatibility patch for something, the source is linked below.
 
 [size=4][b]Known issues[/b][/size]
-A chest within four metres of one of your stash chests is treated as the stash (no HAVE). Keyboard drop on a group title row is not blocked; expand the group and drop a piece.
+[list]
+[*]A chest within about four metres of one of your stash chests gets treated as the stash, so no HAVE on it.
+[*]Keyboard drop on a group title row isn't blocked. Open the group and drop a piece.
+[*]The stash screen hitches every few seconds if you're a hoarder. That's the game, it does it on a clean install too.
+[/list]
 
-Bugs: attach kcd.log and Bin\Win64MasterMasterSteamPGO\Inventory_Overhaul.log.
+Found a bug? Attach kcd.log and Bin\Win64MasterMasterSteamPGO\Inventory_Overhaul.log.
+
+[size=4][b]Source and tools[/b][/size]
+[url=https://github.com/Dspivey21/kcd2_inventory_overhaul]github.com/Dspivey21/kcd2_inventory_overhaul[/url]
+
+JPEXS Free Flash Decompiler for the UI files, w64devkit (GCC) for the controller plugin, Python for the scripts that generate the headers, groups and name table, PowerShell to build and pack it. The paks are just zips with compression turned off.
