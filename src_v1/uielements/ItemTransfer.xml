@@ -146,11 +146,6 @@
       </event>
 
       <!-- Custom events -->
-      <!-- Colour groups: row state / messages from the list -->
-      <event name="OnGeneralEvent" fscommand="onGeneralEvent" desc="" >
-        <param name="Name" desc="" type="string"/>
-        <param name="ClientId" desc="" type="int"/>
-      </event>
       <event name="OnOpened" fscommand="onOpened" desc="" />
       
       <event name="OnClosed" fscommand="onClosed" desc="" />
@@ -159,6 +154,11 @@
 				<param name="ClientId" desc="0 = first inv, 1 = second inv" type="int"/>
       </event>
       
+      <!-- Inventory Overhaul: row state / messages from the list -->
+      <event name="OnCgEvent" fscommand="onCgEvent" desc="" >
+        <param name="Name" desc="" type="string"/>
+        <param name="ClientId" desc="" type="int"/>
+      </event>
       <event name="OnFocusChanged" fscommand="onFocusChanged" desc="" >
 				<param name="Ids" desc="one or more id if item is stacked in flash" type="string"/>
         <param name="IsExpandable" desc="item has childreen" type="bool"/>

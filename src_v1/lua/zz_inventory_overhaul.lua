@@ -7,10 +7,14 @@ local CG = {}
 
 local ELEMENTS = { "ApseInventoryList", "ItemTransfer", "ItemSelection" }
 
+-- build_v1.ps1 -NoHud flips this to false: that build ships no hud.gfx / HUD.xml (for players who run a HUD mod),
+-- so the hint functions below do not exist and must not be called
+local CG_HUD_HINTS = true
+
 local function setState(state)
     System.LogAlways("@@CGS=" .. state)
     -- the HUD adds/relabels the bottom button hints (Expand / Collapse) for group rows
-    UIAction.CallFunction("HUD", -1, "CgSetMode", state)
+    if CG_HUD_HINTS then UIAction.CallFunction("HUD", -1, "CgSetMode", state) end
 end
 
 -- ---------------------------------------------------------------------------------------------- HAVE (n)
@@ -212,10 +216,12 @@ function CG:SendHave(elementName, instanceId)
 end
 
 -- ---------------------------------------------------------------------------------------------- events
-function CG:OnGeneralEvent(elementName, instanceId, eventName, args)
-    local name = type(args) == "table" and (args[0] or args[1]) or nil
-    if type(name) ~= "string" or string.sub(name, 1, 3) ~= "cg:" then return end
-    local msg = string.sub(name, 4)
+-- The list sends its messages on its own event (OnCgEvent, added to the three UI element files), never on
+-- the game's OnGeneralEvent: a message sent there right behind the game's own "goInHorseTab" replaced it,
+-- and the inventory then stayed on Henry's side while showing the horse tab.
+function CG:OnCgEvent(elementName, instanceId, eventName, args)
+    local msg = type(args) == "table" and (args[0] or args[1]) or nil
+    if type(msg) ~= "string" then return end
     if msg == "haveget" then
         CG:SendHave(elementName, instanceId)
     elseif string.sub(msg, 1, 9) == "storeinv=" then
@@ -227,7 +233,7 @@ function CG:OnGeneralEvent(elementName, instanceId, eventName, args)
         setState(state)
     elseif string.sub(msg, 1, 5) == "hold=" then
         -- Y held on the controller: the HUD spins the hold wheel on the Expand all hint
-        UIAction.CallFunction("HUD", -1, "CgHold", string.sub(msg, 6))
+        if CG_HUD_HINTS then UIAction.CallFunction("HUD", -1, "CgHold", string.sub(msg, 6)) end
         System.LogAlways("[ColourGroups] " .. tostring(elementName) .. ": " .. msg)
     else
         if string.sub(msg, 1, 7) == "toggle " then
@@ -244,7 +250,7 @@ end
 
 function CG:Init()
     for _, element in ipairs(ELEMENTS) do
-        UIAction.RegisterElementListener(self, element, -1, "OnGeneralEvent", "OnGeneralEvent")
+        UIAction.RegisterElementListener(self, element, -1, "OnCgEvent", "OnCgEvent")
         UIAction.RegisterElementListener(self, element, -1, "OnHide", "OnHide")
     end
     System.LogAlways("[ColourGroups] loaded")

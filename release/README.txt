@@ -2,11 +2,11 @@ ULTIMATE INVENTORY OVERHAUL  -  Kingdom Come: Deliverance II
 by Spivey
 
 WHAT IT DOES
-  - Every inventory tab is split under plain-English headers. Armour is headed by the slot it
+  - Every inventory tab is split under plain-English headers. Armor is headed by the slot it
     fills (Helmets - Head II, Gambesons - Body I, Boots - Feet I ...), weapons by type, food,
     books, materials and the rest by kind. No more guessing which slot a piece goes in.
-  - Colour and pattern variants of the same item are folded into one collapsible group row with
-    combined count, weight and price, the average condition (coloured by the worst piece) and
+  - Color and pattern variants of the same item are folded into one collapsible group row with
+    combined count, weight and price, the average condition (colored by the worst piece) and
     the best stat. Expand a group to see every piece; expand or collapse all at once.
   - Food, potions, materials and anything else that spoils or wears is grouped the same way.
   - HAVE (n): at traders, when looting bodies and animals, and when opening chests and other
@@ -14,7 +14,7 @@ WHAT IT DOES
     horse and the stash together) and the best grade you own, so you can compare on the spot.
   - Long names shrink instead of being cut off, so nothing bleeds into the next column.
   - Works with keyboard and controller. Expand / Collapse / Expand all show in the button hints.
-  - English item names with inconsistent spellings across colour variants are fixed.
+  - English item names with inconsistent spellings across color variants are fixed.
 
 INSTALL
   1. Extract the archive into the game folder (the one that holds the Bin and Mods folders).
@@ -44,9 +44,8 @@ COMPATIBILITY
   are English in every language.
 
 KNOWN ISSUES
-  - A chest standing within four metres of one of your stash chests is treated as the stash
+  - A chest standing within four meters of one of your stash chests is treated as the stash
     (no HAVE column).
-  - Keyboard "drop" on a group title row is not blocked. Expand the group and drop a piece.
 
 The .asi writes Inventory_Overhaul.log next to itself (reset at every launch). Attach it and
 kcd.log when reporting a controller problem.

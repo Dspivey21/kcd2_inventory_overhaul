@@ -3,10 +3,10 @@
   <info>
     <name>Ultimate Inventory Overhaul</name>
     <modid>zz_inventory_overhaul</modid>
-    <description>Every inventory tab split under plain-English headers (armour by the slot it fills, weapons by type, food, books and materials by kind); colour variants folded into collapsible group rows with combined totals; HAVE (n) with your best grade at traders, on loot and in containers; long names shrink instead of being cut off; keyboard and controller. Replaces A Real Sorted Inventory and Sorted Inventory - remove those. Controller support needs KCD2_ColourGroupKeys.asi (Ultimate ASI Loader). Delete the folder and the .asi to uninstall.</description>
+    <description>Every inventory tab split under plain-English headers (armor by the slot it fills, weapons by type, food, books and materials by kind); color variants folded into collapsible group rows with combined totals; HAVE (n) with your best grade at traders, on loot and in containers; long names shrink instead of being cut off; keyboard and controller. Replaces A Real Sorted Inventory and Sorted Inventory - remove those. Controller support needs Inventory_Overhaul.asi (Ultimate ASI Loader). Delete the folder and the .asi to uninstall.</description>
     <author>Spivey</author>
-    <version>1.0.0</version>
-    <created_on>27.10.2026</created_on>
+    <version>1.0.1</version>
+    <created_on>28.10.2026</created_on>
     <dependencies></dependencies>
   </info>
 </kcd_mod>

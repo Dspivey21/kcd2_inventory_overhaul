@@ -820,12 +820,14 @@ for n in ["ApseInventoryList", "ItemTransfer", "ItemSelection"]:
         fa = "<functions>"
         t = t.replace(fa, fa + crlf + '      <function name="CgStore" funcname="fc_cgStore" >' + crlf +
                       '        <param name="IsStash" desc="1 = the player stash, 0 = a world container" type="string"/>' + crlf + '      </function>', 1)
-    if "onGeneralEvent" not in t:
+    # the mod's messages (row state, HAVE requests, store query) travel on their own event: sent on the game's
+    # OnGeneralEvent they replaced the game's own goInHorseTab when both went out in one call
+    if "onCgEvent" not in t:
         crlf = "\r\n" if "\r\n" in t else "\n"
-        anchor = '      <event name="OnOpened" fscommand="onOpened" desc="" />'
+        anchor = '      <event name="OnFocusChanged" fscommand="onFocusChanged" desc="" >'
         assert t.count(anchor) == 1, n
-        add = ('      <!-- Colour groups: row state / messages from the list -->' + crlf +
-               '      <event name="OnGeneralEvent" fscommand="onGeneralEvent" desc="" >' + crlf +
+        add = ('      <!-- Inventory Overhaul: row state / messages from the list -->' + crlf +
+               '      <event name="OnCgEvent" fscommand="onCgEvent" desc="" >' + crlf +
                '        <param name="Name" desc="" type="string"/>' + crlf +
                '        <param name="ClientId" desc="" type="int"/>' + crlf +
                '      </event>' + crlf)

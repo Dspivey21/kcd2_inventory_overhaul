@@ -376,7 +376,7 @@
    }
    static function CgLog(msg)
    {
-      flash.external.ExternalInterface.call("onGeneralEvent","cg:" + msg,0);
+      flash.external.ExternalInterface.call("onCgEvent",msg,0);
    }
    function CgToggle(source)
    {

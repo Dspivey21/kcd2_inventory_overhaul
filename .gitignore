@@ -17,5 +17,5 @@ _old/
 *.log
 *.tmp
 
-# JPEXS decompile of the vanilla gfx (reseed source for toolsssemble_v1.py)
+# JPEXS decompile of the vanilla gfx (reseed source for tools/assemble_v1.py)
 vanilla_dec/

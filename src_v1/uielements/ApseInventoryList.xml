@@ -145,6 +145,11 @@
       </event>
 
       <!-- Custom events -->
+      <!-- Inventory Overhaul: row state / messages from the list -->
+      <event name="OnCgEvent" fscommand="onCgEvent" desc="" >
+        <param name="Name" desc="" type="string"/>
+        <param name="ClientId" desc="" type="int"/>
+      </event>
       <event name="OnFocusChanged" fscommand="onFocusChanged" desc="" >
 				<param name="Ids" desc="one or more id if item is stacked in flash" type="string"/>
         <param name="IsExpandable" desc="item has childreen" type="bool"/>
